@@ -1,0 +1,57 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      # The footer on every page claims no cookies and no tracking, and the Solander
+      # privacy notice claims nothing is loaded from another origin. Checked here, before
+      # the deploy, because that is the last point where the claim and the site can still
+      # be made to agree.
+      - name: No third-party loads
+        run: ./ci/no-external-loads.sh
+      # An unclosed <style> renders a page blank while every content check still passes.
+      - name: Markup sanity
+        run: ./ci/markup-sanity.sh
+      # The Solander Buy button shipped pointing at a placeholder. This blocks the deploy
+      # while any published page still carries one, which is deliberate: the alternative is
+      # a live Buy button that 404s on a domain Paddle reviews.
+      - name: No placeholders on published pages
+        run: ./ci/config-placeholders.sh
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

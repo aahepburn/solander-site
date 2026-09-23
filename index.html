@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solander — redact PDFs and scans on your own Mac, then check the redactions held. Every export comes with evidence of what was done, what was checked, and what was not.">
+    <meta name="author" content="Quiet Signals Lab">
+    <title>Solander · Quiet Signals Lab</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .sc-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 5rem;
+        }
+
+        /* Hero */
+        .sc-hero {
+            padding: 3.5rem 0 2.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .sc-hero-text h1 {
+            font-family: var(--head-font);
+            font-size: 2.75rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            color: var(--primary-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .sc-hero-text .sc-tagline {
+            font-size: 1rem;
+            color: var(--secondary-text);
+            line-height: 1.7;
+            max-width: 620px;
+            margin-bottom: 1.25rem;
+        }
+
+        .sc-hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .sc-platform-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Sections */
+        .sc-section {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sc-section:last-child {
+            border-bottom: none;
+        }
+
+        .sc-section h2 {
+            font-family: var(--head-font);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+        }
+
+        .sc-section h2::before {
+            content: '';
+            display: block;
+            width: 1.75rem;
+            height: 2px;
+            background: currentColor;
+            margin-bottom: 0.5rem;
+        }
+
+        .sc-body {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--secondary-text);
+            max-width: 680px;
+        }
+
+        .sc-body p + p {
+            margin-top: 1rem;
+        }
+
+        /* Feature rows */
+        .sc-detection-list {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .sc-detection-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 1.5rem;
+            padding: 1.1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            align-items: start;
+        }
+
+        .sc-detection-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-text);
+        }
+
+        .sc-detection-desc {
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: var(--secondary-text);
+        }
+
+        /* Pricing */
+        .sc-price-item {
+            display: grid;
+            grid-template-columns: 150px 1fr 190px;
+            gap: 1.5rem;
+            padding: 1.35rem 0;
+            border-bottom: 1px solid var(--border-color);
+            align-items: start;
+        }
+
+        .sc-price-item:first-child {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .sc-price-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-text);
+        }
+
+        .sc-price-amount {
+            display: block;
+            font-family: var(--head-font);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--accent);
+            margin-top: 0.15rem;
+        }
+
+        .sc-price-amount .sc-price-unit {
+            font-family: inherit;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0;
+            color: var(--secondary-text);
+            display: block;
+            margin-top: 0.1rem;
+        }
+
+        .sc-price-desc {
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: var(--secondary-text);
+        }
+
+        .sc-price-action {
+            justify-self: start;
+        }
+
+        .sc-price-action .appstore-badge {
+            margin-top: 0;
+        }
+
+        /* Stands where the Buy button will. Outlined rather than filled, and not a link, so
+           nobody clicks it waiting for a checkout. */
+        .sc-soon {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            border-radius: 7px;
+            padding: 0.4rem 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--secondary-text);
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        .sc-price-tell {
+            display: block;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--secondary-text);
+            margin-top: 0.5rem;
+        }
+
+        .sc-price-note {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: var(--secondary-text);
+            margin-top: 1.25rem;
+            max-width: 680px;
+        }
+
+        /* Constraint callout */
+        .sc-callout {
+            background: color-mix(in srgb, var(--accent) 8%, var(--primary-bg));
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            border-radius: 0 6px 6px 0;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            line-height: 1.75;
+            max-width: 680px;
+        }
+
+        .sc-callout strong {
+            color: var(--primary-text);
+        }
+
+        .sc-mono {
+            font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+            font-size: 0.8rem;
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0.1em 0.35em;
+            color: var(--primary-text);
+        }
+
+        /* FAQ */
+        .sc-faq {
+            margin-top: 1rem;
+        }
+
+        .sc-faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .sc-faq-item:first-child {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .sc-faq-q {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 0.4rem;
+        }
+
+        .sc-faq-a {
+            font-size: 0.875rem;
+            line-height: 1.75;
+            color: var(--secondary-text);
+        }
+
+        /* Support */
+        .sc-contact-box {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.25rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .sc-contact-box p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--secondary-text);
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .sc-contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            white-space: nowrap;
+            align-self: center;
+        }
+
+        .sc-contact-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .sc-hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .sc-detection-item,
+            .sc-price-item {
+                grid-template-columns: 1fr;
+                gap: 0.3rem;
+            }
+
+            .sc-price-action {
+                margin-top: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+  <nav>
+    <a href="/" class="nav-brand">Solander</a>
+    <ul class="nav-links">
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+      <li><a href="/refunds.html">Refunds</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+    </ul>
+  </nav>
+</header>
+
+    <div class="sc-page">
+
+        <!-- Hero -->
+        <div class="sc-hero">
+            <div class="sc-hero-text">
+                <h1>Solander</h1>
+                <p class="sc-tagline">Redaction you can prove. Solander redacts PDFs and scans on your Mac, then re-reads its own output to check the boxes held. It tells you what it could not read, lists what it removed from the file, and gives you a record a third party can re-check.</p>
+                <div class="sc-hero-badges">
+                    <a href="https://github.com/Quiet-Signals-Lab/solander/releases/latest" class="appstore-badge">Download for macOS</a>
+                    <a href="#pricing" class="appstore-badge">Pricing</a>
+                    <div class="sc-platform-tags">
+                        <span class="tag">macOS</span>
+                        <span class="tag">On-Device</span>
+                        <span class="tag">No Network</span>
+                        <span class="tag">One-Time Purchase</span>
+                    </div>
+                </div>
+                <p class="sc-price-note">Free for one document at a time, with no time limit and no account.</p>
+            </div>
+        </div>
+
+        <!-- What it does -->
+        <div class="sc-section">
+            <h2>What it does</h2>
+            <div class="sc-body">
+                <p>You open a PDF or a scan, review what Solander found, mark what has to go, and export. Every page is rendered to an image, the redactions are painted into it, and a new file is written from scratch. Nothing from the original is carried across — no text layer, metadata, annotations, attachments, form fields or earlier saved versions — because nothing is copied in the first place.</p>
+                <p>Then Solander reopens the file it just wrote and reads it again, looking for anything still legible where a redaction was meant to be. That result is shown to you whether or not you have a licence.</p>
+            </div>
+
+            <div class="sc-detection-list">
+                <div class="sc-detection-item">
+                    <span class="sc-detection-label">Redacts by rewriting</span>
+                    <span class="sc-detection-desc">A redaction is not a black rectangle drawn over text that is still in the file. The page becomes an image, the fill is opaque, and the output is a newly constructed document. There is no layer underneath to recover.</span>
+                </div>
+                <div class="sc-detection-item">
+                    <span class="sc-detection-label">Checks its own work</span>
+                    <span class="sc-detection-desc">After writing, the output is reopened and re-read, and the file's internal structure is walked against an allowlist of permitted objects. A redaction that failed to cover what it was meant to cover is reported as a residual, not silently exported.</span>
+                </div>
+                <div class="sc-detection-item">
+                    <span class="sc-detection-label">Says what it could not read</span>
+                    <span class="sc-detection-desc">Text the OCR located but could not resolve is listed and shown on the page, so you know which parts of a document no detector ever examined. Unreadable is reported as unreadable rather than treated as clean.</span>
+                </div>
+                <div class="sc-detection-item">
+                    <span class="sc-detection-label">Inventories the original</span>
+                    <span class="sc-detection-desc">Before anything happens, Solander lists the hidden surfaces the source file carried: metadata keys, attachments, annotations, scripts, optional content groups, and content sitting outside the visible page area.</span>
+                </div>
+                <div class="sc-detection-item">
+                    <span class="sc-detection-label">Batch and entity map</span>
+                    <span class="sc-detection-desc">Work a folder of documents as one job, with an entity map that keeps the same person named consistently across every file — merge spellings, split false matches, apply a decision everywhere. Interrupted batches resume. <em>Licensed.</em></span>
+                </div>
+                <div class="sc-detection-item">
+                    <span class="sc-detection-label">Evidence you can hand over</span>
+                    <span class="sc-detection-desc">A signed report in PDF and JSON: what was redacted, under which reason code, what was verified, what could not be read, and what the original contained. The recipient can re-check it against the file without taking your word for it. <em>Licensed.</em></span>
+                </div>
+                <div class="sc-detection-item">
+                    <span class="sc-detection-label">Automation</span>
+                    <span class="sc-detection-desc">Saved profiles, a <span class="sc-mono">solander</span> command-line tool, and watch folders that process documents as they arrive. <em>Licensed.</em></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Limits -->
+        <div class="sc-section">
+            <h2>What Solander does not tell you</h2>
+            <div class="sc-body">
+                <p>A passing check means no readable text remains inside the regions that were redacted. It does <strong>not</strong> mean everything sensitive was found.</p>
+                <p>Detection is best-effort and misses things, particularly names, addresses and non-Latin text. Solander never describes a document as anonymous, compliant, safe or clean, and neither should anyone relying on it. Deciding what must be removed, and checking that it was, stays with you. Solander is a tool for that work and evidence of what it did — not a substitute for the judgement, and not legal advice.</p>
+            </div>
+        </div>
+
+        <!-- Privacy -->
+        <div class="sc-section">
+            <h2>Privacy by architecture</h2>
+            <div class="sc-body">
+                <p>Your documents never leave your Mac. This is enforced by the operating system rather than promised by us: Solander runs in Apple's App Sandbox <strong>without</strong> the network client entitlement, so macOS will refuse any outbound connection regardless of what the code asks for.</p>
+                <p>No account, no sign-in, no telemetry, no analytics, no crash reporting. Your licence is a signed file, and that signature is checked on your own Mac against a key compiled into the app.</p>
+                <p>A <strong>separate helper process</strong> confirms about once a week that the purchase behind your licence has not been refunded. It sends your licence ID, the app version and a random install ID &mdash; nothing about your documents, and nothing about your Mac. It is a different process from the one that opens your files, and the one that opens your files still cannot connect to anything at all.</p>
+            </div>
+            <div class="sc-callout">
+                <strong>You can verify this on the copy you downloaded.</strong>
+                <span class="sc-mono">codesign -d --entitlements - /Applications/Solander.app</span><br>
+                Two separate helper processes use the network: one checks for updates, one confirms your licence. Neither ever receives a document, a page image, or anything Solander detected. Update checks can be switched off. For a Mac that must never connect, there is offline activation.
+            </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="sc-section" id="pricing">
+            <h2>Pricing</h2>
+            <div class="sc-body">
+                <p>Bought once, not rented. There is no subscription, no renewal and no expiry: the version you buy keeps working, and so does every version after it.</p>
+            </div>
+
+            <div style="margin-top:1.5rem;">
+                <div class="sc-price-item">
+                    <span class="sc-price-name">Free
+                        <span class="sc-price-amount">$0<span class="sc-price-unit">no account</span></span>
+                    </span>
+                    <span class="sc-price-desc">One document at a time. Every detector, every language, review, redaction, export, and the verification result. No time limit, no feature clock, no watermark.</span>
+                    <span class="sc-price-action">
+                        <a href="https://github.com/Quiet-Signals-Lab/solander/releases/latest" class="appstore-badge">Download</a>
+                    </span>
+                </div>
+
+                <div class="sc-price-item">
+                    <span class="sc-price-name">Solander
+                        <span class="sc-price-amount">$49<span class="sc-price-unit">once, one person</span></span>
+                    </span>
+                    <span class="sc-price-desc">Batch and the entity map across documents, signed reports, reason codes and the redaction log, saved profiles, the command line and watch folders. Use it on as many of your own Macs as you like. Every future version included. Nothing to renew.</span>
+                    <span class="sc-price-action">
+                        <!-- NOT ON SALE YET. When the Paddle listing is live, replace the two
+                             elements below with:
+
+                               <a href="https://..." class="appstore-badge">Buy $49</a>
+
+                             using the Paddle checkout URL for the Solander price. That link is
+                             the only place on the site that needs the URL, and
+                             ci/config-placeholders.sh fails the deploy if it is ever left as a
+                             placeholder — which is what it was doing here before the button was
+                             taken down. -->
+                        <span class="sc-soon">Coming soon</span>
+                        <span class="sc-price-tell"><a href="mailto:hello@quietsignalslab.com?subject=Solander%20%E2%80%94%20tell%20me%20when%20it%20is%20on%20sale">Email me at launch</a></span>
+                    </span>
+                </div>
+
+                <div class="sc-price-item">
+                    <span class="sc-price-name">Organisations
+                        <span class="sc-price-amount">Talk to us<span class="sc-price-unit">one invoice, one licence</span></span>
+                    </span>
+                    <span class="sc-price-desc">More than one person, or deploying across a managed fleet. One invoice in the firm&rsquo;s name rather than a pile of card receipts, licences and settings deployed by configuration profile, and an organisation signing key so every report your firm produces carries the same signature &mdash; a recipient who has verified one can recognise the next. Tell us how many people and how you deploy, and we will quote.</span>
+                    <span class="sc-price-action">
+                        <a href="mailto:hello@quietsignalslab.com?subject=Solander%20for%20our%20organisation&amp;body=How%20many%20people%3A%0AHow%20you%20deploy%20(MDM%3F)%3A%0AWhat%20your%20invoice%20needs%3A%0A" class="appstore-badge">Email us</a>
+                    </span>
+                </div>
+            </div>
+
+            <p class="sc-price-note"><strong>Solander is not on sale yet.</strong> Free mode is available now and has no clock on it &mdash; download it and try it on your own documents. When the licensed version goes on sale, prices will be in USD, with sales tax or VAT added at checkout where applicable; orders will be processed by Paddle.com Market Ltd, who act as merchant of record and issue the invoice, and your licence will arrive by email as a signed file you double-click to install. See <a href="/refunds.html">Refunds</a> and <a href="/terms.html">Terms</a>.</p>
+            <p class="sc-price-note">Lost your licence file? <a href="mailto:hello@quietsignalslab.com?subject=Solander%20licence%20resend">Ask us to send it again</a> from the address you bought with.</p>
+        </div>
+
+        <!-- System requirements -->
+        <div class="sc-section">
+            <h2>System requirements</h2>
+            <div class="sc-detection-list">
+                <div class="sc-detection-item">
+                    <span class="sc-detection-label">macOS</span>
+                    <span class="sc-detection-desc">macOS 14 Sonoma or later, Apple Silicon or Intel. Signed with a Developer ID, notarised and stapled by Quiet Signals Lab.</span>
+                </div>
+                <div class="sc-detection-item">
+                    <span class="sc-detection-label">Documents</span>
+                    <span class="sc-detection-desc">PDFs, including scanned ones, and common image formats. Output is a newly written PDF with the pages rendered as images.</span>
+                </div>
+                <div class="sc-detection-item">
+                    <span class="sc-detection-label">Deployment</span>
+                    <span class="sc-detection-desc">Licences and locked profiles deploy by configuration profile for the app's bundle identifier, which works inside the sandbox. A licence file dropped in <span class="sc-mono">/Library/Application Support</span> will not.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="sc-section">
+            <h2>Frequently asked questions</h2>
+            <div class="sc-faq">
+                <div class="sc-faq-item">
+                    <p class="sc-faq-q">Do my documents go anywhere?</p>
+                    <p class="sc-faq-a">No. The app has no network client entitlement in its sandbox and cannot open an outbound connection. Update checks run in a separate process that never receives document data, and you can switch them off.</p>
+                </div>
+                <div class="sc-faq-item">
+                    <p class="sc-faq-q">What does a passing verification actually mean?</p>
+                    <p class="sc-faq-a">That Solander reopened the file it wrote and found no readable text inside the regions you redacted. It is a statement about those regions, not about the document as a whole, and not about whether the right things were chosen for redaction.</p>
+                </div>
+                <div class="sc-faq-item">
+                    <p class="sc-faq-q">Do I have to buy anything to find out whether it works on my documents?</p>
+                    <p class="sc-faq-a">No. Free mode has every detector and every language, and lets you open, review, redact, export and verify one document at a time, with no time limit and no account. A licence adds working on many documents at once, the exportable evidence, and automation.</p>
+                </div>
+                <div class="sc-faq-item">
+                    <p class="sc-faq-q">Is there a subscription?</p>
+                    <p class="sc-faq-a">No. A licence is bought once, covers every future version, and there is nothing to renew. A separate helper process does confirm about once a week that the purchase has not been refunded. If it cannot reach us, the licensed features keep working for 30 days; if your Mac is never allowed online, there is offline activation.</p>
+                </div>
+                <div class="sc-faq-item">
+                    <p class="sc-faq-q">How is the licence delivered?</p>
+                    <p class="sc-faq-a">As a signed file emailed to you after purchase. Double-click it and the app installs it. The signature is checked on your Mac against a key compiled into the app, so a new licence works straight away, including on a machine that has never been online. A Mac that stays offline has 60 days before it needs either one internet connection or an offline activation code.</p>
+                </div>
+                <div class="sc-faq-item">
+                    <p class="sc-faq-q">What happens to my licence if I ask for a refund?</p>
+                    <p class="sc-faq-a">It is deactivated, and the licensed features stop working. <strong>Free mode keeps working exactly as before</strong>, with no time limit: you can still open, review, redact, export and verify one document at a time. Documents and reports you have already produced are untouched. See <a href="/refunds.html">Refunds</a>.</p>
+                </div>
+                <div class="sc-faq-item">
+                    <p class="sc-faq-q">What exactly does the licence check send?</p>
+                    <p class="sc-faq-a">Your licence ID, the app version, and a random install ID generated once when you install. Nothing else. Not a document, not a filename, not a page, not anything Solander detected, and no hardware identifier &mdash; the install ID is random and changes if you reinstall. It goes from the helper process, not from the app that opens your files, which has no network access to send anything with. What we store is set out in the <a href="/privacy.html">privacy notice</a>.</p>
+                </div>
+                <div class="sc-faq-item">
+                    <p class="sc-faq-q">Can I run Solander on a Mac that is never allowed on a network?</p>
+                    <p class="sc-faq-a">Yes. The app shows a short request code; you type it into a page from your phone or another computer and get a response code back, which you type in once. A first activation lasts 15 days and each renewal lasts 90, and renewing is the same few steps again. Nothing leaves the air-gapped Mac except a code you read off the screen.</p>
+                </div>
+                <div class="sc-faq-item">
+                    <p class="sc-faq-q">Does it replace a person checking the document?</p>
+                    <p class="sc-faq-a">No. Detection misses things, especially names, addresses and non-Latin text. Solander is built to tell you where it is uncertain rather than to hide it, but the review step exists because no detector has perfect recall.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support -->
+        <div class="sc-section">
+            <h2>Support</h2>
+            <div class="sc-body">
+                <p>Solander is built and maintained by Quiet Signals Lab. For bug reports, licence questions, refunds, or anything else, reach out directly.</p>
+            </div>
+            <div class="sc-contact-box">
+                <p>Include your macOS version and what happened. Please do not send us a document you needed to redact — a description of the failure is enough, and if you must send a file, send one you have already redacted.</p>
+                <a href="mailto:hello@quietsignalslab.com?subject=Solander" class="sc-contact-link">hello@quietsignalslab.com →</a>
+            </div>
+        </div>
+
+        <!-- Category note -->
+        <div class="sc-section">
+            <div class="sc-body">
+                <p style="font-size:0.85rem;">Solander is document redaction software. It is not identity-theft protection, device security software, or legal advice, and it does not determine whether a disclosure meets any legal obligation.</p>
+            </div>
+        </div>
+
+    </div><!-- /sc-page -->
+
+    <footer>
+        <div class="footer-links">
+            <a href="/terms.html">Terms</a>
+            <a href="/refunds.html">Refunds</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="mailto:hello@quietsignalslab.com?subject=Solander">Support</a>
+        </div>
+        <div class="footer-meta">
+            <p>Quiet Signals Lab · KvK 99556650 · VAT: NL005394204B58</p>
+            <p>This site does not use cookies or tracking technologies. <a href="/privacy.html">Privacy Notice</a></p>
+            <p>© 2026 Alexander Hepburn. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
