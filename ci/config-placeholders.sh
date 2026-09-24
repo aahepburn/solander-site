@@ -6,8 +6,8 @@
 # reviews, with a Buy button that resolves to a relative path and 404s. Every other check
 # passed — the markup balanced, nothing loaded from another origin, the text was all there.
 #
-# So the checkout URL is a config value with exactly one home (solander/index.html, marked
-# CONFIG) and this refuses to deploy while it is unfilled.
+# So the checkout URL is a config value with exactly one home (index.html, marked
+# AT LAUNCH) and this refuses to deploy while it is unfilled.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 
@@ -33,7 +33,7 @@ if [ $status -eq 0 ]; then
   echo "ok   no placeholders on any published page"
 else
   echo "" >&2
-  echo "     The Solander Buy button needs the Paddle checkout URL. It is marked CONFIG in" >&2
-  echo "     solander/index.html and that is the only place it appears." >&2
+  echo "     The Buy button needs the Paddle checkout URL. It is marked AT LAUNCH (Paddle)" >&2
+  echo "     in index.html, and that is the only place it appears." >&2
 fi
 exit $status

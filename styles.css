@@ -1030,3 +1030,20 @@ footer {
         font-size: 0.75rem;
     }
 }
+
+/* ============ SOLANDER SITE: navigation on small screens ============ */
+/* Six links — Features, Pricing, FAQ and the three legal pages — do not fit one line on a
+   phone, and the base style never wraps, so they ran off the right edge. The legal links have
+   to stay in the header rather than move to a menu: Paddle's domain review asks for Terms,
+   Refunds and Privacy to be "clearly accessible via navigation". */
+@media (max-width: 720px) {
+    nav {
+        flex-wrap: wrap;
+        row-gap: 0.5rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 0.35rem 1.1rem;
+    }
+}
