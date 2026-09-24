@@ -1,5 +1,9 @@
 # Moving Solander to its own subdomain
 
+> **Status, 24 September 2026:** steps 1–5 are done. The subdomain is live over HTTPS, and
+> `quietsignalslab.com/solander/*` and `/privacy/solander.html` are redirect stubs. Only
+> step 6, submitting to Paddle, is left.
+
 Why: Paddle's domain review says to submit only domains *directly related to the product you're
 selling*, and warns that unrelated products on the same domain raise buyer confusion and
 chargeback risk. `quietsignalslab.com` also carries a consulting **Services** section, and
