@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Terms of use for Solander, document redaction software from Quiet Signals Lab.">
+  <meta name="description" content="Terms of use for the Solander apps — Solander PDF and Solander Desk — from Quiet Signals Lab.">
   <title>Terms of Use · Solander</title>
 
   <!-- Favicon -->
@@ -117,7 +117,8 @@
   <nav>
     <a href="/" class="nav-brand">Solander</a>
     <ul class="nav-links">
-      <li><a href="/#features">Features</a></li>
+      <li><a href="/pdf/">PDF</a></li>
+      <li><a href="/desk/">Desk</a></li>
       <li><a href="/#pricing">Pricing</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/terms.html">Terms</a></li>
@@ -130,11 +131,17 @@
 <div class="prose">
   <p class="page-label">Legal</p>
   <h1>Terms of Use — Solander</h1>
-  <p class="page-meta">Quiet Signals Lab &nbsp;·&nbsp; Last updated: 24 September 2026</p>
+  <p class="page-meta">Quiet Signals Lab &nbsp;·&nbsp; Last updated: 29 September 2026</p>
 
   <p class="lede">
-    <strong>These terms apply to Solander</strong>, the macOS document redaction app sold through this website, and to nothing else Quiet Signals Lab publishes. A Solander licence is bought once and covers every future version.
+    <strong>These terms apply to the Solander apps</strong> sold through this website &mdash; <strong>Solander PDF</strong>, for redacting PDFs and scans, and <strong>Solander Desk</strong>, for cleaning Word, Excel and LibreOffice files &mdash; and to licences for either or both. They apply to nothing else Quiet Signals Lab publishes. Where these terms say &ldquo;Solander&rdquo;, they mean whichever of the apps your licence is for. A licence is bought once and covers every future version.
   </p>
+
+<!-- LEGAL REVIEW (family, 29 September 2026) — this page now covers Solander PDF, Solander
+     Desk and the Solander Suite licence, and upgrades between them. The changes are scoped to
+     naming the products and saying how each licence and refund works; they do not change any
+     obligation. Review with the other items marked LEGAL REVIEW before launch. -->
+
 
 <h2>Who you are contracting with</h2>
 
@@ -162,7 +169,11 @@
 <h2>What you are buying</h2>
 
 <p>
-  A licence to use Solander. A <strong>Solander</strong> licence covers <strong>one person</strong>, on as many of their own Macs as they use &mdash; a laptop and a desktop are one licence, not two. It does not cover a colleague.
+  A licence to use one or both Solander apps. A <strong>Solander PDF</strong> licence covers Solander PDF; a <strong>Solander Desk</strong> licence covers Solander Desk; a <strong>Solander Suite</strong> licence covers both, as one licence file installed in each. Each covers <strong>one person</strong>, on as many of their own Macs as they use &mdash; a laptop and a desktop are one licence, not two. It does not cover a colleague.
+</p>
+
+<p>
+  <strong>Upgrading.</strong> If you hold a Solander PDF or Solander Desk licence, you can buy the Suite for the difference in price. The Suite licence is a new licence; the one you already had keeps working.
 </p>
 
 <p>
@@ -172,7 +183,7 @@
 <h3>How the licence is checked</h3>
 
 <p>
-  Your licence file is signed by us, and Solander verifies that signature on your Mac against a key built into the app. Separately, a helper process that runs alongside the app &mdash; not the app that opens your documents, which has no network access at all &mdash; confirms with us <strong>about once a week</strong> that the purchase behind your licence still stands. It sends your licence ID, the app version and a random install ID. It does not send, and cannot send, anything about your documents.
+  Your licence file is signed by us, and Solander verifies that signature on your Mac against a key built into the app. Separately, a helper process that runs alongside the app &mdash; not the app that opens your documents, which has no network access at all &mdash; confirms with us <strong>about once a week</strong> that the purchase behind your licence still stands. It sends which product the licence is for, your licence ID, the app version and a random install ID. It does not send, and cannot send, anything about your documents.
 </p>
 
 <p>
@@ -198,7 +209,7 @@
 <h2>Free mode</h2>
 
 <p>
-  Solander can be downloaded and used without payment, on one document at a time, with no time limit and no account. Free mode needs no licence, is not affected by any licence check, and keeps working if a licence is deactivated for any reason.
+  Each Solander app can be downloaded and used without payment, on one document at a time, with no time limit and no account. Free mode needs no licence, is not affected by any licence check, and keeps working if a licence is deactivated for any reason.
 </p>
 
 <!-- LEGAL REVIEW (1 of 3) — Dutch consumer law. "Provided as it is, with no warranty" is
@@ -216,7 +227,7 @@
 <h2>What Solander does not promise</h2>
 
 <div class="constraint-box">
-  <strong>Solander does not determine that a document is anonymous, lawful to disclose, or safe to publish.</strong>
+  <strong>Solander does not determine that a document is anonymous, lawful to disclose, or safe to publish.</strong> Text that Solander Desk has pseudonymized &mdash; names replaced with placeholders &mdash; is not anonymous: surrounding details can still identify people, and under data-protection law it is still personal data.
   It helps you remove information from documents and reports on what it did. Detection is best-effort and misses content, particularly names, addresses and non-Latin text. A passing verification means no readable text remains inside the regions that were redacted — nothing more.
 </div>
 
@@ -291,7 +302,7 @@
 <h2>Privacy</h2>
 
 <p>
-  What we hold and why is set out in the <a href="/privacy.html">Solander privacy notice</a>. The app itself processes your documents entirely on your Mac and cannot transmit them: it runs in Apple's App Sandbox without the network client entitlement, which you can verify yourself with <span class="sc-mono">codesign -d --entitlements - /Applications/Solander.app</span>. The separate helper processes that check for updates and confirm your licence never receive document data.
+  What we hold and why is set out in the <a href="/privacy.html">Solander privacy notice</a>. The app itself processes your documents entirely on your Mac and cannot transmit them: it runs in Apple's App Sandbox without the network client entitlement, which you can verify yourself with <span class="sc-mono">codesign -d --entitlements - /Applications/Solander.app</span> for Solander PDF, or <span class="sc-mono">codesign -d --entitlements - "/Applications/Solander Desk.app"</span> for Solander Desk. The separate helper processes that check for updates and confirm your licence never receive document data.
 </p>
 
 <h2>Changes</h2>
@@ -317,6 +328,8 @@
 <footer>
   <div class="footer-links">
     <a href="/">Solander</a>
+    <a href="/pdf/">Solander PDF</a>
+    <a href="/desk/">Solander Desk</a>
     <a href="/terms.html">Terms</a>
     <a href="/refunds.html">Refunds</a>
     <a href="/privacy.html">Privacy</a>

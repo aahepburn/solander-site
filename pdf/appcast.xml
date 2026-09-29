@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Solander PDF's Sparkle appcast: the SUFeedURL compiled into every build of the app.
+  Empty until the first release, so a build that checks early is told "no update" rather than
+  failing. Items come from release/pdf/appcast.xml in the Solander repo (release/RELEASE.md).
+-->
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Solander PDF</title>
+    <link>https://solander.quietsignalslab.com/pdf/appcast.xml</link>
+    <description>Updates for Solander PDF.</description>
+    <language>en</language>
+  </channel>
+</rss>

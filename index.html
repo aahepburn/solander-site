@@ -3,365 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solander redacts PDFs and scans on your Mac, then re-reads its own output to check every redaction held — with a signed record of what was done. Document redaction software for macOS.">
+    <meta name="description" content="Solander is a family of Mac apps for sharing documents without what is hidden in them. Solander PDF redacts PDFs and scans; Solander Desk cleans Word, Excel and LibreOffice files and keeps them editable. Both check their own work, and nothing leaves your Mac.">
     <meta name="author" content="Quiet Signals Lab">
-    <title>Solander — document redaction for macOS that checks its own work</title>
+    <title>Solander — share documents, not what is hidden in them</title>
 
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="stylesheet" href="styles.css">
-
-    <style>
-        .sl {
-            max-width: 1040px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem;
-        }
-
-        .sl h1, .sl h2, .sl h3 {
-            font-family: var(--head-font);
-            color: var(--primary-text);
-        }
-
-        .sl p { line-height: 1.7; }
-
-        .sl code {
-            font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
-            font-size: 0.82rem;
-            background: var(--light-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 0.15em 0.4em;
-            word-break: break-all;
-        }
-
-        /* ---- Buttons ---------------------------------------------------------------- */
-
-        .sl-cta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            align-items: center;
-            margin-top: 1.75rem;
-        }
-
-        .sl-cta .appstore-badge { margin-top: 0; }
-
-        .sl-btn-quiet {
-            display: inline-flex;
-            align-items: center;
-            border: 1px solid var(--primary-text);
-            border-radius: 7px;
-            padding: 0.4rem 0.9rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--primary-text);
-            text-decoration: none;
-        }
-
-        .sl-btn-quiet:hover { border-color: var(--accent); color: var(--accent); }
-
-        /* Stands where a Buy or Download button will. Outlined, muted and not a link, so
-           nobody clicks it expecting something that is not there yet. */
-        .sl-soon {
-            display: inline-flex;
-            align-items: center;
-            border: 1px dashed var(--border-color);
-            border-radius: 7px;
-            padding: 0.4rem 0.9rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--secondary-text);
-            opacity: 0.75;
-            white-space: nowrap;
-            user-select: none;
-        }
-
-        /* ---- Hero ------------------------------------------------------------------- */
-
-        .sl-hero {
-            display: grid;
-            grid-template-columns: 1.35fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            padding: 4.5rem 0 4rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .sl-eyebrow, .sl-kicker {
-            font-family: var(--head-font);
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 0.9rem;
-        }
-
-        .sl-hero h1 {
-            font-size: 3.1rem;
-            font-weight: 700;
-            letter-spacing: -1.2px;
-            line-height: 1.05;
-            margin-bottom: 1.1rem;
-        }
-
-        .sl-lede {
-            font-size: 1.1rem;
-            max-width: 34rem;
-        }
-
-        .sl-fine {
-            font-size: 0.82rem;
-            margin-top: 1rem;
-            opacity: 0.75;
-        }
-
-        .sl-hero-art svg {
-            width: 100%;
-            max-width: 330px;
-            height: auto;
-            display: block;
-            margin-left: auto;
-        }
-
-        /* ---- Sections --------------------------------------------------------------- */
-
-        .sl-section {
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .sl-section > h2 {
-            font-size: 1.9rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            line-height: 1.2;
-            max-width: 40rem;
-            margin-bottom: 2rem;
-        }
-
-        .sl-body { max-width: 42rem; font-size: 1rem; }
-        .sl-body p + p { margin-top: 1rem; }
-
-        /* Differentiators */
-        .sl-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
-        }
-
-        .sl-card {
-            background: #fff;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1.6rem 1.6rem 1.5rem;
-        }
-
-        .sl-card h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .sl-card p { font-size: 0.92rem; }
-
-        .sl-tag {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-left: 0.4rem;
-            vertical-align: 0.15em;
-        }
-
-        /* Privacy band */
-        .sl-band {
-            background: var(--light-bg);
-            border-radius: 12px;
-            border-bottom: none;
-            padding: 3rem 2.5rem;
-            margin: 4rem 0;
-        }
-
-        .sl-band > h2 { margin-bottom: 1.25rem; }
-
-        .sl-verify {
-            margin-top: 1.25rem !important;
-            padding: 0.9rem 1.1rem;
-            background: var(--primary-bg);
-            border-left: 3px solid var(--accent);
-            border-radius: 0 6px 6px 0;
-            font-size: 0.9rem;
-        }
-
-        .sl-small { font-size: 0.88rem; }
-
-        /* How it works */
-        .sl-steps {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            counter-reset: step;
-        }
-
-        .sl-steps li { counter-increment: step; }
-
-        .sl-steps li::before {
-            content: counter(step);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2rem;
-            height: 2rem;
-            border-radius: 50%;
-            border: 1.5px solid var(--accent);
-            color: var(--accent);
-            font-family: var(--head-font);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.9rem;
-        }
-
-        .sl-steps h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; }
-        .sl-steps p { font-size: 0.92rem; }
-
-        /* Pricing */
-        .sl-plans {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
-            align-items: stretch;
-            max-width: 760px;
-        }
-
-        .sl-plan {
-            display: flex;
-            flex-direction: column;
-            background: #fff;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1.75rem 1.6rem;
-        }
-
-        .sl-plan-main { border: 2px solid var(--accent); }
-
-        .sl-plan h3 { font-size: 1rem; font-weight: 600; }
-
-        .sl-price {
-            font-family: var(--head-font);
-            font-size: 2.1rem;
-            font-weight: 700;
-            letter-spacing: -0.8px;
-            line-height: 1.1;
-            margin-top: 0.5rem;
-        }
-
-        .sl-price-sub { font-size: 0.82rem; opacity: 0.75; margin-bottom: 1.25rem; }
-
-        .sl-plan ul {
-            list-style: none;
-            font-size: 0.9rem;
-            line-height: 1.55;
-            flex: 1;
-            margin-bottom: 1.5rem;
-        }
-
-        .sl-plan li {
-            padding-left: 1.3rem;
-            position: relative;
-            margin-bottom: 0.55rem;
-        }
-
-        .sl-plan li::before {
-            content: '';
-            position: absolute;
-            left: 0.1rem;
-            top: 0.45em;
-            width: 0.45rem;
-            height: 0.25rem;
-            border-left: 2px solid var(--accent);
-            border-bottom: 2px solid var(--accent);
-            transform: rotate(-45deg);
-        }
-
-        .sl-plan-action { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
-        .sl-plan-action .appstore-badge { margin-top: 0; }
-        .sl-plan-action a:not([class]) { font-size: 0.85rem; color: var(--primary-text); }
-
-        .sl-note {
-            font-size: 0.88rem;
-            max-width: 46rem;
-            margin-top: 1.75rem;
-        }
-
-        /* FAQ */
-        .sl-faq { max-width: 46rem; }
-
-        .sl-faq details {
-            border-top: 1px solid var(--border-color);
-            padding: 1.1rem 0;
-        }
-
-        .sl-faq details:last-of-type { border-bottom: 1px solid var(--border-color); }
-
-        .sl-faq summary {
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1rem;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .sl-faq summary::-webkit-details-marker { display: none; }
-        .sl-faq summary::after { content: '+'; color: var(--accent); font-weight: 400; font-size: 1.3rem; line-height: 1; }
-        .sl-faq details[open] summary::after { content: '−'; }
-        .sl-faq details p { font-size: 0.93rem; margin-top: 0.7rem; }
-
-        .sl-support { font-size: 0.9rem; margin-top: 2rem; max-width: 46rem; }
-
-        /* Closing call to action */
-        .sl-final {
-            text-align: center;
-            padding: 4.5rem 0 2rem;
-        }
-
-        .sl-final h2 { font-size: 1.9rem; font-weight: 700; letter-spacing: -0.5px; }
-        .sl-final .sl-cta { justify-content: center; }
-
-        .sl-category {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            text-align: center;
-            max-width: 40rem;
-            margin: 2.5rem auto 0;
-        }
-
-        a:focus-visible, summary:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
-
-        @media (max-width: 860px) {
-            .sl-hero { grid-template-columns: 1fr; padding: 3rem 0; gap: 2rem; }
-            .sl-hero-art svg { max-width: 220px; margin: 0 auto; }
-            .sl-plans, .sl-steps { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 640px) {
-            .sl { padding: 0 1rem 3rem; }
-            .sl-hero h1 { font-size: 2.3rem; }
-            .sl-section { padding: 3rem 0; }
-            .sl-section > h2, .sl-final h2 { font-size: 1.5rem; }
-            .sl-grid { grid-template-columns: 1fr; }
-            .sl-band { padding: 2rem 1.25rem; margin: 3rem 0; }
-        }
-    </style>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/product.css">
 </head>
 <body>
 
@@ -369,7 +17,8 @@
   <nav>
     <a href="/" class="nav-brand">Solander</a>
     <ul class="nav-links">
-      <li><a href="/#features">Features</a></li>
+      <li><a href="/pdf/">PDF</a></li>
+      <li><a href="/desk/">Desk</a></li>
       <li><a href="/#pricing">Pricing</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/terms.html">Terms</a></li>
@@ -384,73 +33,93 @@
     <!-- Hero -->
     <section class="sl-hero">
         <div>
-            <p class="sl-eyebrow">Document redaction for macOS</p>
-            <h1>Redaction you can prove.</h1>
-            <p class="sl-lede">Solander redacts PDFs and scans on your Mac, then re-reads its own output to check that every redaction held. You get a clean new file, and a record of what was removed, what was checked, and what could not be read.</p>
+            <p class="sl-eyebrow">Document privacy for macOS</p>
+            <h1>Share the document. Not what&rsquo;s hidden in it.</h1>
+            <p class="sl-lede">Solander is a family of Mac apps that find what a document carries beneath the surface, remove what you choose, and then re-read their own output to check it worked. Everything happens on your Mac.</p>
             <div class="sl-cta">
-                <!-- AT LAUNCH: once the first release is published on GitHub, replace the
-                     mailto below with
-                       <a href="https://github.com/Quiet-Signals-Lab/solander/releases/latest" class="appstore-badge">Download free for macOS</a>
-                     There are three Download markers on this page (hero, Free plan, closing
-                     section), plus one for the Paddle Buy button. Until then the releases page is empty, and a reviewer clicking
-                     "Download" would land on "There aren't any releases here". -->
-                <a href="mailto:hello@quietsignalslab.com?subject=Solander%20%E2%80%94%20tell%20me%20when%20it%20launches" class="appstore-badge">Email me at launch</a>
+                <a href="/pdf/" class="appstore-badge">Solander PDF</a>
+                <a href="/desk/" class="appstore-badge">Solander Desk</a>
                 <a href="#pricing" class="sl-btn-quiet">See pricing</a>
             </div>
-            <p class="sl-fine">Launching soon. Free for one document at a time &mdash; no account, no time limit, no watermark.</p>
+            <p class="sl-fine">Launching soon. Each app is free for one document at a time &mdash; no account, no time limit, no watermark.</p>
         </div>
 
-        <!-- A redacted page with a check: what the product does, drawn rather than
-             screenshotted, so it cannot misrepresent the interface. -->
+        <!-- Two documents: a page with redactions for Solander PDF, a draft with a tracked
+             deletion and a comment for Solander Desk, and the check they share. Drawn rather
+             than screenshotted, so it cannot misrepresent either interface. -->
         <div class="sl-hero-art" aria-hidden="true">
             <svg viewBox="0 0 330 380" xmlns="http://www.w3.org/2000/svg">
-                <rect x="30" y="20" width="250" height="330" rx="8" fill="#fff" stroke="#dedad3" stroke-width="1.5"/>
-                <rect x="58" y="52" width="120" height="10" rx="2" fill="#1a1a18"/>
+                <!-- Back: an editable draft, a deletion struck through, a comment -->
+                <rect x="96" y="14" width="214" height="290" rx="8" fill="#fff" stroke="#dedad3" stroke-width="1.5"/>
                 <g fill="#dedad3">
-                    <rect x="58" y="86" width="190" height="7" rx="2"/>
-                    <rect x="58" y="103" width="98" height="7" rx="2"/>
-                    <rect x="164" y="103" width="84" height="7" rx="2" fill="#1a1a18"/>
-                    <rect x="58" y="120" width="190" height="7" rx="2"/>
-                    <rect x="58" y="137" width="60" height="7" rx="2" fill="#1a1a18"/>
-                    <rect x="126" y="137" width="122" height="7" rx="2"/>
-                    <rect x="58" y="170" width="190" height="7" rx="2"/>
-                    <rect x="58" y="187" width="100" height="7" rx="2"/>
-                    <rect x="166" y="187" width="82" height="7" rx="2" fill="#1a1a18"/>
-                    <rect x="58" y="204" width="190" height="7" rx="2"/>
-                    <rect x="58" y="221" width="130" height="7" rx="2"/>
-                    <rect x="58" y="254" width="104" height="7" rx="2" fill="#1a1a18"/>
-                    <rect x="170" y="254" width="78" height="7" rx="2"/>
-                    <rect x="58" y="271" width="190" height="7" rx="2"/>
-                    <rect x="58" y="288" width="160" height="7" rx="2"/>
+                    <rect x="120" y="44" width="164" height="7" rx="2"/>
+                    <rect x="120" y="61" width="120" height="7" rx="2"/>
+                    <rect x="120" y="78" width="164" height="7" rx="2"/>
                 </g>
-                <circle cx="268" cy="316" r="38" fill="#be6e19"/>
-                <path d="M250 316 l12 12 l24 -26" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="248" y="61" width="36" height="7" rx="2" fill="#be6e19" opacity="0.35"/>
+                <line x1="246" y1="64.5" x2="286" y2="64.5" stroke="#be6e19" stroke-width="2"/>
+                <rect x="232" y="96" width="60" height="30" rx="4" fill="#fff" stroke="#be6e19" stroke-width="1.5"/>
+                <rect x="240" y="104" width="44" height="4" rx="2" fill="#be6e19" opacity="0.6"/>
+                <rect x="240" y="113" width="30" height="4" rx="2" fill="#be6e19" opacity="0.6"/>
+                <!-- Front: a page with its redactions -->
+                <rect x="20" y="70" width="214" height="290" rx="8" fill="#fff" stroke="#dedad3" stroke-width="1.5"/>
+                <rect x="44" y="100" width="104" height="10" rx="2" fill="#1a1a18"/>
+                <g fill="#dedad3">
+                    <rect x="44" y="132" width="166" height="7" rx="2"/>
+                    <rect x="44" y="149" width="84" height="7" rx="2"/>
+                    <rect x="136" y="149" width="74" height="7" rx="2" fill="#1a1a18"/>
+                    <rect x="44" y="166" width="166" height="7" rx="2"/>
+                    <rect x="44" y="183" width="52" height="7" rx="2" fill="#1a1a18"/>
+                    <rect x="104" y="183" width="106" height="7" rx="2"/>
+                    <rect x="44" y="214" width="166" height="7" rx="2"/>
+                    <rect x="44" y="231" width="90" height="7" rx="2"/>
+                    <rect x="142" y="231" width="68" height="7" rx="2" fill="#1a1a18"/>
+                    <rect x="44" y="248" width="166" height="7" rx="2"/>
+                    <rect x="44" y="279" width="120" height="7" rx="2"/>
+                </g>
+                <circle cx="250" cy="318" r="38" fill="#be6e19"/>
+                <path d="M232 318 l12 12 l24 -26" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </div>
     </section>
 
-    <!-- Differentiators -->
-    <section class="sl-section" id="features">
-        <p class="sl-kicker">Why Solander</p>
-        <h2>Most redaction tools stop at drawing the box. Solander checks that it held.</h2>
+    <!-- The two apps -->
+    <section class="sl-section" id="apps">
+        <p class="sl-kicker">Two apps, one promise</p>
+        <h2>One redacts what goes out as a PDF. One cleans what has to stay editable. Both check their own work.</h2>
         <div class="sl-grid">
             <article class="sl-card">
-                <h3>Rewrites the page, not a box on top</h3>
-                <p>Every page is rendered to an image, the redactions are painted in, and a new file is written from scratch. No text layer, metadata, annotations, attachments or earlier versions are carried across &mdash; there is nothing underneath to recover.</p>
+                <p class="sl-eyebrow">Solander PDF</p>
+                <h3>Redaction you can prove</h3>
+                <p>For PDFs, scans and images that are going out for good. Every page is rebuilt from scratch with the redactions painted in, so nothing is left underneath &mdash; then the new file is read again to check every redaction held. A signed record says what was removed and what could not be read.</p>
+                <a href="/pdf/" class="sl-card-link">Solander PDF &rarr;</a>
             </article>
             <article class="sl-card">
-                <h3>Checks its own work</h3>
-                <p>After exporting, Solander reopens the file and reads it again. Anything still legible where a redaction was meant to be is reported, not quietly exported. You see this result whether or not you have a licence.</p>
-            </article>
-            <article class="sl-card">
-                <h3>Says what it could not read</h3>
-                <p>Text the OCR found but could not resolve is listed and marked on the page, so you know which parts no detector examined. Unreadable is reported as unreadable &mdash; never counted as clean.</p>
-            </article>
-            <article class="sl-card">
-                <h3>Evidence you can hand over <span class="sl-tag">Licensed</span></h3>
-                <p>A signed report in PDF and JSON: what was redacted and why, what was verified, and what the original file contained. A recipient can re-check it against the document without taking your word for it.</p>
+                <p class="sl-eyebrow">Solander Desk</p>
+                <h3>Clean files you can still edit</h3>
+                <p>For Word, Excel and LibreOffice files that are still being worked on. Finds tracked changes, comments, authors, hidden sheets, cached data and cropped-away pictures; removes what you choose; and keeps the file editable. It can also swap names for placeholders before you paste a document into an AI chat, and put them back in the answer.</p>
+                <a href="/desk/" class="sl-card-link">Solander Desk &rarr;</a>
             </article>
         </div>
+    </section>
+
+    <!-- Which one -->
+    <section class="sl-section" id="which">
+        <p class="sl-kicker">Which one do I need?</p>
+        <h2>It depends on whether the file has to stay editable.</h2>
+        <table class="sl-which">
+            <thead>
+                <tr><th>You are about to&hellip;</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Publish or disclose a document, or answer a records request</td><td>Solander PDF</td></tr>
+                <tr><td>Redact a scan, a photographed page or a screenshot</td><td>Solander PDF</td></tr>
+                <tr><td>Send a draft contract without its tracked changes and internal comments</td><td>Solander Desk</td></tr>
+                <tr><td>Send a client a workbook without its hidden sheets, pivot data or links to other clients&rsquo; files</td><td>Solander Desk</td></tr>
+                <tr><td>Paste a contract or a spreadsheet into ChatGPT or Claude without the real names, then restore them in the answer</td><td>Solander Desk</td></tr>
+                <tr><td>More than one of these</td><td>Solander Suite</td></tr>
+            </tbody>
+        </table>
     </section>
 
     <!-- Privacy -->
@@ -458,92 +127,105 @@
         <p class="sl-kicker">Private by design</p>
         <h2>Your documents never leave your Mac.</h2>
         <div class="sl-body">
-            <p>That is enforced by macOS, not promised by us. Solander runs in Apple&rsquo;s App Sandbox <strong>without</strong> network access, so the operating system refuses any outbound connection from the app that opens your files. No account, no telemetry, no analytics, no crash reporting.</p>
-            <p class="sl-verify">Check it on your own copy: <code>codesign -d --entitlements - /Applications/Solander.app</code></p>
-            <p class="sl-small">Two small helper processes do use the network &mdash; one checks for updates, one confirms your licence about once a week. Neither ever receives a document or anything Solander found. <a href="/privacy.html">Exactly what they send</a>.</p>
+            <p>That is enforced by macOS, not promised by us. Both apps run in Apple&rsquo;s App Sandbox <strong>without</strong> network access, so the operating system refuses any outbound connection from the app that opens your files. No account, no telemetry, no analytics, no crash reporting.</p>
+            <p class="sl-verify">Check it on your own copy:<br><code>codesign -d --entitlements - /Applications/Solander.app</code><br><code>codesign -d --entitlements - &quot;/Applications/Solander Desk.app&quot;</code></p>
+            <p class="sl-small">In each app, two small helper processes do use the network &mdash; one checks for updates, one confirms your licence about once a week. Neither ever receives a document or anything found in one. <a href="/privacy.html">Exactly what they send</a>.</p>
         </div>
-    </section>
-
-    <!-- How it works -->
-    <section class="sl-section" id="how">
-        <p class="sl-kicker">How it works</p>
-        <h2>Three steps, and you decide every redaction.</h2>
-        <ol class="sl-steps">
-            <li>
-                <h3>Open</h3>
-                <p>Drop in a PDF, a scan or an image. Solander lists what the file carries beneath the surface &mdash; metadata, attachments, annotations, scripts &mdash; and flags what it finds for you to review.</p>
-            </li>
-            <li>
-                <h3>Review</h3>
-                <p>Mark what has to go. Accept what Solander found, add anything it missed, and leave what should stay.</p>
-            </li>
-            <li>
-                <h3>Export and verify</h3>
-                <p>Solander writes a fresh file, re-reads it, and shows you the result &mdash; including anything it could not read.</p>
-            </li>
-        </ol>
     </section>
 
     <!-- Honest limits -->
     <section class="sl-section">
-        <p class="sl-kicker">Plain about its limits</p>
+        <p class="sl-kicker">Plain about their limits</p>
         <h2>What a passing check means &mdash; and what it does not.</h2>
         <div class="sl-body">
-            <p>It means no readable text remains inside the regions you redacted. It does <strong>not</strong> mean everything sensitive was found. Detection is best-effort and misses things, especially names, addresses and non-Latin text &mdash; which is why the review step exists, and why Solander never calls a document anonymous, compliant or safe. It is a tool for the work and a record of what it did, not a substitute for judgement or legal advice.</p>
+            <p>It means what you chose to remove is gone, and the file you received is sound. It does <strong>not</strong> mean everything sensitive was found. Detection is best-effort and misses things, which is why you review every file, and why neither app ever calls a document anonymous, compliant, safe or clean. Pseudonymized text is still personal data. These are tools for the work and a record of what they did, not a substitute for judgement or legal advice.</p>
         </div>
     </section>
 
     <!-- Pricing -->
     <section class="sl-section" id="pricing">
         <p class="sl-kicker">Pricing</p>
-        <h2>Bought once. No subscription.</h2>
-        <div class="sl-plans">
+        <h2>Bought once. No subscription. Each app on its own, or both together.</h2>
+        <div class="sl-plans sl-plans-wide">
             <div class="sl-plan">
                 <h3>Free</h3>
                 <p class="sl-price">$0</p>
-                <p class="sl-price-sub">no account, no time limit</p>
+                <p class="sl-price-sub">both apps, no time limit</p>
                 <ul>
-                    <li>One document at a time</li>
-                    <li>Every detector, every language</li>
-                    <li>Review, redact and export</li>
+                    <li>One document at a time, in either app</li>
+                    <li>Every finding shown</li>
+                    <li>Redact or clean, and export</li>
                     <li>Verification of every export</li>
-                    <li>Inventory of hidden content in the original</li>
-                    <li>No watermark</li>
+                    <li>No account, no watermark</li>
                 </ul>
                 <div class="sl-plan-action">
-                    <!-- AT LAUNCH: replace with
-                         <a href="https://github.com/Quiet-Signals-Lab/solander/releases/latest" class="appstore-badge">Download</a> -->
+                    <a href="/pdf/" class="sl-btn-quiet">Solander PDF</a>
+                    <a href="/desk/" class="sl-btn-quiet">Solander Desk</a>
+                </div>
+            </div>
+
+            <div class="sl-plan">
+                <h3>Solander PDF</h3>
+                <p class="sl-price">$49</p>
+                <p class="sl-price-sub">once, for one person</p>
+                <ul>
+                    <li>Batch redaction, with names kept consistent across documents</li>
+                    <li>Signed reports, reason codes and a redaction log</li>
+                    <li>Saved profiles, command-line tool, watch folders</li>
+                    <li>Every future version</li>
+                </ul>
+                <div class="sl-plan-action">
+                    <!-- AT LAUNCH (Paddle): replace the element below with
+                           <a href="https://..." class="appstore-badge">Buy $49</a>
+                         using the Paddle checkout URL for the Solander PDF price. -->
                     <span class="sl-soon">Coming soon</span>
+                    <a href="/pdf/">More about Solander PDF</a>
+                </div>
+            </div>
+
+            <div class="sl-plan">
+                <h3>Solander Desk</h3>
+                <p class="sl-price">$69</p>
+                <p class="sl-price-sub">once, for one person</p>
+                <ul>
+                    <li>Batch cleaning</li>
+                    <li>Pseudonymize for AI, and restore the answer</li>
+                    <li>Projects, dictionaries and saved profiles</li>
+                    <li>Signed reports</li>
+                    <li>Every future version</li>
+                </ul>
+                <div class="sl-plan-action">
+                    <!-- AT LAUNCH (Paddle): replace the element below with
+                           <a href="https://..." class="appstore-badge">Buy $69</a>
+                         using the Paddle checkout URL for the Solander Desk price. -->
+                    <span class="sl-soon">In development</span>
+                    <a href="/desk/">More about Solander Desk</a>
                 </div>
             </div>
 
             <div class="sl-plan sl-plan-main">
-                <h3>Solander</h3>
-                <p class="sl-price">$49</p>
-                <p class="sl-price-sub">once, for one person</p>
+                <h3>Solander Suite</h3>
+                <p class="sl-price">$99</p>
+                <p class="sl-price-sub">once, for one person, both apps</p>
                 <ul>
-                    <li>Everything in Free</li>
-                    <li>Batch processing, with an entity map that keeps names consistent across documents</li>
-                    <li>Signed reports in PDF and JSON</li>
-                    <li>Reason codes and a redaction log</li>
-                    <li>Saved profiles</li>
-                    <li>Command-line tool and watch folders</li>
-                    <li>On all your own Macs, with every future version</li>
+                    <li>Solander PDF and Solander Desk</li>
+                    <li>One licence file that works in both</li>
+                    <li>Own one already? Pay the difference</li>
+                    <li>Every future version of both</li>
                 </ul>
                 <div class="sl-plan-action">
-                    <!-- AT LAUNCH (Paddle): replace the two elements below with
-                           <a href="https://..." class="appstore-badge">Buy $49</a>
-                         using the Paddle checkout URL for the Solander price. That link is
-                         the only place on the site that needs the URL, and
-                         ci/config-placeholders.sh fails the deploy if it is ever left as a
-                         placeholder. -->
-                    <span class="sl-soon">Coming soon</span>
-                    <a href="mailto:hello@quietsignalslab.com?subject=Solander%20%E2%80%94%20tell%20me%20when%20it%20launches">Email me at launch</a>
+                    <!-- AT LAUNCH (Paddle): replace the element below with
+                           <a href="https://..." class="appstore-badge">Buy $99</a>
+                         using the Paddle checkout URL for the Suite price, and add
+                           <a href="https://solander-fulfilment.quietsignalslab.workers.dev/upgrade">Upgrade from Solander PDF or Desk</a>
+                         The upgrade page checks the licence before making a checkout; the
+                         upgrade price itself never appears on this site. -->
+                    <span class="sl-soon">Coming with Solander Desk</span>
                 </div>
             </div>
         </div>
 
-        <p class="sl-note"><strong>Launching soon.</strong> Prices are in USD, with sales tax or VAT added at checkout where applicable. Orders are processed by Paddle.com Market Ltd, the merchant of record, who issue your invoice. Your licence arrives by email as a file you double-click to install. Refunds within 14 days, no reason needed &mdash; see <a href="/refunds.html">Refunds</a> and <a href="/terms.html">Terms</a>.</p>
+        <p class="sl-note"><strong>Launching soon.</strong> Prices are in USD, with sales tax or VAT added at checkout where applicable. Orders are processed by Paddle.com Market Ltd, the merchant of record, who issue your invoice. Your licence arrives by email as a file you double-click to install; a Suite licence is one file, installed in each app. Refunds within 14 days, no reason needed &mdash; see <a href="/refunds.html">Refunds</a> and <a href="/terms.html">Terms</a>.</p>
     </section>
 
     <!-- FAQ -->
@@ -553,42 +235,41 @@
         <div class="sl-faq">
             <details>
                 <summary>Do my documents go anywhere?</summary>
-                <p>No. The app that opens them has no network access, enforced by macOS. Update checks and licence confirmation run in separate helper processes that never receive document data.</p>
+                <p>No. In both apps, the app that opens them has no network access, enforced by macOS. Update checks and licence confirmation run in separate helper processes that never receive document data.</p>
             </details>
             <details>
-                <summary>Do I have to buy anything to try it?</summary>
-                <p>No. Free mode has every detector and every language, and lets you open, review, redact, export and verify one document at a time &mdash; with no time limit and no account. A licence adds working on many documents at once, the exportable evidence, and automation.</p>
+                <summary>Why two apps rather than one?</summary>
+                <p>Because the two jobs pull in opposite directions. Solander PDF makes a document safe to release by rebuilding every page as an image, so nothing is left underneath &mdash; and the result is no longer editable. Solander Desk keeps a Word, Excel or LibreOffice file editable, so it has to work inside the file&rsquo;s own structure and check every part of it. Each app does one of these well; the Suite gives you both.</p>
+            </details>
+            <details>
+                <summary>Do I have to buy anything to try them?</summary>
+                <p>No. Each app is free for one document at a time, with no time limit and no account: every finding shown, the export, and the check afterwards. A licence adds working on many documents at once, the exportable evidence, and automation &mdash; and in Solander Desk, pseudonymizing for AI.</p>
+            </details>
+            <details>
+                <summary>I already own Solander PDF. Do I pay full price for the Suite?</summary>
+                <p>No. You pay the difference, and your new Suite licence works in both apps. Your existing licence keeps working too. You will need the licence ID from your licence email and the address it was sent to.</p>
             </details>
             <details>
                 <summary>Is there a subscription?</summary>
-                <p>No. A licence is bought once and includes every future version. About once a week a helper process confirms the purchase has not been refunded; if it cannot reach us, the licensed features keep working for 30 days.</p>
-            </details>
-            <details>
-                <summary>Can I use it on a Mac that is never online?</summary>
-                <p>Yes, with offline activation. The app shows a short code, you enter it on a web page from your phone or another computer, and type the answer back. A first activation lasts 15 days and each renewal lasts 90.</p>
+                <p>No. A licence is bought once and includes every future version. About once a week a helper process confirms the purchase has not been refunded; if it cannot reach us, the licensed features keep working for 30 days, and a Mac that is never online can be activated offline.</p>
             </details>
             <details>
                 <summary>What happens if I ask for a refund?</summary>
                 <p>The licence is deactivated and the licensed features stop. Free mode keeps working exactly as before, and everything you have already produced is untouched. See <a href="/refunds.html">Refunds</a>.</p>
             </details>
-            <details>
-                <summary>Does it replace a person checking the document?</summary>
-                <p>No. Detection misses things, especially names, addresses and non-Latin text. Solander is built to tell you where it is uncertain rather than hide it, but the review step exists because no detector finds everything.</p>
-            </details>
         </div>
-        <p class="sl-support">Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander">hello@quietsignalslab.com</a>. Please do not send a document you needed to redact &mdash; a description of the problem is enough.</p>
+        <p class="sl-support">Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander">hello@quietsignalslab.com</a>. Please do not send a document you needed to clean or redact &mdash; a description of the problem is enough.</p>
     </section>
 
     <!-- Closing call to action -->
     <section class="sl-final">
-        <h2>Try it on your own documents.</h2>
+        <h2>Try them on your own documents.</h2>
         <div class="sl-cta">
-            <!-- AT LAUNCH: replace with
-                 <a href="https://github.com/Quiet-Signals-Lab/solander/releases/latest" class="appstore-badge">Download free for macOS</a> -->
-            <a href="mailto:hello@quietsignalslab.com?subject=Solander%20%E2%80%94%20tell%20me%20when%20it%20launches" class="appstore-badge">Email me at launch</a>
+            <a href="/pdf/" class="appstore-badge">Solander PDF</a>
+            <a href="/desk/" class="appstore-badge">Solander Desk</a>
         </div>
-        <p class="sl-fine">macOS 14 Sonoma or later &middot; Apple Silicon and Intel &middot; PDFs, scans and common image formats &middot; Signed and notarised</p>
-        <p class="sl-category">Solander is document redaction software. It is not identity-theft protection, device security software, or legal advice, and it does not determine whether a disclosure meets any legal obligation.</p>
+        <p class="sl-fine">macOS 14 Sonoma or later &middot; Apple Silicon and Intel &middot; Signed and notarised</p>
+        <p class="sl-category">Solander apps are document redaction and cleaning software. They are not identity-theft protection, device security software, or legal advice, and they do not determine whether a disclosure meets any legal obligation.</p>
     </section>
 
 </main>
@@ -596,6 +277,8 @@
 <footer>
   <div class="footer-links">
     <a href="/">Solander</a>
+    <a href="/pdf/">Solander PDF</a>
+    <a href="/desk/">Solander Desk</a>
     <a href="/terms.html">Terms</a>
     <a href="/refunds.html">Refunds</a>
     <a href="/privacy.html">Privacy</a>

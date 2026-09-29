@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Privacy notice for Solander — documents are processed entirely on your Mac; we hold only your email address and a licence record.">
+  <meta name="description" content="Privacy notice for the Solander apps — documents are processed entirely on your Mac; we hold only your email address and a licence record.">
   <title>Privacy Policy · Solander</title>
 
   <!-- Favicon -->
@@ -117,7 +117,8 @@
   <nav>
     <a href="/" class="nav-brand">Solander</a>
     <ul class="nav-links">
-      <li><a href="/#features">Features</a></li>
+      <li><a href="/pdf/">PDF</a></li>
+      <li><a href="/desk/">Desk</a></li>
       <li><a href="/#pricing">Pricing</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/terms.html">Terms</a></li>
@@ -130,7 +131,7 @@
 <div class="prose">
   <p class="page-label">Legal</p>
   <h1>Privacy Policy — Solander</h1>
-  <p class="page-meta">Quiet Signals Lab &nbsp;·&nbsp; Last updated: 24 September 2026</p>
+  <p class="page-meta">Quiet Signals Lab &nbsp;·&nbsp; Last updated: 29 September 2026</p>
 
   <p class="lede">
     Your documents never leave your Mac, because the app that opens them cannot open a network connection. If you buy a licence, we hold your email address and a licence record, and a helper process confirms about once a week that the purchase has not been refunded.
@@ -144,7 +145,8 @@
 
 <div class="constraint-box">
   <strong>You can verify this on the copy you downloaded.</strong>
-  <code>codesign -d --entitlements - /Applications/Solander.app</code>
+  <code>codesign -d --entitlements - /Applications/Solander.app</code><br>
+  <code>codesign -d --entitlements - "/Applications/Solander Desk.app"</code>
 </div>
 
 <p>
@@ -174,7 +176,7 @@
 </p>
 
 <p>
-  your <strong>licence ID</strong> (the identifier on your licence file, not your name or email address); the <strong>app version</strong>; and an <strong>install ID</strong>, a random value generated once when you install Solander and kept in your Mac's Keychain. The install ID is not derived from your hardware and says nothing about your Mac &mdash; reinstalling produces a different one.
+  which <strong>product</strong> the licence is for (Solander PDF, Solander Desk or the Suite); your <strong>licence ID</strong> (the identifier on your licence file, not your name or email address); the <strong>app version</strong>; and an <strong>install ID</strong>, a random value generated once when you install Solander and kept in your Mac's Keychain. The install ID is not derived from your hardware and says nothing about your Mac &mdash; reinstalling produces a different one.
 </p>
 
 <p>
@@ -188,6 +190,15 @@
 <p>
   <strong>Server logs.</strong> Our serverless host records standard request logs for the validation endpoint, including IP addresses, for security and abuse prevention. We do not use those logs to build any record of an individual's use of Solander, and they are not joined to your licence record. They are held under the host's own retention period rather than ours.
 </p>
+
+<p>
+  <strong>Solander Desk&rsquo;s pseudonymization mappings</strong> &mdash; which real name each placeholder stands for &mdash; are stored only on your Mac, inside the app&rsquo;s own container, encrypted with a key held in your Mac&rsquo;s Keychain that never syncs to iCloud or another device. They are never sent to us or anyone else. &ldquo;Forget project&rdquo; deletes the key and then the file.
+</p>
+
+<!-- LEGAL REVIEW (family, 29 September 2026) — this page now covers Solander PDF, Solander
+     Desk and the Solander Suite licence, and upgrades between them. The changes are scoped to
+     naming the products and saying how each licence and refund works; they do not change any
+     obligation. Review with the other items marked LEGAL REVIEW before launch. -->
 
 <h2>Buying a licence</h2>
 
@@ -272,6 +283,8 @@
 <footer>
   <div class="footer-links">
     <a href="/">Solander</a>
+    <a href="/pdf/">Solander PDF</a>
+    <a href="/desk/">Solander Desk</a>
     <a href="/terms.html">Terms</a>
     <a href="/refunds.html">Refunds</a>
     <a href="/privacy.html">Privacy</a>

@@ -7,7 +7,8 @@
 # Links to other sites are fine — the privacy notice has to link Paddle's own. What is
 # checked is anything the browser *loads*.
 #
-# This repo is four hand-written pages, so nothing is skipped.
+# This repo is a handful of hand-written pages (the family page, one per app, and the legal
+# pages), so nothing is skipped.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 

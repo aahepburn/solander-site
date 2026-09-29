@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Solander Desk's Sparkle appcast: the SUFeedURL compiled into every build of the app.
+  Empty until the first release, so a build that checks early is told "no update" rather than
+  failing. Items come from release/desk/appcast.xml in the Solander repo (release/RELEASE.md).
+-->
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Solander Desk</title>
+    <link>https://solander.quietsignalslab.com/desk/appcast.xml</link>
+    <description>Updates for Solander Desk.</description>
+    <language>en</language>
+  </channel>
+</rss>

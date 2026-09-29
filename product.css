@@ -1,0 +1,390 @@
+/* Product pages: the family landing page, Solander PDF and Solander Desk.
+ *
+ * One stylesheet for all three, so the products look like one family because they are drawn by
+ * the same rules, not because three copies were kept in step. Same origin, loaded by <link>:
+ * ci/no-external-loads.sh checks nothing comes from anywhere else.
+ */
+
+.sl {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+}
+
+.sl h1, .sl h2, .sl h3 {
+    font-family: var(--head-font);
+    color: var(--primary-text);
+}
+
+.sl p { line-height: 1.7; }
+
+.sl code {
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+    font-size: 0.82rem;
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    word-break: break-all;
+}
+
+/* ---- Buttons ---------------------------------------------------------------- */
+
+.sl-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 1.75rem;
+}
+
+.sl-cta .appstore-badge { margin-top: 0; }
+
+.sl-btn-quiet {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--primary-text);
+    border-radius: 7px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary-text);
+    text-decoration: none;
+}
+
+.sl-btn-quiet:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Stands where a Buy or Download button will. Outlined, muted and not a link, so
+   nobody clicks it expecting something that is not there yet. */
+.sl-soon {
+    display: inline-flex;
+    align-items: center;
+    border: 1px dashed var(--border-color);
+    border-radius: 7px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--secondary-text);
+    opacity: 0.75;
+    white-space: nowrap;
+    user-select: none;
+}
+
+/* ---- Hero ------------------------------------------------------------------- */
+
+.sl-hero {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 4.5rem 0 4rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sl-eyebrow, .sl-kicker {
+    font-family: var(--head-font);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.9rem;
+}
+
+.sl-hero h1 {
+    font-size: 3.1rem;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    line-height: 1.05;
+    margin-bottom: 1.1rem;
+}
+
+.sl-lede {
+    font-size: 1.1rem;
+    max-width: 34rem;
+}
+
+.sl-fine {
+    font-size: 0.82rem;
+    margin-top: 1rem;
+    opacity: 0.75;
+}
+
+.sl-hero-art svg {
+    width: 100%;
+    max-width: 330px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+}
+
+/* ---- Sections --------------------------------------------------------------- */
+
+.sl-section {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sl-section > h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    max-width: 40rem;
+    margin-bottom: 2rem;
+}
+
+.sl-body { max-width: 42rem; font-size: 1rem; }
+.sl-body p + p { margin-top: 1rem; }
+
+/* Differentiators */
+.sl-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.sl-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.6rem 1.6rem 1.5rem;
+}
+
+.sl-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.sl-card p { font-size: 0.92rem; }
+
+.sl-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-left: 0.4rem;
+    vertical-align: 0.15em;
+}
+
+/* Privacy band */
+.sl-band {
+    background: var(--light-bg);
+    border-radius: 12px;
+    border-bottom: none;
+    padding: 3rem 2.5rem;
+    margin: 4rem 0;
+}
+
+.sl-band > h2 { margin-bottom: 1.25rem; }
+
+.sl-verify {
+    margin-top: 1.25rem !important;
+    padding: 0.9rem 1.1rem;
+    background: var(--primary-bg);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+}
+
+.sl-small { font-size: 0.88rem; }
+
+/* How it works */
+.sl-steps {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    counter-reset: step;
+}
+
+.sl-steps li { counter-increment: step; }
+
+.sl-steps li::before {
+    content: counter(step);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+    font-family: var(--head-font);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.9rem;
+}
+
+.sl-steps h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; }
+.sl-steps p { font-size: 0.92rem; }
+
+/* Pricing */
+.sl-plans {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    align-items: stretch;
+    max-width: 760px;
+}
+
+.sl-plan {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.75rem 1.6rem;
+}
+
+.sl-plan-main { border: 2px solid var(--accent); }
+
+.sl-plan h3 { font-size: 1rem; font-weight: 600; }
+
+.sl-price {
+    font-family: var(--head-font);
+    font-size: 2.1rem;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.1;
+    margin-top: 0.5rem;
+}
+
+.sl-price-sub { font-size: 0.82rem; opacity: 0.75; margin-bottom: 1.25rem; }
+
+.sl-plan ul {
+    list-style: none;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.sl-plan li {
+    padding-left: 1.3rem;
+    position: relative;
+    margin-bottom: 0.55rem;
+}
+
+.sl-plan li::before {
+    content: '';
+    position: absolute;
+    left: 0.1rem;
+    top: 0.45em;
+    width: 0.45rem;
+    height: 0.25rem;
+    border-left: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    transform: rotate(-45deg);
+}
+
+.sl-plan-action { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+.sl-plan-action .appstore-badge { margin-top: 0; }
+.sl-plan-action a:not([class]) { font-size: 0.85rem; color: var(--primary-text); }
+
+.sl-note {
+    font-size: 0.88rem;
+    max-width: 46rem;
+    margin-top: 1.75rem;
+}
+
+/* FAQ */
+.sl-faq { max-width: 46rem; }
+
+.sl-faq details {
+    border-top: 1px solid var(--border-color);
+    padding: 1.1rem 0;
+}
+
+.sl-faq details:last-of-type { border-bottom: 1px solid var(--border-color); }
+
+.sl-faq summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.sl-faq summary::-webkit-details-marker { display: none; }
+.sl-faq summary::after { content: '+'; color: var(--accent); font-weight: 400; font-size: 1.3rem; line-height: 1; }
+.sl-faq details[open] summary::after { content: '−'; }
+.sl-faq details p { font-size: 0.93rem; margin-top: 0.7rem; }
+
+.sl-support { font-size: 0.9rem; margin-top: 2rem; max-width: 46rem; }
+
+/* Closing call to action */
+.sl-final {
+    text-align: center;
+    padding: 4.5rem 0 2rem;
+}
+
+.sl-final h2 { font-size: 1.9rem; font-weight: 700; letter-spacing: -0.5px; }
+.sl-final .sl-cta { justify-content: center; }
+
+.sl-category {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    text-align: center;
+    max-width: 40rem;
+    margin: 2.5rem auto 0;
+}
+
+a:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+@media (max-width: 860px) {
+    .sl-hero { grid-template-columns: 1fr; padding: 3rem 0; gap: 2rem; }
+    .sl-hero-art svg { max-width: 220px; margin: 0 auto; }
+    .sl-plans, .sl-steps { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+    .sl { padding: 0 1rem 3rem; }
+    .sl-hero h1 { font-size: 2.3rem; }
+    .sl-section { padding: 3rem 0; }
+    .sl-section > h2, .sl-final h2 { font-size: 1.5rem; }
+    .sl-grid { grid-template-columns: 1fr; }
+    .sl-band { padding: 2rem 1.25rem; margin: 3rem 0; }
+}
+
+
+/* ---- Family -------------------------------------------------------------------- */
+
+/* Four plans side by side on the family page: Free, PDF, Desk, Suite. */
+.sl-plans-wide { grid-template-columns: repeat(4, 1fr); max-width: none; }
+
+.sl-card-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+}
+.sl-card-link:hover { text-decoration: underline; }
+
+.sl-card .sl-eyebrow { margin-bottom: 0.5rem; }
+.sl-card-main { border: 2px solid var(--accent); }
+
+/* "Which one?" table. */
+.sl-which { width: 100%; max-width: 46rem; border-collapse: collapse; font-size: 0.93rem; }
+.sl-which th, .sl-which td { text-align: left; padding: 0.75rem 0.5rem; border-top: 1px solid var(--border-color); vertical-align: top; }
+.sl-which th { font-family: var(--head-font); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); border-top: none; }
+.sl-which td:last-child { white-space: nowrap; font-weight: 600; }
+
+@media (max-width: 1000px) {
+    .sl-plans-wide { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+    .sl-plans-wide { grid-template-columns: 1fr; }
+    .sl-which td:last-child { white-space: normal; }
+}
