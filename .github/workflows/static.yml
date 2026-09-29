@@ -47,6 +47,9 @@ jobs:
       # a live Buy button that 404s on a domain Paddle reviews.
       - name: No placeholders on published pages
         run: ./ci/config-placeholders.sh
+      # Download buttons link the DMG itself, and must be the newest one in the app's appcast.
+      - name: Download links match the appcasts
+        run: ./ci/download-links.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
