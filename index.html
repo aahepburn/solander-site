@@ -52,7 +52,7 @@
         <div class="sl-grid">
             <article class="sl-card">
                 <h3>Court filings and disclosure</h3>
-                <p>Redact PDFs for filing or disclosure, with a reason on each redaction, Bates numbers and a privilege log.</p>
+                <p>Redact exhibits and discovery sets before you file or produce them.</p>
             </article>
             <article class="sl-card">
                 <h3>FOI and Woo requests</h3>
@@ -141,21 +141,26 @@
         </div>
     </section>
 
-    <!-- Three points -->
+    <!-- Four points: on your Mac first (COPY_GUIDE.md §4.4), then checked, recorded and ready to
+         produce (positioning review v2, 2026-09-29). -->
     <section class="sl-section">
         <p class="sl-kicker">Features</p>
-        <ol class="sl-steps">
+        <ol class="sl-steps sl-steps-pairs">
             <li>
                 <h3>Stays on your Mac</h3>
                 <p>Solander works the way desktop software always did: your files stay on your Mac, and everything happens there, offline. The text recognition and detection are modern, and they run on the Mac itself. Nothing is uploaded, and there is no account. <a href="/privacy.html#the-app">How to check this yourself</a></p>
             </li>
             <li>
                 <h3>Checks every file before you send it</h3>
-                <p>A black box drawn over text in a PDF can often be moved, or the text under it copied out. Solander PDF writes a new file, reads it again, and shows you any text that is still readable under a redaction. Solander Desk checks each exported file for anything you chose to remove.</p>
+                <p>A black box drawn over text in a PDF can often be moved, or the text under it copied out. Solander PDF writes a new file, reads it again, and shows you any text that is still readable under a redaction. It also marks any text it couldn&rsquo;t read, so you know which parts no detector examined. Solander Desk checks each exported file for anything you chose to remove.</p>
             </li>
             <li>
                 <h3>Keeps an audit trail</h3>
-                <p>Give each redaction a reason code, such as a US FOIA exemption or a set you install for your own jurisdiction. Solander PDF keeps a redaction log and produces a signed report in PDF and JSON that you can hand over with the documents.</p>
+                <p>Give each redaction a reason code, such as a US FOIA exemption or a set you install for your own jurisdiction, and the code is printed in the box. Solander PDF keeps a redaction log and produces a signed report in PDF and JSON that you hand over with the documents. Whoever receives them can check the documents against the report with the free app.</p>
+            </li>
+            <li>
+                <h3>Handles a whole production</h3>
+                <p>Redact a folder of documents at once, with each name redacted the same way in all of them. Add Bates numbers that run on across the set, a privilege log for documents withheld in full, and a load file for review software. Turn on searchable text for courts that require it.</p>
             </li>
         </ol>
     </section>
@@ -251,7 +256,7 @@
             </details>
             <details>
                 <summary>Is the redacted PDF searchable?</summary>
-                <p>By default, no. Solander PDF saves each page as an image, so its text can&rsquo;t be selected or searched. With a licence you can turn on searchable output: Solander PDF reads the redacted pages again and adds a hidden text layer, which is checked along with the pages. The text layer supports Western European characters only.</p>
+                <p>By default, no. Solander PDF saves each page as an image, so its text can&rsquo;t be selected or searched. With a licence you can turn on searchable output: Solander PDF reads the redacted pages again and adds a hidden text layer, which is checked along with the pages. The litigation preset turns it on. The text layer supports Western European characters only.</p>
             </details>
             <details>
                 <summary>Does anything go online?</summary>

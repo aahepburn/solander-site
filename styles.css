@@ -249,6 +249,8 @@ main.sl > .sl-section:first-child { margin-top: 48px; }
 
 /* How it works. */
 .sl-steps { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+/* Four points read as two pairs; a lone fourth in a row of three reads as an afterthought. */
+.sl-steps-pairs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .sl-steps li { counter-increment: step; border-top: 1px solid var(--rule); padding-top: 16px; }
 .sl-steps li::before {
     content: counter(step, decimal-leading-zero);
@@ -396,7 +398,7 @@ footer { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) 56px; }
     .sl-section > *, .sl-section > .sl-kicker { grid-column: 1 / -1; }
     .sl-section { padding: 40px 0 56px; }
     .sl-section > .sl-kicker { padding: 0 0 12px; }
-    .sl-grid, .sl-apps, .sl-steps { grid-template-columns: 1fr; }
+    .sl-grid, .sl-apps, .sl-steps, .sl-steps-pairs { grid-template-columns: 1fr; }
     .sl-plans, .sl-plans-wide { grid-template-columns: 1fr; }
 }
 
