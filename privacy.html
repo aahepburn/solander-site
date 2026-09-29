@@ -154,7 +154,7 @@
 </p>
 
 <p>
-  Documents you open stay in memory or in the location you choose to save to, with two exceptions, both inside the app's own sandbox container: page images held while you work, deleted when the session ends; and batch progress, which is encrypted and deleted when the batch finishes or you discard it.
+  Documents you open stay in memory or in the location you choose to save to, with these exceptions, all inside the app's own sandbox container: in Solander PDF, page images held while you work, deleted when the session ends, and batch progress, which is encrypted and deleted when the batch finishes or you discard it; in Solander Desk, the pseudonymization mappings described below.
 </p>
 
 <h2>Updates and licence validation</h2>
@@ -172,7 +172,7 @@
 </p>
 
 <p>
-  Each validation sends exactly three things:
+  Each validation sends exactly four things:
 </p>
 
 <p>
@@ -215,11 +215,15 @@
 </p>
 
 <p>
-  We use these to issue your licence, to send it again if you ask, to answer the weekly validation check, to issue offline activation codes, and to keep a record of what was sold. The legal basis is performance of our contract with you, GDPR Art. 6(1)(b), and for the sale record, our legal obligation under tax law, Art. 6(1)(c). We keep them for as long as the licence is supported, plus the period Dutch tax law requires us to keep records of a sale. We do not use your address for marketing and there is no mailing list.
+  We use these to issue your licence, to send it again if you ask, to answer the weekly validation check, to issue offline activation codes, to check an upgrade to the Suite, and to keep a record of what was sold. The legal basis is performance of our contract with you, GDPR Art. 6(1)(b), and for the sale record, our legal obligation under tax law, Art. 6(1)(c). We keep them for as long as the licence is supported, plus the period Dutch tax law requires us to keep records of a sale. We do not use your address for marketing and there is no mailing list.
 </p>
 
 <p>
-  This licence record lives on a single serverless function, which is the only server Quiet Signals Lab operates for Solander. It handles fulfilment, the weekly validation check and offline activation. It never receives a document, a page image, or anything Solander detected &mdash; only the purchase details listed above and the three fields each validation sends.
+  This licence record lives on a single serverless function, which is the only server Quiet Signals Lab operates for Solander. It handles fulfilment, resending licences, the weekly validation check, offline activation and upgrades. It never receives a document, a page image, or anything Solander detected &mdash; only the purchase details listed above, the four fields each validation sends, and what you type into a form on this site or the activation page.
+</p>
+
+<p>
+  <strong>Upgrades.</strong> The upgrade form sends your licence ID and the email address it was sent to. We check them against the licence record and, if they match, ask Paddle to create a checkout for the upgrade with your licence ID attached, so the new Suite licence can record which licence it upgraded. We store nothing new from the form itself, beyond a marker that expires after a minute to stop repeated checkouts.
 </p>
 
 <h2>Your licence file</h2>

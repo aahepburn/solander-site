@@ -388,3 +388,12 @@ a:focus-visible, summary:focus-visible {
     .sl-plans-wide { grid-template-columns: 1fr; }
     .sl-which td:last-child { white-space: normal; }
 }
+
+/* Upgrade form. */
+.sl-form { display: grid; gap: 0.5rem; max-width: 26rem; margin-top: 2rem; }
+.sl-form label { font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; }
+.sl-form input { font: inherit; padding: 0.6rem 0.75rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; color: var(--primary-text); }
+.sl-form input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.sl-form button { border: 0; justify-self: start; margin-top: 1rem; cursor: pointer; font: inherit; }
+.sl-form button:disabled { opacity: 0.6; cursor: default; }
+.sl-form [role="alert"] { color: #8c2f1e; font-size: 0.9rem; }

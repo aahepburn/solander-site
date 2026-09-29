@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Own Solander PDF or Solander Desk? Upgrade to Solander Suite and pay the difference.">
+    <meta name="author" content="Quiet Signals Lab">
+    <meta name="robots" content="noindex">
+    <title>Upgrade to Solander Suite</title>
+
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/product.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="nav-brand">Solander</a>
+    <ul class="nav-links">
+      <li><a href="/pdf/">PDF</a></li>
+      <li><a href="/desk/">Desk</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+      <li><a href="/refunds.html">Refunds</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="sl">
+
+    <!-- The form checks the licence with the fulfilment worker, which answers with a Paddle
+         hosted checkout for the upgrade price. It lives here, not on the worker, because
+         Paddle wants every checkout launched from a domain it has reviewed. The upgrade price
+         itself never appears on this site. -->
+    <section class="sl-section">
+        <p class="sl-kicker">Solander Suite</p>
+        <h2>Upgrade to the Suite</h2>
+        <p class="sl-lede">Already own Solander PDF or Solander Desk? The Suite adds the other app, and you pay the difference. You get one new licence file that works in both, and your current licence keeps working as it is.</p>
+        <!-- AT LAUNCH: remove this paragraph once the Suite is on sale. -->
+        <p class="sl-note"><strong>Not on sale yet.</strong> The Suite goes on sale with Solander Desk. Until then there is nothing to upgrade to, and this form cannot start a checkout.</p>
+
+        <form id="upgrade" class="sl-form">
+            <label for="licence">Licence ID</label>
+            <input id="licence" name="licence" autocomplete="off" spellcheck="false" placeholder="8a1f7c3e2b5d9a01" required>
+            <label for="email">The email address your licence was sent to</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+            <button type="submit" id="go" class="appstore-badge">Continue to checkout</button>
+            <p id="error" role="alert" hidden></p>
+        </form>
+
+        <p class="sl-support">The licence ID is in your licence email and in the app&rsquo;s licence settings. Checkout is run by Paddle.com Market Ltd, the merchant of record. Upgrades follow the same <a href="/refunds.html">refund terms</a> as any other purchase. Questions: <a href="mailto:hello@quietsignalslab.com?subject=Solander%20Suite%20upgrade">hello@quietsignalslab.com</a>.</p>
+    </section>
+
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Solander</a>
+    <a href="/pdf/">Solander PDF</a>
+    <a href="/desk/">Solander Desk</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/refunds.html">Refunds</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="mailto:hello@quietsignalslab.com?subject=Solander">Support</a>
+  </div>
+  <div class="footer-meta">
+    <p>Solander is made by Alexander Hepburn, trading as Quiet Signals Lab &middot; Amsterdam, Netherlands &middot; KvK 99556650 &middot; VAT NL005394204B58</p>
+    <p>This site does not use cookies or tracking technologies. <a href="/privacy.html">Privacy</a></p>
+    <p>&copy; 2026 Alexander Hepburn. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// text/plain keeps this a simple cross-origin request, with no preflight; the worker reads
+// the body as JSON either way, and allows this origin to read its answer.
+(function () {
+  var form = document.getElementById('upgrade');
+  var go = document.getElementById('go');
+  var err = document.getElementById('error');
+  function fail(message) { err.textContent = message; err.hidden = false; }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    err.hidden = true;
+    go.disabled = true;
+    go.textContent = 'Checking…';
+    fetch('https://solander-fulfilment.quietsignalslab.workers.dev/upgrade', {
+      method: 'POST',
+      headers: { 'content-type': 'text/plain' },
+      body: JSON.stringify({
+        licenceID: document.getElementById('licence').value,
+        email: document.getElementById('email').value
+      })
+    }).then(function (response) {
+      return response.json().then(function (body) {
+        if (response.ok && body.url) { window.location.href = body.url; return; }
+        fail(body.error || 'That did not work. Check both fields.');
+      });
+    }).catch(function () {
+      fail('Could not reach the licence server. Try again in a moment.');
+    }).finally(function () {
+      go.disabled = false;
+      go.textContent = 'Continue to checkout';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -33,7 +33,7 @@ if [ $status -eq 0 ]; then
   echo "ok   no placeholders on any published page"
 else
   echo "" >&2
-  echo "     The Buy button needs the Paddle checkout URL. It is marked AT LAUNCH (Paddle)" >&2
-  echo "     in index.html, and that is the only place it appears." >&2
+  echo "     Buy buttons need the Paddle hosted checkout link with ?price_id=. Each is" >&2
+  echo "     marked AT LAUNCH (Paddle) in index.html, pdf/index.html or desk/index.html." >&2
 fi
 exit $status
