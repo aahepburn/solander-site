@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solander is two Mac apps for preparing documents before you share them. Solander PDF redacts PDFs, scans and images and shows the metadata and hidden content they contain. Solander Desk removes hidden content from Word, Excel and LibreOffice documents and keeps them editable. Both work entirely on your Mac.">
+    <meta name="description" content="Redact PDFs and remove hidden content from Word and Excel files, offline, entirely on your Mac. Nothing is uploaded, and every file is checked before you send it. For court filings, FOI and Woo requests, and subject access requests.">
     <meta name="author" content="Quiet Signals Lab">
-    <title>Solander — redact PDFs and clean Office documents on your Mac</title>
+    <title>Solander — document redaction for Mac: PDF, Word and Excel</title>
 
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
@@ -29,26 +29,50 @@
 
 <main class="sl">
 
-    <!-- Hero -->
+    <!-- Hero. The copy follows COPY_GUIDE.md §4: one proposition, the buyer's words, and
+         nothing about how the software works. -->
     <section class="sl-hero sl-hero-text">
         <div>
-            <p class="sl-eyebrow">Mac apps for document privacy</p>
-            <h1>Redact PDFs and clean Office documents on your Mac.</h1>
-            <p class="sl-lede">Solander is two apps for preparing documents before you share them. Solander PDF redacts PDFs, scans and images, and shows the metadata and hidden content each file contains. Solander Desk removes hidden content from Word, Excel and LibreOffice documents and keeps them editable. Both check the file after exporting it, and neither sends your documents anywhere.</p>
+            <p class="sl-eyebrow">Document redaction for Mac</p>
+            <h1>Redaction that never leaves your Mac.</h1>
+            <p class="sl-lede">PDF, Word and Excel. Offline, and checked before you send.</p>
             <div class="sl-cta">
-                <a href="/pdf/" class="sl-btn-quiet">Solander PDF</a>
-                <a href="/desk/" class="sl-btn-quiet">Solander Desk</a>
+                <!-- AT LAUNCH: replace the mailto below with a link to /pdf/ ("Download free"),
+                     where the Download buttons are checked against the appcast. -->
+                <a href="mailto:hello@quietsignalslab.com?subject=Solander%20%E2%80%94%20tell%20me%20when%20it%20launches" class="appstore-badge">Email me at launch</a>
+                <a href="#pricing" class="sl-btn-quiet">See pricing</a>
             </div>
-            <p class="sl-fine">Launching soon. Each app is free for one document at a time, with no account and no time limit.</p>
+            <p class="sl-fine">Free for one document at a time. No account.</p>
         </div>
     </section>
 
-    <!-- The two apps. The drawings are the apps' own marks, not screenshots, so they cannot
-         misrepresent either interface: black redactions and a blue selection for PDF; a tracked
-         deletion, a comment and a hidden column for Desk. -->
+    <!-- Who it's for -->
+    <section class="sl-section" id="uses">
+        <p class="sl-kicker">Who it&rsquo;s for</p>
+        <div class="sl-grid">
+            <article class="sl-card">
+                <h3>Court filings and disclosure</h3>
+                <p>Redact PDFs for filing or disclosure, with a reason on each redaction, Bates numbers and a privilege log.</p>
+            </article>
+            <article class="sl-card">
+                <h3>FOI and Woo requests</h3>
+                <p>Mark each redaction with the exemption it relies on, and release the documents with a redaction log.</p>
+            </article>
+            <article class="sl-card">
+                <h3>Subject access requests</h3>
+                <p>Remove other people&rsquo;s names and details from the records you send to the person who asked for them.</p>
+            </article>
+            <article class="sl-card">
+                <h3>Sharing documents with AI tools</h3>
+                <p>Replace names in Word and Excel files with placeholders before you paste them into an AI tool, and put the names back in the reply. This is part of Solander Desk, coming soon.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Products. The drawings are the apps' own marks, not screenshots, so they cannot
+         misrepresent either interface. -->
     <section class="sl-section" id="apps">
-        <p class="sl-kicker">The apps</p>
-        <h2>Choose the app by the kind of file you are sharing.</h2>
+        <p class="sl-kicker">Products</p>
         <div class="sl-apps">
             <article class="sl-card">
                 <div class="sl-card-art" aria-hidden="true">
@@ -76,16 +100,10 @@
                         <rect x="156" y="92" width="120" height="18" fill="none" stroke="#1B3FD8" stroke-width="2"/>
                     </svg>
                 </div>
-                <p class="sl-eyebrow">Solander PDF</p>
-                <h3>Redaction and metadata review for PDFs, scans and images</h3>
-                <p class="sl-use">Use it when the document you share will be a PDF.</p>
-                <ul>
-                    <li>Finds names, email addresses, phone numbers, ID numbers and dates for you to review, including on scanned pages.</li>
-                    <li>Lists the metadata and hidden content in the original: author and title fields, earlier saved versions, attachments, comments, form data, scripts and location data in images.</li>
-                    <li>Exports a new PDF built from page images, so none of that is carried over, and reads it again to check every redaction.</li>
-                    <li>With a licence: signed reports of what was removed and checked, batch processing and a command-line tool.</li>
-                </ul>
-                <a href="/pdf/" class="sl-card-link">About Solander PDF</a>
+                <p class="sl-eyebrow">Solander PDF &middot; Launching soon</p>
+                <h3>Redact PDFs and scans</h3>
+                <p>Find and redact names, addresses, ID numbers and other personal details in PDFs, scanned pages and images. Solander PDF also lists the metadata and hidden content in the original file, such as author fields, earlier versions and attachments, and leaves it out of the redacted copy.</p>
+                <a href="/pdf/" class="sl-card-link">More about Solander PDF</a>
             </article>
             <article class="sl-card">
                 <div class="sl-card-art" aria-hidden="true">
@@ -115,59 +133,50 @@
                         <rect x="144" y="92" width="82" height="18" fill="none" stroke="#1B3FD8" stroke-width="2"/>
                     </svg>
                 </div>
-                <p class="sl-eyebrow">Solander Desk</p>
-                <h3>Hidden content in Word, Excel and LibreOffice documents</h3>
-                <p class="sl-use">Use it when the document has to stay editable.</p>
-                <ul>
-                    <li>Finds tracked changes, comments, author names, hidden sheets, rows and columns, cached data, links to other files and cropped-out parts of images.</li>
-                    <li>Removes what you choose and keeps the document editable in Word, Excel or LibreOffice.</li>
-                    <li>Checks the exported file again from disk before handing it to you.</li>
-                    <li>With a licence: replaces names with placeholders before you paste a document into an AI assistant, and puts them back in the reply. Batch cleaning.</li>
-                </ul>
-                <a href="/desk/" class="sl-card-link">About Solander Desk</a>
+                <p class="sl-eyebrow">Solander Desk &middot; Coming soon</p>
+                <h3>Remove hidden content from Word, Excel and LibreOffice files</h3>
+                <p>Remove tracked changes, comments and hidden data from Word, Excel and LibreOffice files, and keep them editable. Replace names with placeholders before you share a document with an AI tool, and restore them in the reply.</p>
+                <a href="/desk/" class="sl-card-link">More about Solander Desk</a>
             </article>
         </div>
     </section>
 
-    <!-- Privacy -->
-    <section class="sl-section sl-band">
-        <p class="sl-kicker">Privacy</p>
-        <h2>Your documents stay on your Mac.</h2>
-        <div class="sl-body">
-            <p>Both apps run in Apple&rsquo;s App Sandbox without network access, so macOS blocks the app that opens your files from making any connection. There is no account, telemetry, analytics or crash reporting.</p>
-            <p class="sl-verify">You can check this on your own copy:<br><code>codesign -d --entitlements - /Applications/Solander.app</code><br><code>codesign -d --entitlements - &quot;/Applications/Solander Desk.app&quot;</code></p>
-            <p class="sl-small">In each app, two small helper processes use the network: one checks for updates, and one confirms your licence about once a week. Neither receives a document or anything found in one. The <a href="/privacy.html">privacy notice</a> lists exactly what they send.</p>
-        </div>
-    </section>
-
-    <!-- Limits -->
+    <!-- Three points -->
     <section class="sl-section">
-        <p class="sl-kicker">Limits</p>
-        <h2>What the checks cover</h2>
-        <div class="sl-body">
-            <p>After exporting, each app checks that what you chose to remove is no longer in the file, and that the file is sound. The checks do not show that everything sensitive was found. Detection can miss things, so you review every file. Neither app describes a document as anonymous, compliant or safe, and pseudonymized text is still personal data. The apps are tools and a record of what they did, not legal advice.</p>
-        </div>
+        <p class="sl-kicker">Features</p>
+        <ol class="sl-steps">
+            <li>
+                <h3>Stays on your Mac</h3>
+                <p>Solander works the way desktop software always did: your files stay on your Mac, and everything happens there, offline. The text recognition and detection are modern, and they run on the Mac itself. Nothing is uploaded, and there is no account. <a href="/privacy.html#the-app">How to check this yourself</a></p>
+            </li>
+            <li>
+                <h3>Checks every file before you send it</h3>
+                <p>A black box drawn over text in a PDF can often be moved, or the text under it copied out. Solander PDF writes a new file, reads it again, and shows you any text that is still readable under a redaction. Solander Desk checks each exported file for anything you chose to remove.</p>
+            </li>
+            <li>
+                <h3>Keeps an audit trail</h3>
+                <p>Give each redaction a reason code, such as a US FOIA exemption or a set you install for your own jurisdiction. Solander PDF keeps a redaction log and produces a signed report in PDF and JSON that you can hand over with the documents.</p>
+            </li>
+        </ol>
     </section>
 
     <!-- Pricing -->
     <section class="sl-section" id="pricing">
         <p class="sl-kicker">Pricing</p>
-        <p class="sl-intro">Each licence is a one-time purchase for one person, and includes future versions. Each app is free to use for one document at a time.</p>
+        <p class="sl-intro">Each licence is a one-time purchase for one person, on all of your own Macs, and includes future versions.</p>
         <div class="sl-plans sl-plans-wide">
             <div class="sl-plan">
                 <h3>Free</h3>
                 <p class="sl-price">$0</p>
                 <p class="sl-price-sub">both apps, no time limit</p>
                 <ul>
-                    <li>One document at a time, in either app</li>
-                    <li>Every finding shown</li>
-                    <li>Redact or clean, and export</li>
-                    <li>A check of every export</li>
+                    <li>One document at a time</li>
+                    <li>Find and redact personal details</li>
+                    <li>Every export checked</li>
                     <li>No account, no watermark</li>
                 </ul>
                 <div class="sl-plan-action">
                     <a href="/pdf/" class="sl-btn-quiet">Solander PDF</a>
-                    <a href="/desk/" class="sl-btn-quiet">Solander Desk</a>
                 </div>
             </div>
 
@@ -176,17 +185,18 @@
                 <p class="sl-price">$49</p>
                 <p class="sl-price-sub">one-time, one person</p>
                 <ul>
-                    <li>Batch redaction, with names kept consistent across documents</li>
-                    <li>Signed reports, reason codes and a redaction log</li>
-                    <li>Saved profiles, command-line tool, watch folders</li>
-                    <li>Future versions</li>
+                    <li>Batch redaction</li>
+                    <li>Redaction log with exemption codes</li>
+                    <li>Signed report (PDF and JSON)</li>
+                    <li>Bates numbering and privilege log</li>
+                    <li>Searchable output</li>
+                    <li>Command-line tool and watch folders</li>
                 </ul>
                 <div class="sl-plan-action">
                     <!-- AT LAUNCH (Paddle): replace the element below with
                            <a href="https://..." class="appstore-badge">Buy $49</a>
                          using the Paddle hosted checkout link plus ?price_id=<id> for the Solander PDF price. -->
                     <span class="sl-soon">Coming soon</span>
-                    <a href="/pdf/">About Solander PDF</a>
                 </div>
             </div>
 
@@ -195,18 +205,15 @@
                 <p class="sl-price">$69</p>
                 <p class="sl-price-sub">one-time, one person</p>
                 <ul>
-                    <li>Batch cleaning</li>
-                    <li>Pseudonymize for AI, and restore the reply</li>
-                    <li>Projects, dictionaries and saved profiles</li>
-                    <li>Signed reports</li>
-                    <li>Future versions</li>
+                    <li>Batch processing of Word, Excel and LibreOffice files</li>
+                    <li>Placeholders for AI tools, restored in the reply</li>
+                    <li>Signed report</li>
                 </ul>
                 <div class="sl-plan-action">
                     <!-- AT LAUNCH (Paddle): replace the element below with
                            <a href="https://..." class="appstore-badge">Buy $69</a>
                          using the Paddle hosted checkout link plus ?price_id=<id> for the Solander Desk price. -->
-                    <span class="sl-soon">In development</span>
-                    <a href="/desk/">About Solander Desk</a>
+                    <span class="sl-soon">Coming soon</span>
                 </div>
             </div>
 
@@ -217,8 +224,7 @@
                 <ul>
                     <li>Solander PDF and Solander Desk</li>
                     <li>One licence file for both apps</li>
-                    <li>If you own one app already, you pay the difference</li>
-                    <li>Future versions of both</li>
+                    <li>If you own one app, pay the difference</li>
                 </ul>
                 <div class="sl-plan-action">
                     <!-- AT LAUNCH (Paddle): replace the element below with
@@ -227,53 +233,56 @@
                            <a href="/upgrade/">Upgrade from Solander PDF or Desk</a>
                          The upgrade page checks the licence before making a checkout; the
                          upgrade price itself never appears on this site. -->
-                    <span class="sl-soon">Coming with Solander Desk</span>
+                    <span class="sl-soon">Coming soon</span>
                 </div>
             </div>
         </div>
 
-        <p class="sl-note"><strong>Launching soon.</strong> Solander PDF goes on sale first. Solander Desk and the Suite are not on sale yet; they follow when Solander Desk is released, at the prices shown. Prices are in USD, with sales tax or VAT added at checkout where applicable. Orders are processed by Paddle.com Market Ltd, the merchant of record, who issue your invoice. Your licence arrives by email as a file you double-click to install; a Suite licence is one file, installed in each app. Refunds within 14 days, no reason needed &mdash; see <a href="/refunds.html">Refunds</a> and <a href="/terms.html">Terms</a>.</p>
+        <p class="sl-note">Solander PDF goes on sale first. Solander Desk and the Suite follow when Solander Desk is released, at the prices shown. Prices are in USD, with sales tax or VAT added at checkout where applicable. Orders are processed by Paddle.com Market Ltd, the merchant of record, who issue your invoice. Your licence arrives by email as a file you double-click to install. Refunds within 14 days, no reason needed; see <a href="/refunds.html">Refunds</a> and <a href="/terms.html">Terms</a>.</p>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ. The limits of detection are stated here and only here (COPY_GUIDE.md §2.6). -->
     <section class="sl-section" id="faq">
-        <p class="sl-kicker">Questions</p>
+        <p class="sl-kicker">FAQ</p>
         <div class="sl-faq">
             <details>
+                <summary>Does it find everything that should be redacted?</summary>
+                <p>No. Solander PDF finds common personal details such as names, email addresses, phone numbers and ID numbers, but it misses some, especially names, addresses and text in non-Latin scripts. You review every page and can add redactions yourself. The check after export confirms that what you redacted can no longer be read; whether anything else should have been redacted is your decision. Text replaced with placeholders in Solander Desk is still personal data under the GDPR.</p>
+            </details>
+            <details>
+                <summary>Is the redacted PDF searchable?</summary>
+                <p>By default, no. Solander PDF saves each page as an image, so its text can&rsquo;t be selected or searched. With a licence you can turn on searchable output: Solander PDF reads the redacted pages again and adds a hidden text layer, which is checked along with the pages. The text layer supports Western European characters only.</p>
+            </details>
+            <details>
+                <summary>Does anything go online?</summary>
+                <p>Two small helper processes connect to the internet: one checks for updates, and one confirms your licence about once a week. Neither receives your documents or anything found in them. The privacy notice lists <a href="/privacy.html#updates">exactly what they send</a>.</p>
+            </details>
+            <details>
+                <summary>Can I use it without an internet connection?</summary>
+                <p>Yes. Everything Solander does with your documents happens offline. If the licence check can&rsquo;t connect, the paid features keep working for 30 days. A Mac that is never online can be activated with a code instead, which you enter on a web page from your phone or another computer.</p>
+            </details>
+            <details>
                 <summary>Which app do I need?</summary>
-                <p>If the result will be a PDF &mdash; a disclosure, a published document, a scan or a screenshot &mdash; use Solander PDF. If the file has to stay a Word, Excel or LibreOffice document, for example a draft contract or a workbook you send to a client, use Solander Desk. If you do both, the Suite covers both apps.</p>
+                <p>Solander PDF for PDFs, scans and images, where the result is a PDF. Solander Desk for Word, Excel and LibreOffice files that need to stay editable. The Suite covers both.</p>
             </details>
             <details>
-                <summary>Do my documents go anywhere?</summary>
-                <p>No. In both apps, the app that opens them has no network access, enforced by macOS. Update checks and licence confirmation run in separate helper processes that never receive document data.</p>
-            </details>
-            <details>
-                <summary>Why two apps rather than one?</summary>
-                <p>The two jobs work differently. Solander PDF rebuilds every page as an image, so nothing is left underneath, and the result is no longer editable. Solander Desk keeps a Word, Excel or LibreOffice file editable, so it works inside the file&rsquo;s own structure and checks every part of it.</p>
-            </details>
-            <details>
-                <summary>Do I have to buy anything to try them?</summary>
-                <p>No. Each app is free for one document at a time, with no time limit and no account. A licence adds working on many documents at once, signed reports and automation, and in Solander Desk, pseudonymizing for AI.</p>
-            </details>
-            <details>
-                <summary>I already own Solander PDF. Do I pay full price for the Suite?</summary>
-                <p>No. You pay the difference, and your new Suite licence works in both apps. Your existing licence keeps working too. You will need the licence ID from your licence email and the address it was sent to.</p>
+                <summary>I already own one app. Do I pay full price for the Suite?</summary>
+                <p>No. You pay the difference, and your new Suite licence works in both apps. You will need the licence ID from your licence email and the address it was sent to.</p>
             </details>
             <details>
                 <summary>Is there a subscription?</summary>
-                <p>No. A licence is bought once and includes future versions. About once a week a helper process confirms the purchase has not been refunded; if it cannot reach us, the licensed features keep working for 30 days, and a Mac that is never online can be activated offline.</p>
+                <p>No. You pay once, and the licence includes future versions.</p>
             </details>
             <details>
-                <summary>What happens if I ask for a refund?</summary>
-                <p>The licence is deactivated and the licensed features stop. Free mode keeps working as before, and everything you have already produced is untouched. See <a href="/refunds.html">Refunds</a>.</p>
+                <summary>Can I get a refund?</summary>
+                <p>Yes, within 14 days, with no reason needed. The licence is then deactivated; free mode keeps working, and the files you have already produced are untouched. See <a href="/refunds.html">Refunds</a>.</p>
+            </details>
+            <details>
+                <summary>Which Macs does it run on?</summary>
+                <p>macOS 14 Sonoma or later, on Apple Silicon and Intel Macs. The apps are signed and notarised by Apple.</p>
             </details>
         </div>
-        <p class="sl-support">Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander">hello@quietsignalslab.com</a>. Please do not send a document you needed to clean or redact; a description of the problem is enough.</p>
-    </section>
-
-    <section class="sl-final">
-        <p class="sl-fine">macOS 14 Sonoma or later &middot; Apple Silicon and Intel &middot; Signed and notarised</p>
-        <p class="sl-category">Solander apps are document redaction and cleaning software. They are not identity-theft protection, device security software, or legal advice, and they do not determine whether a disclosure meets any legal obligation.</p>
+        <p class="sl-support">Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander">hello@quietsignalslab.com</a>. Please describe the problem rather than sending the document.</p>
     </section>
 
 </main>

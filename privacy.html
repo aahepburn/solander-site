@@ -38,7 +38,7 @@
     Your documents never leave your Mac, because the app that opens them cannot open a network connection. If you buy a licence, we hold your email address and a licence record, and a helper process confirms about once a week that the purchase has not been refunded.
   </p>
 
-<h2>The app</h2>
+<h2 id="the-app">The app</h2>
 
 <p>
   Solander runs in Apple's App Sandbox <strong>without</strong> the network client entitlement. This is enforced by macOS, not by our policy: the operating system will refuse an outbound connection regardless of what the code asks for.
@@ -58,7 +58,7 @@
   Documents you open stay in memory or in the location you choose to save to, with these exceptions, all inside the app's own sandbox container: in Solander PDF, page images held while you work, deleted when the session ends, and batch progress, which is encrypted and deleted when the batch finishes or you discard it; in Solander Desk, the pseudonymization mappings described below.
 </p>
 
-<h2>Updates and licence validation</h2>
+<h2 id="updates">Updates and licence validation</h2>
 
 <p>
   Two helper processes, both separate from the app that opens your documents, use the network. Neither receives a document, a page image, a filename, or anything Solander detected.
