@@ -4,17 +4,16 @@
  * repo), so the tokens below are the app's, value for value, in both appearances. Change one
  * there, change it here.
  *
- * The rules, carried over from the app and read through Bauhaus:
- * - Colour carries meaning, never mood. Ink and paper do the work. Blue is what you can act on
- *   (links, focus; in the app, your selection). Amber is "look at this, not yet" (in the app,
- *   text nobody could read). Red is a failure and appears only when something failed.
+ * The rules, carried over from the app:
+ * - Quiet. Hierarchy comes from weight, size and space, not from contrast. Headings are
+ *   modest, paragraphs are secondary ink, and there are no large black areas.
+ * - Colour carries meaning, never mood. Blue is what you can act on (links, focus; in the app,
+ *   your selection). Amber is "not yet" (in the app, text nobody could read). Red is a failure.
  * - One grid: twelve columns, and a 4px module under every dimension.
- * - Type from the system, as in the app: SF Pro for words, SF Mono for machine data and
- *   numbers. Hierarchy from weight, case and space. Nothing loaded from anywhere.
- * - No ornament: no shadows, gradients or rounded corners. Planes are separated by rules: a
- *   heavy ink rule opens a section, a hairline divides within one.
- * - The motif is the redaction itself: a black rectangle. The square marker is the app's
- *   finding marker.
+ * - Type from the system, as in the app: SF Pro for words, SF Mono for machine data. Nothing
+ *   loaded from anywhere.
+ * - No ornament: no shadows, gradients or rounded corners. Planes are separated by hairlines,
+ *   or set on the app's ground grey.
  */
 
 :root {
@@ -37,8 +36,7 @@
     --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 
     --gutter: 32px;
-    --max: 1200px;
-    --heavy: 4px;
+    --max: 1120px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -66,12 +64,11 @@ html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
     background: var(--paper);
     color: var(--ink);
-    font: 400 17px/1.55 var(--sans);
+    font: 400 16px/1.6 var(--sans);
     -webkit-font-smoothing: antialiased;
 }
 
 a { color: var(--selected); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--selected); outline-offset: 2px; }
 
 strong { font-weight: 600; }
@@ -86,16 +83,16 @@ code, .sc-mono {
 }
 
 /* The app's section label: uppercase, tracked, semibold, secondary ink. */
-.sl-kicker, .sl-eyebrow, .page-label, .nav-links a, .footer-links a, .sl-which th, .sl-tag {
-    font: 600 12px/1.4 var(--sans);
+.sl-kicker, .sl-eyebrow, .page-label, .nav-links a, .footer-links a, .sl-tag {
+    font: 600 11px/1.4 var(--sans);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--ink-2);
+    color: var(--ink-3);
 }
 
 /* ---- Header ---------------------------------------------------------------------- */
 
-header { border-bottom: 1px solid var(--rule); background: var(--paper); }
+header { border-bottom: 1px solid var(--rule); }
 
 nav {
     max-width: var(--max);
@@ -112,14 +109,13 @@ nav {
 .nav-brand {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font: 700 17px/1 var(--display);
-    letter-spacing: -0.01em;
+    gap: 8px;
+    font: 600 16px/1 var(--display);
     color: var(--ink);
     text-decoration: none;
 }
 /* A redaction: the brand mark is the thing the product makes. */
-.nav-brand::before { content: ""; width: 20px; height: 10px; background: var(--ink); }
+.nav-brand::before { content: ""; width: 14px; height: 7px; background: var(--ink); }
 
 .nav-links { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 24px; }
 .nav-links a { text-decoration: none; display: inline-block; padding: 8px 0; }
@@ -127,31 +123,14 @@ nav {
 
 /* ---- Page frame ------------------------------------------------------------------ */
 
-main.sl {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 0 var(--gutter);
-    counter-reset: section;
-}
+main.sl { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 
-h1, h2, h3 { font-family: var(--display); color: inherit; text-wrap: balance; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; color: var(--ink); text-wrap: balance; }
+h1 { font-size: clamp(1.875rem, 1.4rem + 1.6vw, 2.625rem); line-height: 1.15; letter-spacing: -0.02em; }
+h2 { font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.015em; }
+h3 { font-size: 1.0625rem; line-height: 1.35; }
 
-h1 {
-    font-size: clamp(2.5rem, 1.5rem + 4vw, 4.75rem);
-    font-weight: 700;
-    line-height: 1.02;
-    letter-spacing: -0.035em;
-}
-
-h2 {
-    font-size: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-    max-width: 26ch;
-}
-
-h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
+p, li { color: var(--ink-2); }
 
 /* ---- Hero ------------------------------------------------------------------------ */
 
@@ -160,143 +139,126 @@ h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.3; letter-spacing: -0
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: 24px;
     align-items: center;
-    padding: 80px 0 96px;
+    padding: 72px 0 80px;
 }
 .sl-hero > :first-child { grid-column: 1 / 8; }
-.sl-hero-art { grid-column: 8 / -1; }
+.sl-hero-art { grid-column: 9 / -1; }
+/* The family page has no drawing in its hero: the two apps below carry one each. */
+.sl-hero-text > :first-child { grid-column: 1 / 10; }
 
-.sl-eyebrow { margin-bottom: 20px; }
-.sl-hero h1 { margin-bottom: 28px; }
+.sl-eyebrow { margin-bottom: 16px; }
+.sl-hero h1 { margin-bottom: 20px; }
 
-.sl-lede { font-size: 1.25rem; line-height: 1.5; max-width: 34em; }
+.sl-lede { font-size: 1.125rem; line-height: 1.6; max-width: 36em; }
 
-.sl-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.sl-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
-.sl-fine {
-    font: 400 12px/1.6 var(--mono);
-    color: var(--ink-3);
-    margin-top: 20px;
-    max-width: 48em;
-}
+.sl-fine { font: 400 12px/1.6 var(--mono); color: var(--ink-3); margin-top: 20px; max-width: 52em; }
 
-/* The drawn page sits on the ground, as a document sits on the app's canvas. */
-.sl-hero-art {
-    background: var(--ground);
-    padding: 40px 32px;
-    display: flex;
-    justify-content: center;
-}
-.sl-hero-art svg { width: 100%; max-width: 360px; height: auto; display: block; }
+/* A drawn page on the ground, as a document sits on the app's canvas. */
+.sl-hero-art, .sl-card-art { background: var(--ground); padding: 32px; display: flex; justify-content: center; }
+.sl-hero-art svg, .sl-card-art svg { width: 100%; max-width: 260px; height: auto; display: block; }
 
 /* ---- Buttons --------------------------------------------------------------------- */
 
-/* Square, flat, one weight of border: the app's SolanderButtonStyle at a size a finger
- * can hit. `.appstore-badge` is the prominent one. */
+/* Square and flat, as the app's SolanderButtonStyle; one prominent action per group. */
 .appstore-badge, .sl-btn-quiet, .sl-soon {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    min-height: 44px;
-    padding: 0 20px;
-    font: 500 15px/1.2 var(--sans);
+    gap: 8px;
+    min-height: 40px;
+    padding: 0 16px;
+    font: 500 14px/1.2 var(--sans);
     text-decoration: none;
     border: 1px solid var(--ink);
 }
 .appstore-badge { background: var(--ink); color: var(--paper); }
-.appstore-badge:hover { text-decoration: none; opacity: 0.85; }
+.appstore-badge:hover { opacity: 0.85; }
 .sl-btn-quiet { background: var(--paper); color: var(--ink); border-color: var(--rule); }
-.sl-btn-quiet:hover { border-color: var(--ink); }
+.sl-btn-quiet:hover { border-color: var(--ink-3); }
 
-/* Where a Buy or Download button will stand. Not a link. Amber, the app's "not yet
- * resolved" colour, on the marker only. */
-.sl-soon { border-color: var(--rule); color: var(--ink-2); cursor: default; }
-.sl-soon::before { content: ""; width: 8px; height: 8px; background: var(--attention); flex: none; }
+/* Where a Buy or Download button will stand. Not a link. Amber on the marker only. */
+.sl-soon { background: transparent; border-color: var(--rule); color: var(--ink-2); cursor: default; }
+.sl-soon::before { content: ""; width: 6px; height: 6px; background: var(--attention); flex: none; }
 
 /* ---- Sections -------------------------------------------------------------------- */
 
-/* Asymmetric: the numbered label holds the left quarter, the content the rest. */
+/* The label holds the left quarter, the content the rest. */
 .sl-section {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: 24px;
-    border-top: var(--heavy) solid var(--ink);
-    padding: 40px 0 112px;
-    counter-increment: section;
+    border-top: 1px solid var(--rule);
+    padding: 56px 0 72px;
 }
-/* A page with no hero (the upgrade page) still needs air between the nav and the rule. */
-main.sl > .sl-section:first-child { margin-top: 64px; }
 .sl-section > * { grid-column: 4 / -1; }
-.sl-section > .sl-kicker { grid-column: 1 / 4; padding-top: 10px; padding-right: 24px; }
-.sl-section > h2 { margin-bottom: 48px; }
-
-.sl-kicker::before {
-    content: counter(section, decimal-leading-zero);
-    display: block;
-    font: 500 13px/1 var(--mono);
-    letter-spacing: 0;
-    color: var(--ink);
-    margin-bottom: 12px;
-}
+.sl-section > .sl-kicker { grid-column: 1 / 4; padding-top: 6px; padding-right: 24px; }
+.sl-section > h2 { margin-bottom: 12px; }
+.sl-section > h2 + :not(p) { margin-top: 16px; }
+.sl-intro { max-width: 40em; margin-bottom: 32px; }
+/* A page with no hero (the upgrade page) still needs air between the nav and the rule. */
+main.sl > .sl-section:first-child { margin-top: 48px; }
 
 .sl-body { max-width: 40em; }
 .sl-body p + p { margin-top: 16px; }
 
-/* Features: columns under a rule, no boxes. */
-.sl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 40px; }
-.sl-card { border-top: 2px solid var(--ink); padding-top: 20px; }
-.sl-card .sl-eyebrow { margin-bottom: 12px; font-size: 12px; color: var(--ink-2); }
-.sl-card h3 { margin-bottom: 12px; }
-.sl-card p { color: var(--ink-2); font-size: 16px; }
-.sl-card-link { display: inline-block; margin-top: 20px; font-weight: 500; }
+/* Features: columns under a hairline, no boxes. */
+.sl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 40px; }
+.sl-card { border-top: 1px solid var(--rule); padding-top: 20px; }
+.sl-card h3 { margin-bottom: 8px; }
+.sl-card p { font-size: 15px; }
+.sl-card-link { display: inline-block; margin-top: 16px; font-size: 15px; }
+
+/* The two apps on the family page: a drawing each, then what the app does. */
+.sl-apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.sl-apps .sl-card { border-top: 0; padding-top: 0; }
+.sl-card-art { margin-bottom: 24px; padding: 28px; }
+.sl-card-art svg { max-width: 200px; }
+.sl-card .sl-eyebrow { margin-bottom: 8px; font-size: 11px; color: var(--ink-3); }
+.sl-card .sl-use { margin-bottom: 16px; }
+.sl-card ul { list-style: none; font-size: 15px; }
+.sl-card li, .sl-plan li { position: relative; padding-left: 16px; }
+.sl-card li + li, .sl-plan li + li { margin-top: 8px; }
+.sl-card li::before, .sl-plan li::before {
+    content: ""; position: absolute; left: 0; top: 0.62em; width: 5px; height: 5px; background: var(--ink-3);
+}
 
 .sl-tag {
     display: inline-block;
-    font-size: 11px;
+    font-size: 10px;
     border: 1px solid var(--rule);
-    padding: 2px 6px;
-    margin-left: 8px;
+    padding: 1px 5px;
+    margin-left: 6px;
     vertical-align: 2px;
 }
 
-/* "Which one do I need?" */
-.sl-which { width: 100%; border-collapse: collapse; font-size: 16px; }
-.sl-which th { text-align: left; padding: 0 0 12px; border-bottom: 2px solid var(--ink); }
-.sl-which td { padding: 16px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
-.sl-which th:last-child, .sl-which td:last-child { padding-left: 24px; }
-.sl-which td:last-child { font-weight: 600; white-space: nowrap; }
-
-/* Private by design: the one inverted plane, ink edge to edge. */
+/* Privacy: set on the ground, edge to edge. */
 .sl-band {
-    background: var(--ink);
-    color: var(--paper);
-    border-top-color: var(--ink);
-    box-shadow: 0 0 0 100vmax var(--ink);
+    background: var(--ground);
+    border-top-color: transparent;
+    box-shadow: 0 0 0 100vmax var(--ground);
     clip-path: inset(0 -100vmax);
 }
-.sl-band .sl-kicker, .sl-band .sl-kicker::before, .sl-band .sl-small { color: inherit; }
-.sl-band .sl-kicker, .sl-band .sl-small { opacity: 0.72; }
-.sl-band a { color: inherit; }
-/* The band's own edge divides it from what follows; a rule under it would only notch it. */
 .sl-band + .sl-section { border-top-color: transparent; }
-.sl-band code { background: transparent; border-color: color-mix(in srgb, var(--paper) 35%, var(--ink)); }
+.sl-band code { background: var(--paper); }
 
-.sl-verify { font-size: 15px; line-height: 2.1; margin: 24px 0; }
+.sl-verify { font-size: 15px; line-height: 2; margin: 20px 0; }
 /* A command is copied whole, so it scrolls inside its box rather than breaking. */
 .sl-verify code { display: inline-block; max-width: 100%; overflow-x: auto; white-space: nowrap; vertical-align: bottom; line-height: 1.6; }
-.sl-small { font-size: 14px; color: var(--ink-2); }
+.sl-small { font-size: 14px; }
 
-/* How it works: numbered like a poster. */
-.sl-steps { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
-.sl-steps li { counter-increment: step; border-top: 2px solid var(--ink); padding-top: 16px; }
+/* How it works. */
+.sl-steps { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.sl-steps li { counter-increment: step; border-top: 1px solid var(--rule); padding-top: 16px; }
 .sl-steps li::before {
-    content: counter(step);
+    content: counter(step, decimal-leading-zero);
     display: block;
-    font: 700 64px/1 var(--display);
-    letter-spacing: -0.04em;
-    margin-bottom: 20px;
+    font: 400 12px/1 var(--mono);
+    color: var(--ink-3);
+    margin-bottom: 12px;
 }
-.sl-steps h3 { margin-bottom: 8px; }
-.sl-steps p { color: var(--ink-2); font-size: 16px; }
+.sl-steps h3 { margin-bottom: 6px; }
+.sl-steps p { font-size: 15px; }
 
 /* ---- Pricing --------------------------------------------------------------------- */
 
@@ -304,7 +266,7 @@ main.sl > .sl-section:first-child { margin-top: 64px; }
 .sl-plans {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    border-top: 2px solid var(--ink);
+    border-top: 1px solid var(--rule);
     border-left: 1px solid var(--rule);
 }
 .sl-plans-wide { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -312,35 +274,19 @@ main.sl > .sl-section:first-child { margin-top: 64px; }
 .sl-plan {
     display: flex;
     flex-direction: column;
-    padding: 24px 24px 28px;
+    padding: 24px;
     border-right: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
 }
-.sl-price {
-    font: 700 56px/1 var(--display);
-    letter-spacing: -0.04em;
-    font-variant-numeric: tabular-nums;
-    margin-top: 20px;
-}
-.sl-price-sub { font: 400 12px/1.5 var(--mono); color: var(--ink-3); margin: 10px 0 24px; }
-
-.sl-plan ul { list-style: none; font-size: 15px; }
-.sl-plan li { position: relative; padding-left: 18px; }
-.sl-plan li + li { margin-top: 8px; }
-.sl-plan li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 7px; height: 7px; background: currentColor; }
-
-.sl-plan-action { margin-top: auto; padding-top: 28px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.sl-price { font: 600 36px/1 var(--display); letter-spacing: -0.02em; color: var(--ink); margin-top: 16px; }
+.sl-price-sub { font: 400 12px/1.5 var(--mono); color: var(--ink-3); margin: 8px 0 20px; }
+.sl-plan ul { list-style: none; font-size: 14px; }
+.sl-plan-action { margin-top: auto; padding-top: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
 .sl-plan-action a:not([class]) { font-size: 14px; }
+/* The Suite: set on the ground. */
+.sl-plan-main { background: var(--ground); }
 
-/* The Suite: the inverted column. */
-.sl-plan-main { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.sl-plan-main .sl-price-sub { color: inherit; opacity: 0.72; }
-.sl-plan-main a:not([class]) { color: inherit; }
-.sl-plan-main .appstore-badge { background: var(--paper); color: var(--ink); border-color: var(--paper); }
-.sl-plan-main .sl-soon { color: inherit; border-color: color-mix(in srgb, var(--paper) 35%, var(--ink)); }
-
-.sl-note { font-size: 14px; color: var(--ink-2); max-width: 52em; margin-top: 32px; }
-.sl-note strong { color: var(--ink); }
+.sl-note { font-size: 14px; max-width: 52em; margin-top: 24px; }
 
 /* ---- FAQ ------------------------------------------------------------------------- */
 
@@ -352,117 +298,111 @@ main.sl > .sl-section:first-child { margin-top: 64px; }
     display: flex;
     justify-content: space-between;
     gap: 24px;
-    padding: 20px 0;
-    font: 600 17px/1.4 var(--display);
+    padding: 16px 0;
+    font: 500 16px/1.4 var(--sans);
+    color: var(--ink);
 }
 .sl-faq summary::-webkit-details-marker { display: none; }
-.sl-faq summary::after { content: "+"; font: 400 22px/1 var(--mono); }
+.sl-faq summary::after { content: "+"; font: 400 18px/1 var(--mono); color: var(--ink-3); }
 .sl-faq details[open] summary::after { content: "\2212"; }
-.sl-faq details p { color: var(--ink-2); max-width: 44em; padding-bottom: 24px; }
-.sl-support { font-size: 15px; color: var(--ink-2); margin-top: 32px; max-width: 46em; }
+.sl-faq details p { max-width: 44em; padding-bottom: 20px; font-size: 15px; }
+.sl-support { font-size: 14px; margin-top: 24px; max-width: 46em; }
 
 /* ---- Closing --------------------------------------------------------------------- */
 
-.sl-final { border-top: var(--heavy) solid var(--ink); padding: 96px 0 112px; }
-.sl-final h2 { font-size: clamp(2.25rem, 1.4rem + 3vw, 4rem); letter-spacing: -0.035em; max-width: 18ch; }
-.sl-final .sl-cta { margin-top: 32px; }
-.sl-category { font-size: 13px; color: var(--ink-3); max-width: 52em; margin-top: 40px; }
+.sl-final { border-top: 1px solid var(--rule); padding: 40px 0 56px; }
+.sl-category { font-size: 13px; color: var(--ink-3); max-width: 52em; margin-top: 12px; }
 
 /* ---- Forms (the upgrade page) ---------------------------------------------------- */
 
-.sl-form { display: grid; gap: 8px; max-width: 26rem; margin-top: 40px; }
-.sl-form label { font-size: 14px; font-weight: 600; margin-top: 12px; }
+.sl-form { display: grid; gap: 8px; max-width: 26rem; margin-top: 32px; }
+.sl-form label { font-size: 14px; font-weight: 500; color: var(--ink); margin-top: 12px; }
 .sl-form input {
     font: 400 16px/1.4 var(--sans);
-    padding: 11px 12px;
+    padding: 9px 12px;
     border: 1px solid var(--rule);
     border-radius: 0;
     background: var(--paper);
     color: var(--ink);
 }
 .sl-form input:focus { outline: 2px solid var(--selected); outline-offset: -1px; border-color: var(--selected); }
-.sl-form button { justify-self: start; margin-top: 20px; cursor: pointer; }
+.sl-form button { justify-self: start; margin-top: 16px; cursor: pointer; }
 .sl-form button:disabled { opacity: 0.6; cursor: default; }
 .sl-form [role="alert"] { color: var(--failure); font-size: 15px; margin-top: 8px; }
 
 /* ---- Legal pages ----------------------------------------------------------------- */
 
-.prose { max-width: var(--max); margin: 0 auto; padding: 64px var(--gutter) 112px; }
+.prose { max-width: var(--max); margin: 0 auto; padding: 56px var(--gutter) 96px; }
 .prose > * { max-width: 44rem; }
-.prose .page-label { margin-bottom: 16px; }
-.prose h1 { font-size: clamp(2.25rem, 1.6rem + 2.4vw, 3.5rem); margin-bottom: 16px; max-width: 16em; }
+.prose .page-label { margin-bottom: 12px; }
+.prose h1 { margin-bottom: 12px; }
 .prose .page-meta {
     font: 400 12px/1.6 var(--mono);
     color: var(--ink-3);
-    padding-bottom: 32px;
-    border-bottom: var(--heavy) solid var(--ink);
-    max-width: none;
-    margin-bottom: 40px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 32px;
 }
-.prose .lede { font-size: 1.1875rem; line-height: 1.55; margin-bottom: 16px; }
+.prose .lede { font-size: 1.0625rem; color: var(--ink); margin-bottom: 16px; }
 /* The app's SectionLabel: uppercase, tracked, hairline beneath. */
 .prose h2 {
-    font: 600 12px/1.4 var(--sans);
+    font: 600 11px/1.4 var(--sans);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--ink-2);
+    color: var(--ink-3);
     padding-bottom: 8px;
     border-bottom: 1px solid var(--rule);
-    margin: 48px 0 16px;
+    margin: 40px 0 16px;
 }
-.prose p { line-height: 1.65; margin-bottom: 16px; }
-.prose ul, .prose ol { margin: 0 0 16px 20px; line-height: 1.65; }
+.prose p { margin-bottom: 16px; }
+.prose ul, .prose ol { margin: 0 0 16px 20px; }
 
 .constraint-box {
     background: var(--ground);
-    border-left: var(--heavy) solid var(--ink);
+    border-left: 2px solid var(--ink-3);
     padding: 16px 20px;
     margin: 24px 0;
     font-size: 15px;
-    line-height: 1.65;
+    color: var(--ink-2);
 }
-.constraint-box strong { display: block; margin-bottom: 4px; }
+.constraint-box strong { display: block; margin-bottom: 4px; color: var(--ink); }
 .constraint-box code { background: var(--paper); }
 
 /* ---- Footer ---------------------------------------------------------------------- */
 
-footer { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) 64px; }
+footer { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) 56px; }
 .footer-links {
     display: flex;
     flex-wrap: wrap;
     gap: 4px 24px;
-    margin-bottom: 24px;
-    padding-top: 32px;
+    margin-bottom: 20px;
+    padding-top: 28px;
     border-top: 1px solid var(--rule);
 }
 .footer-links a { text-decoration: none; display: inline-block; padding: 8px 0; }
 .footer-links a:hover { color: var(--ink); }
-.footer-meta { font: 400 12px/1.7 var(--mono); color: var(--ink-3); }
+.footer-meta p { font: 400 12px/1.7 var(--mono); color: var(--ink-3); }
 .footer-meta a { color: inherit; }
 
 /* ---- Narrow ---------------------------------------------------------------------- */
 
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
     .sl-plans-wide { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-@media (max-width: 860px) {
-    .sl-hero { padding: 48px 0 64px; row-gap: 48px; }
+@media (max-width: 800px) {
+    .sl-hero { padding: 48px 0 56px; row-gap: 40px; }
     .sl-hero > :first-child, .sl-hero-art,
     .sl-section > *, .sl-section > .sl-kicker { grid-column: 1 / -1; }
-    .sl-section { padding: 32px 0 80px; }
-    .sl-section > .sl-kicker { padding: 0 0 16px; }
-    .sl-section > h2 { margin-bottom: 32px; }
-    .sl-grid, .sl-steps { grid-template-columns: 1fr; gap: 40px; }
+    .sl-section { padding: 40px 0 56px; }
+    .sl-section > .sl-kicker { padding: 0 0 12px; }
+    .sl-grid, .sl-apps, .sl-steps { grid-template-columns: 1fr; }
     .sl-plans, .sl-plans-wide { grid-template-columns: 1fr; }
-    .sl-which td:last-child { white-space: normal; }
-    .sl-final { padding: 64px 0 80px; }
 }
 
 @media (max-width: 600px) {
     :root { --gutter: 16px; }
-    body { font-size: 16px; }
-    .sl-lede { font-size: 1.125rem; }
-    .sl-hero-art { padding: 24px 16px; }
+    .sl-lede { font-size: 1.0625rem; }
+    .sl-hero-art, .sl-card-art { padding: 24px 16px; }
     .prose { padding-top: 40px; }
 }

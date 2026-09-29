@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solander is a family of Mac apps for sharing documents without what is hidden in them. Solander PDF redacts PDFs and scans; Solander Desk cleans Word, Excel and LibreOffice files and keeps them editable. Both check their own work, and nothing leaves your Mac.">
+    <meta name="description" content="Solander is two Mac apps for preparing documents before you share them. Solander PDF redacts PDFs, scans and images and shows the metadata and hidden content they contain. Solander Desk removes hidden content from Word, Excel and LibreOffice documents and keeps them editable. Both work entirely on your Mac.">
     <meta name="author" content="Quiet Signals Lab">
-    <title>Solander — share documents, not what is hidden in them</title>
+    <title>Solander — redact PDFs and clean Office documents on your Mac</title>
 
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
@@ -30,124 +30,129 @@
 <main class="sl">
 
     <!-- Hero -->
-    <section class="sl-hero">
+    <section class="sl-hero sl-hero-text">
         <div>
-            <p class="sl-eyebrow">Document privacy for macOS</p>
-            <h1>Share the document. Not what&rsquo;s hidden in it.</h1>
-            <p class="sl-lede">Solander is a family of Mac apps that find what a document carries beneath the surface, remove what you choose, and then re-read their own output to check it worked. Everything happens on your Mac.</p>
+            <p class="sl-eyebrow">Mac apps for document privacy</p>
+            <h1>Redact PDFs and clean Office documents on your Mac.</h1>
+            <p class="sl-lede">Solander is two apps for preparing documents before you share them. Solander PDF redacts PDFs, scans and images, and shows the metadata and hidden content each file contains. Solander Desk removes hidden content from Word, Excel and LibreOffice documents and keeps them editable. Both check the file after exporting it, and neither sends your documents anywhere.</p>
             <div class="sl-cta">
-                <a href="/pdf/" class="appstore-badge">Solander PDF</a>
-                <a href="/desk/" class="appstore-badge">Solander Desk</a>
-                <a href="#pricing" class="sl-btn-quiet">See pricing</a>
+                <a href="/pdf/" class="sl-btn-quiet">Solander PDF</a>
+                <a href="/desk/" class="sl-btn-quiet">Solander Desk</a>
             </div>
-            <p class="sl-fine">Launching soon. Each app is free for one document at a time &mdash; no account, no time limit, no watermark.</p>
-        </div>
-
-        <!-- Two documents: a page with redactions for Solander PDF, a draft with a tracked
-             deletion and a comment for Solander Desk, and the check they share. Drawn rather
-             than screenshotted, so it cannot misrepresent either interface. -->
-        <div class="sl-hero-art" aria-hidden="true">
-            <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg">
-                <!-- Behind: an editable draft, with a tracked deletion and a comment -->
-                <rect x="100.5" y="12.5" width="199" height="260" fill="#FFFFFF" stroke="#D8D8D4"/>
-                <g fill="#D8D8D4">
-                    <rect x="124" y="36" width="152" height="6"/>
-                    <rect x="236" y="72" width="40" height="6"/>
-                    <rect x="236" y="90" width="40" height="6"/>
-                </g>
-                <line x1="200" y1="39" x2="280" y2="39" stroke="#101010" stroke-width="1.5"/>
-                <rect x="236.5" y="120.5" width="48" height="32" fill="#FFFFFF" stroke="#101010"/>
-                <rect x="243" y="129" width="34" height="4" fill="#D8D8D4"/>
-                <rect x="243" y="139" width="22" height="4" fill="#D8D8D4"/>
-                <!-- In front: a page with its redactions -->
-                <rect x="20.5" y="60.5" width="199" height="267" fill="#FFFFFF" stroke="#D8D8D4"/>
-                <rect x="40" y="84" width="96" height="10" fill="#C8C8C3"/>
-                <g fill="#D8D8D4">
-                    <rect x="40" y="116" width="160" height="6"/>
-                    <rect x="40" y="134" width="70" height="6"/>
-                    <rect x="40" y="152" width="160" height="6"/>
-                    <rect x="96" y="170" width="104" height="6"/>
-                    <rect x="40" y="206" width="160" height="6"/>
-                    <rect x="40" y="224" width="96" height="6"/>
-                    <rect x="40" y="260" width="160" height="6"/>
-                    <rect x="40" y="278" width="110" height="6"/>
-                </g>
-                <g fill="#000000">
-                    <rect x="118" y="132" width="82" height="10"/>
-                    <rect x="40" y="168" width="48" height="10"/>
-                    <rect x="144" y="222" width="56" height="10"/>
-                </g>
-                <rect x="114" y="128" width="90" height="18" fill="none" stroke="#1B3FD8" stroke-width="2"/>
-                <rect x="28" y="278" width="6" height="6" fill="#8C6309"/>
-                <rect x="20" y="344" width="280" height="36" fill="#101010"/>
-                <text x="36" y="366" fill="#FFFFFF" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="11" letter-spacing="1.2">RE-READ AFTER EVERY EXPORT</text>
-            </svg>
+            <p class="sl-fine">Launching soon. Each app is free for one document at a time, with no account and no time limit.</p>
         </div>
     </section>
 
-    <!-- The two apps -->
+    <!-- The two apps. The drawings are the apps' own marks, not screenshots, so they cannot
+         misrepresent either interface: black redactions and a blue selection for PDF; a tracked
+         deletion, a comment and a hidden column for Desk. -->
     <section class="sl-section" id="apps">
-        <p class="sl-kicker">Two apps, one promise</p>
-        <h2>One redacts what goes out as a PDF. One cleans what has to stay editable. Both check their own work.</h2>
-        <div class="sl-grid">
+        <p class="sl-kicker">The apps</p>
+        <h2>Choose the app by the kind of file you are sharing.</h2>
+        <div class="sl-apps">
             <article class="sl-card">
+                <div class="sl-card-art" aria-hidden="true">
+                    <svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20.5" y="12.5" width="279" height="315" fill="#FFFFFF" stroke="#D8D8D4"/>
+                        <rect x="48" y="44" width="132" height="10" fill="#C8C8C3"/>
+                        <g fill="#D8D8D4">
+                            <rect x="48" y="80" width="224" height="6"/>
+                            <rect x="48" y="98" width="104" height="6"/>
+                            <rect x="48" y="116" width="224" height="6"/>
+                            <rect x="112" y="134" width="160" height="6"/>
+                            <rect x="48" y="170" width="224" height="6"/>
+                            <rect x="48" y="188" width="118" height="6"/>
+                            <rect x="48" y="206" width="224" height="6"/>
+                            <rect x="48" y="242" width="150" height="6"/>
+                            <rect x="48" y="260" width="224" height="6"/>
+                            <rect x="48" y="278" width="96" height="6"/>
+                        </g>
+                        <g fill="#000000">
+                            <rect x="160" y="96" width="112" height="10"/>
+                            <rect x="48" y="132" width="56" height="10"/>
+                            <rect x="174" y="186" width="98" height="10"/>
+                            <rect x="206" y="240" width="66" height="10"/>
+                        </g>
+                        <rect x="156" y="92" width="120" height="18" fill="none" stroke="#1B3FD8" stroke-width="2"/>
+                    </svg>
+                </div>
                 <p class="sl-eyebrow">Solander PDF</p>
-                <h3>Redaction you can prove</h3>
-                <p>For PDFs, scans and images that are going out for good. Every page is rebuilt from scratch with the redactions painted in, so nothing is left underneath &mdash; then the new file is read again to check every redaction held. A signed record says what was removed and what could not be read.</p>
-                <a href="/pdf/" class="sl-card-link">Solander PDF &rarr;</a>
+                <h3>Redaction and metadata review for PDFs, scans and images</h3>
+                <p class="sl-use">Use it when the document you share will be a PDF.</p>
+                <ul>
+                    <li>Finds names, email addresses, phone numbers, ID numbers and dates for you to review, including on scanned pages.</li>
+                    <li>Lists the metadata and hidden content in the original: author and title fields, earlier saved versions, attachments, comments, form data, scripts and location data in images.</li>
+                    <li>Exports a new PDF built from page images, so none of that is carried over, and reads it again to check every redaction.</li>
+                    <li>With a licence: signed reports of what was removed and checked, batch processing and a command-line tool.</li>
+                </ul>
+                <a href="/pdf/" class="sl-card-link">About Solander PDF</a>
             </article>
             <article class="sl-card">
+                <div class="sl-card-art" aria-hidden="true">
+                    <svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20.5" y="12.5" width="279" height="315" fill="#FFFFFF" stroke="#D8D8D4"/>
+                        <rect x="48" y="44" width="132" height="10" fill="#C8C8C3"/>
+                        <g fill="#D8D8D4">
+                            <rect x="48" y="80" width="170" height="6"/>
+                            <rect x="48" y="98" width="96" height="6"/>
+                            <rect x="152" y="98" width="66" height="6"/>
+                            <rect x="48" y="116" width="170" height="6"/>
+                            <rect x="48" y="152" width="170" height="6"/>
+                            <rect x="48" y="170" width="120" height="6"/>
+                        </g>
+                        <line x1="148" y1="101" x2="222" y2="101" stroke="#101010" stroke-width="1.5"/>
+                        <rect x="230.5" y="92.5" width="54" height="36" fill="#FFFFFF" stroke="#101010"/>
+                        <rect x="238" y="102" width="38" height="4" fill="#D8D8D4"/>
+                        <rect x="238" y="112" width="26" height="4" fill="#D8D8D4"/>
+                        <g stroke="#D8D8D4" fill="none">
+                            <rect x="48.5" y="208.5" width="224" height="84"/>
+                            <line x1="48" y1="236.5" x2="272" y2="236.5"/>
+                            <line x1="48" y1="264.5" x2="272" y2="264.5"/>
+                            <line x1="123.5" y1="208" x2="123.5" y2="292"/>
+                            <line x1="198.5" y1="208" x2="198.5" y2="292"/>
+                        </g>
+                        <rect x="199" y="209" width="73" height="83" fill="#ECECE8"/>
+                        <rect x="144" y="92" width="82" height="18" fill="none" stroke="#1B3FD8" stroke-width="2"/>
+                    </svg>
+                </div>
                 <p class="sl-eyebrow">Solander Desk</p>
-                <h3>Clean files you can still edit</h3>
-                <p>For Word, Excel and LibreOffice files that are still being worked on. Finds tracked changes, comments, authors, hidden sheets, cached data and cropped-away pictures; removes what you choose; and keeps the file editable. It can also swap names for placeholders before you paste a document into an AI chat, and put them back in the answer.</p>
-                <a href="/desk/" class="sl-card-link">Solander Desk &rarr;</a>
+                <h3>Hidden content in Word, Excel and LibreOffice documents</h3>
+                <p class="sl-use">Use it when the document has to stay editable.</p>
+                <ul>
+                    <li>Finds tracked changes, comments, author names, hidden sheets, rows and columns, cached data, links to other files and cropped-out parts of images.</li>
+                    <li>Removes what you choose and keeps the document editable in Word, Excel or LibreOffice.</li>
+                    <li>Checks the exported file again from disk before handing it to you.</li>
+                    <li>With a licence: replaces names with placeholders before you paste a document into an AI assistant, and puts them back in the reply. Batch cleaning.</li>
+                </ul>
+                <a href="/desk/" class="sl-card-link">About Solander Desk</a>
             </article>
         </div>
-    </section>
-
-    <!-- Which one -->
-    <section class="sl-section" id="which">
-        <p class="sl-kicker">Which one do I need?</p>
-        <h2>It depends on whether the file has to stay editable.</h2>
-        <table class="sl-which">
-            <thead>
-                <tr><th>You are about to&hellip;</th><th>Use</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Publish or disclose a document, or answer a records request</td><td>Solander PDF</td></tr>
-                <tr><td>Redact a scan, a photographed page or a screenshot</td><td>Solander PDF</td></tr>
-                <tr><td>Send a draft contract without its tracked changes and internal comments</td><td>Solander Desk</td></tr>
-                <tr><td>Send a client a workbook without its hidden sheets, pivot data or links to other clients&rsquo; files</td><td>Solander Desk</td></tr>
-                <tr><td>Paste a contract or a spreadsheet into ChatGPT or Claude without the real names, then restore them in the answer</td><td>Solander Desk</td></tr>
-                <tr><td>More than one of these</td><td>Solander Suite</td></tr>
-            </tbody>
-        </table>
     </section>
 
     <!-- Privacy -->
     <section class="sl-section sl-band">
-        <p class="sl-kicker">Private by design</p>
-        <h2>Your documents never leave your Mac.</h2>
+        <p class="sl-kicker">Privacy</p>
+        <h2>Your documents stay on your Mac.</h2>
         <div class="sl-body">
-            <p>That is enforced by macOS, not promised by us. Both apps run in Apple&rsquo;s App Sandbox <strong>without</strong> network access, so the operating system refuses any outbound connection from the app that opens your files. No account, no telemetry, no analytics, no crash reporting.</p>
-            <p class="sl-verify">Check it on your own copy:<br><code>codesign -d --entitlements - /Applications/Solander.app</code><br><code>codesign -d --entitlements - &quot;/Applications/Solander Desk.app&quot;</code></p>
-            <p class="sl-small">In each app, two small helper processes do use the network &mdash; one checks for updates, one confirms your licence about once a week. Neither ever receives a document or anything found in one. <a href="/privacy.html">Exactly what they send</a>.</p>
+            <p>Both apps run in Apple&rsquo;s App Sandbox without network access, so macOS blocks the app that opens your files from making any connection. There is no account, telemetry, analytics or crash reporting.</p>
+            <p class="sl-verify">You can check this on your own copy:<br><code>codesign -d --entitlements - /Applications/Solander.app</code><br><code>codesign -d --entitlements - &quot;/Applications/Solander Desk.app&quot;</code></p>
+            <p class="sl-small">In each app, two small helper processes use the network: one checks for updates, and one confirms your licence about once a week. Neither receives a document or anything found in one. The <a href="/privacy.html">privacy notice</a> lists exactly what they send.</p>
         </div>
     </section>
 
-    <!-- Honest limits -->
+    <!-- Limits -->
     <section class="sl-section">
-        <p class="sl-kicker">Plain about their limits</p>
-        <h2>What a passing check means &mdash; and what it does not.</h2>
+        <p class="sl-kicker">Limits</p>
+        <h2>What the checks cover</h2>
         <div class="sl-body">
-            <p>It means what you chose to remove is gone, and the file you received is sound. It does <strong>not</strong> mean everything sensitive was found. Detection is best-effort and misses things, which is why you review every file, and why neither app ever calls a document anonymous, compliant, safe or clean. Pseudonymized text is still personal data. These are tools for the work and a record of what they did, not a substitute for judgement or legal advice.</p>
+            <p>After exporting, each app checks that what you chose to remove is no longer in the file, and that the file is sound. The checks do not show that everything sensitive was found. Detection can miss things, so you review every file. Neither app describes a document as anonymous, compliant or safe, and pseudonymized text is still personal data. The apps are tools and a record of what they did, not legal advice.</p>
         </div>
     </section>
 
     <!-- Pricing -->
     <section class="sl-section" id="pricing">
         <p class="sl-kicker">Pricing</p>
-        <h2>Bought once. No subscription. Each app on its own, or both together.</h2>
+        <p class="sl-intro">Each licence is a one-time purchase for one person, and includes future versions. Each app is free to use for one document at a time.</p>
         <div class="sl-plans sl-plans-wide">
             <div class="sl-plan">
                 <h3>Free</h3>
@@ -157,7 +162,7 @@
                     <li>One document at a time, in either app</li>
                     <li>Every finding shown</li>
                     <li>Redact or clean, and export</li>
-                    <li>Verification of every export</li>
+                    <li>A check of every export</li>
                     <li>No account, no watermark</li>
                 </ul>
                 <div class="sl-plan-action">
@@ -169,51 +174,51 @@
             <div class="sl-plan">
                 <h3>Solander PDF</h3>
                 <p class="sl-price">$49</p>
-                <p class="sl-price-sub">once, for one person</p>
+                <p class="sl-price-sub">one-time, one person</p>
                 <ul>
                     <li>Batch redaction, with names kept consistent across documents</li>
                     <li>Signed reports, reason codes and a redaction log</li>
                     <li>Saved profiles, command-line tool, watch folders</li>
-                    <li>Every future version</li>
+                    <li>Future versions</li>
                 </ul>
                 <div class="sl-plan-action">
                     <!-- AT LAUNCH (Paddle): replace the element below with
                            <a href="https://..." class="appstore-badge">Buy $49</a>
                          using the Paddle hosted checkout link plus ?price_id=<id> for the Solander PDF price. -->
                     <span class="sl-soon">Coming soon</span>
-                    <a href="/pdf/">More about Solander PDF</a>
+                    <a href="/pdf/">About Solander PDF</a>
                 </div>
             </div>
 
             <div class="sl-plan">
                 <h3>Solander Desk</h3>
                 <p class="sl-price">$69</p>
-                <p class="sl-price-sub">once, for one person</p>
+                <p class="sl-price-sub">one-time, one person</p>
                 <ul>
                     <li>Batch cleaning</li>
-                    <li>Pseudonymize for AI, and restore the answer</li>
+                    <li>Pseudonymize for AI, and restore the reply</li>
                     <li>Projects, dictionaries and saved profiles</li>
                     <li>Signed reports</li>
-                    <li>Every future version</li>
+                    <li>Future versions</li>
                 </ul>
                 <div class="sl-plan-action">
                     <!-- AT LAUNCH (Paddle): replace the element below with
                            <a href="https://..." class="appstore-badge">Buy $69</a>
                          using the Paddle hosted checkout link plus ?price_id=<id> for the Solander Desk price. -->
                     <span class="sl-soon">In development</span>
-                    <a href="/desk/">More about Solander Desk</a>
+                    <a href="/desk/">About Solander Desk</a>
                 </div>
             </div>
 
             <div class="sl-plan sl-plan-main">
                 <h3>Solander Suite</h3>
                 <p class="sl-price">$99</p>
-                <p class="sl-price-sub">once, for one person, both apps</p>
+                <p class="sl-price-sub">one-time, one person, both apps</p>
                 <ul>
                     <li>Solander PDF and Solander Desk</li>
-                    <li>One licence file that works in both</li>
-                    <li>Own one already? Pay the difference</li>
-                    <li>Every future version of both</li>
+                    <li>One licence file for both apps</li>
+                    <li>If you own one app already, you pay the difference</li>
+                    <li>Future versions of both</li>
                 </ul>
                 <div class="sl-plan-action">
                     <!-- AT LAUNCH (Paddle): replace the element below with
@@ -233,19 +238,22 @@
     <!-- FAQ -->
     <section class="sl-section" id="faq">
         <p class="sl-kicker">Questions</p>
-        <h2>Frequently asked</h2>
         <div class="sl-faq">
+            <details>
+                <summary>Which app do I need?</summary>
+                <p>If the result will be a PDF &mdash; a disclosure, a published document, a scan or a screenshot &mdash; use Solander PDF. If the file has to stay a Word, Excel or LibreOffice document, for example a draft contract or a workbook you send to a client, use Solander Desk. If you do both, the Suite covers both apps.</p>
+            </details>
             <details>
                 <summary>Do my documents go anywhere?</summary>
                 <p>No. In both apps, the app that opens them has no network access, enforced by macOS. Update checks and licence confirmation run in separate helper processes that never receive document data.</p>
             </details>
             <details>
                 <summary>Why two apps rather than one?</summary>
-                <p>Because the two jobs pull in opposite directions. Solander PDF makes a document safe to release by rebuilding every page as an image, so nothing is left underneath &mdash; and the result is no longer editable. Solander Desk keeps a Word, Excel or LibreOffice file editable, so it has to work inside the file&rsquo;s own structure and check every part of it. Each app does one of these well; the Suite gives you both.</p>
+                <p>The two jobs work differently. Solander PDF rebuilds every page as an image, so nothing is left underneath, and the result is no longer editable. Solander Desk keeps a Word, Excel or LibreOffice file editable, so it works inside the file&rsquo;s own structure and checks every part of it.</p>
             </details>
             <details>
                 <summary>Do I have to buy anything to try them?</summary>
-                <p>No. Each app is free for one document at a time, with no time limit and no account: every finding shown, the export, and the check afterwards. A licence adds working on many documents at once, the exportable evidence, and automation &mdash; and in Solander Desk, pseudonymizing for AI.</p>
+                <p>No. Each app is free for one document at a time, with no time limit and no account. A licence adds working on many documents at once, signed reports and automation, and in Solander Desk, pseudonymizing for AI.</p>
             </details>
             <details>
                 <summary>I already own Solander PDF. Do I pay full price for the Suite?</summary>
@@ -253,23 +261,17 @@
             </details>
             <details>
                 <summary>Is there a subscription?</summary>
-                <p>No. A licence is bought once and includes every future version. About once a week a helper process confirms the purchase has not been refunded; if it cannot reach us, the licensed features keep working for 30 days, and a Mac that is never online can be activated offline.</p>
+                <p>No. A licence is bought once and includes future versions. About once a week a helper process confirms the purchase has not been refunded; if it cannot reach us, the licensed features keep working for 30 days, and a Mac that is never online can be activated offline.</p>
             </details>
             <details>
                 <summary>What happens if I ask for a refund?</summary>
-                <p>The licence is deactivated and the licensed features stop. Free mode keeps working exactly as before, and everything you have already produced is untouched. See <a href="/refunds.html">Refunds</a>.</p>
+                <p>The licence is deactivated and the licensed features stop. Free mode keeps working as before, and everything you have already produced is untouched. See <a href="/refunds.html">Refunds</a>.</p>
             </details>
         </div>
-        <p class="sl-support">Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander">hello@quietsignalslab.com</a>. Please do not send a document you needed to clean or redact &mdash; a description of the problem is enough.</p>
+        <p class="sl-support">Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander">hello@quietsignalslab.com</a>. Please do not send a document you needed to clean or redact; a description of the problem is enough.</p>
     </section>
 
-    <!-- Closing call to action -->
     <section class="sl-final">
-        <h2>Try them on your own documents.</h2>
-        <div class="sl-cta">
-            <a href="/pdf/" class="appstore-badge">Solander PDF</a>
-            <a href="/desk/" class="appstore-badge">Solander Desk</a>
-        </div>
         <p class="sl-fine">macOS 14 Sonoma or later &middot; Apple Silicon and Intel &middot; Signed and notarised</p>
         <p class="sl-category">Solander apps are document redaction and cleaning software. They are not identity-theft protection, device security software, or legal advice, and they do not determine whether a disclosure meets any legal obligation.</p>
     </section>

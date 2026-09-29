@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solander PDF redacts PDFs and scans on your Mac, then re-reads its own output to check every redaction held — with a signed record of what was done. Document redaction software for macOS.">
+    <meta name="description" content="Solander PDF redacts PDFs, scans and images on your Mac. It shows the metadata and hidden content each file contains, exports a new PDF without it, checks the result, and can produce a signed report of what was removed.">
     <meta name="author" content="Quiet Signals Lab">
-    <title>Solander PDF — document redaction for macOS that checks its own work</title>
+    <title>Solander PDF — redact PDFs and review their metadata on your Mac</title>
 
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
@@ -33,9 +33,9 @@
     <!-- Hero -->
     <section class="sl-hero">
         <div>
-            <p class="sl-eyebrow">Solander PDF &middot; Document redaction for macOS</p>
-            <h1>Redaction you can prove.</h1>
-            <p class="sl-lede">Solander PDF redacts PDFs and scans on your Mac, then re-reads its own output to check that every redaction held. You get a clean new file, and a record of what was removed, what was checked, and what could not be read.</p>
+            <p class="sl-eyebrow">Solander PDF</p>
+            <h1>Redact PDFs and review their metadata on your Mac.</h1>
+            <p class="sl-lede">Solander PDF finds personal information in PDFs, scans and images for you to review, and shows what else each file contains: metadata, earlier saved versions, attachments, comments and form data. It exports a new PDF without any of it, checks the result, and can produce a signed report of what was removed.</p>
             <div class="sl-cta">
                 <!-- AT LAUNCH: once the first release is published on GitHub, replace the
                      mailto below with
@@ -47,16 +47,15 @@
                      section), plus one for the Paddle Buy button. Until then the releases page is empty, and a reviewer clicking
                      "Download" would land on "There aren't any releases here". -->
                 <a href="mailto:hello@quietsignalslab.com?subject=Solander%20PDF%20%E2%80%94%20tell%20me%20when%20it%20launches" class="appstore-badge">Email me at launch</a>
-                <a href="#pricing" class="sl-btn-quiet">See pricing</a>
-                <a href="/" class="sl-btn-quiet">The Solander family</a>
+                <a href="#pricing" class="sl-btn-quiet">Pricing</a>
             </div>
-            <p class="sl-fine">Launching soon. Free for one document at a time &mdash; no account, no time limit, no watermark.</p>
+            <p class="sl-fine">Launching soon. Free for one document at a time, with no account, no time limit and no watermark.</p>
         </div>
 
         <!-- A redacted page with a check: what the product does, drawn rather than
              screenshotted, so it cannot misrepresent the interface. -->
         <div class="sl-hero-art" aria-hidden="true">
-            <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg">
                 <!-- The page: white paper, hairline edge, square corners -->
                 <rect x="20.5" y="12.5" width="279" height="315" fill="#FFFFFF" stroke="#D8D8D4"/>
                 <rect x="48" y="44" width="132" height="10" fill="#C8C8C3"/>
@@ -81,84 +80,85 @@
                 </g>
                 <!-- Your selection: blue, as in the review -->
                 <rect x="156" y="92" width="120" height="18" fill="none" stroke="#1B3FD8" stroke-width="2"/>
-                <!-- A finding not yet decided: dashed -->
-                <rect x="44.5" y="274.5" width="104" height="13" fill="none" stroke="#101010" stroke-dasharray="3 2"/>
-                <!-- Text nobody could read: amber, in the margin -->
-                <rect x="34" y="258" width="6" height="6" fill="#8C6309"/>
-                <rect x="20" y="344" width="280" height="36" fill="#101010"/>
-                <text x="36" y="366" fill="#FFFFFF" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="11" letter-spacing="1.2">RE-READ &#183; 4 / 4 HELD</text>
             </svg>
         </div>
     </section>
 
-    <!-- Differentiators -->
+    <!-- Features -->
     <section class="sl-section" id="features">
-        <p class="sl-kicker">Why Solander PDF</p>
-        <h2>Most redaction tools stop at drawing the box. Solander PDF checks that it held.</h2>
+        <p class="sl-kicker">Features</p>
+        <h2>What Solander PDF does</h2>
         <div class="sl-grid">
             <article class="sl-card">
-                <h3>Rewrites the page, not a box on top</h3>
-                <p>Every page is rendered to an image, the redactions are painted in, and a new file is written from scratch. No text layer, metadata, annotations, attachments or earlier versions are carried across &mdash; there is nothing underneath to recover.</p>
+                <h3>Finds what to redact</h3>
+                <p>Solander PDF detects names, email addresses, phone numbers, ID numbers, dates and other personal information, in the text layer and on scanned pages. You review each finding, add your own redactions, and leave what should stay.</p>
             </article>
             <article class="sl-card">
-                <h3>Checks its own work</h3>
-                <p>After exporting, Solander reopens the file and reads it again. Anything still legible where a redaction was meant to be is reported, not quietly exported. You see this result whether or not you have a licence.</p>
+                <h3>Shows the file&rsquo;s metadata and hidden content</h3>
+                <p>When you open a file, Solander PDF lists what it contains besides its visible pages: document information and XMP metadata, earlier saved versions, attachments, comments and annotations, form data, hidden layers, scripts, and location data in images.</p>
             </article>
             <article class="sl-card">
-                <h3>Says what it could not read</h3>
-                <p>Text the OCR found but could not resolve is listed and marked on the page, so you know which parts no detector examined. Unreadable is reported as unreadable &mdash; never counted as clean.</p>
+                <h3>Exports a new file</h3>
+                <p>Each page is rendered to an image with the redactions applied, and a new PDF is written from those images. The text layer, metadata, attachments and earlier versions of the original are not carried over.</p>
             </article>
             <article class="sl-card">
-                <h3>Evidence you can hand over <span class="sl-tag">Licensed</span></h3>
-                <p>A signed report in PDF and JSON: what was redacted and why, what was verified, and what the original file contained. A recipient can re-check it against the document without taking your word for it.</p>
+                <h3>Checks the result</h3>
+                <p>After exporting, Solander PDF reads the new file again and reports any text still legible inside a redaction. Text it could not read is listed and marked on the page, so you know which parts no detector examined.</p>
+            </article>
+            <article class="sl-card">
+                <h3>Signed reports <span class="sl-tag">Licensed</span></h3>
+                <p>A report in PDF and JSON records what was redacted and why, what was checked, and what the original file contained. It is signed and includes a hash of the exported file, so a recipient can confirm that the report belongs to that document.</p>
+            </article>
+            <article class="sl-card">
+                <h3>Batches and automation <span class="sl-tag">Licensed</span></h3>
+                <p>Redact many documents at once with names kept consistent across them, record a reason code for each redaction and export a redaction log, and use saved profiles, the command-line tool and watch folders.</p>
             </article>
         </div>
     </section>
 
     <!-- Privacy -->
     <section class="sl-section sl-band">
-        <p class="sl-kicker">Private by design</p>
-        <h2>Your documents never leave your Mac.</h2>
+        <p class="sl-kicker">Privacy</p>
+        <h2>Your documents stay on your Mac.</h2>
         <div class="sl-body">
-            <p>That is enforced by macOS, not promised by us. Solander runs in Apple&rsquo;s App Sandbox <strong>without</strong> network access, so the operating system refuses any outbound connection from the app that opens your files. No account, no telemetry, no analytics, no crash reporting.</p>
-            <p class="sl-verify">Check it on your own copy: <code>codesign -d --entitlements - /Applications/Solander.app</code></p>
-            <p class="sl-small">Two small helper processes do use the network &mdash; one checks for updates, one confirms your licence about once a week. Neither ever receives a document or anything Solander found. <a href="/privacy.html">Exactly what they send</a>.</p>
+            <p>Solander PDF runs in Apple&rsquo;s App Sandbox without network access, so macOS blocks the app that opens your files from making any connection. There is no account, telemetry, analytics or crash reporting.</p>
+            <p class="sl-verify">You can check this on your own copy: <code>codesign -d --entitlements - /Applications/Solander.app</code></p>
+            <p class="sl-small">Two small helper processes use the network: one checks for updates, and one confirms your licence about once a week. Neither receives a document or anything found in one. The <a href="/privacy.html">privacy notice</a> lists exactly what they send.</p>
         </div>
     </section>
 
     <!-- How it works -->
     <section class="sl-section" id="how">
         <p class="sl-kicker">How it works</p>
-        <h2>Three steps, and you decide every redaction.</h2>
         <ol class="sl-steps">
             <li>
                 <h3>Open</h3>
-                <p>Drop in a PDF, a scan or an image. Solander lists what the file carries beneath the surface &mdash; metadata, attachments, annotations, scripts &mdash; and flags what it finds for you to review.</p>
+                <p>Open a PDF, a scan or an image. Solander PDF lists the file&rsquo;s metadata and hidden content, and marks the personal information it finds.</p>
             </li>
             <li>
                 <h3>Review</h3>
-                <p>Mark what has to go. Accept what Solander found, add anything it missed, and leave what should stay.</p>
+                <p>Accept or dismiss each finding, draw redactions for anything it missed, and leave what should stay.</p>
             </li>
             <li>
-                <h3>Export and verify</h3>
-                <p>Solander writes a fresh file, re-reads it, and shows you the result &mdash; including anything it could not read.</p>
+                <h3>Export and check</h3>
+                <p>Solander PDF writes a new file, reads it again, and shows the result, including any text it could not read.</p>
             </li>
         </ol>
     </section>
 
     <!-- Honest limits -->
     <section class="sl-section">
-        <p class="sl-kicker">Plain about its limits</p>
-        <h2>What a passing check means &mdash; and what it does not.</h2>
+        <p class="sl-kicker">Limits</p>
+        <h2>What the check covers</h2>
         <div class="sl-body">
-            <p>It means no readable text remains inside the regions you redacted. It does <strong>not</strong> mean everything sensitive was found. Detection is best-effort and misses things, especially names, addresses and non-Latin text &mdash; which is why the review step exists, and why Solander never calls a document anonymous, compliant or safe. It is a tool for the work and a record of what it did, not a substitute for judgement or legal advice.</p>
+            <p>A passing check means no readable text remains inside the regions you redacted. It does not mean everything sensitive was found. Detection can miss things, especially names, addresses and non-Latin text, so you review every document. Solander PDF does not describe a document as anonymous, compliant or safe, and it is not legal advice.</p>
         </div>
     </section>
 
     <!-- Pricing -->
     <section class="sl-section" id="pricing">
         <p class="sl-kicker">Pricing</p>
-        <h2>Bought once. No subscription.</h2>
+        <p class="sl-intro">A licence is a one-time purchase for one person, on all of your own Macs, and includes future versions.</p>
         <div class="sl-plans">
             <div class="sl-plan">
                 <h3>Free</h3>
@@ -166,10 +166,10 @@
                 <p class="sl-price-sub">no account, no time limit</p>
                 <ul>
                     <li>One document at a time</li>
-                    <li>Every detector, every language</li>
+                    <li>Every detector and language</li>
                     <li>Review, redact and export</li>
-                    <li>Verification of every export</li>
-                    <li>Inventory of hidden content in the original</li>
+                    <li>A check of every export</li>
+                    <li>The list of metadata and hidden content</li>
                     <li>No watermark</li>
                 </ul>
                 <div class="sl-plan-action">
@@ -182,15 +182,15 @@
             <div class="sl-plan sl-plan-main">
                 <h3>Solander PDF</h3>
                 <p class="sl-price">$49</p>
-                <p class="sl-price-sub">once, for one person</p>
+                <p class="sl-price-sub">one-time, one person</p>
                 <ul>
                     <li>Everything in Free</li>
-                    <li>Batch processing, with an entity map that keeps names consistent across documents</li>
+                    <li>Batch processing, with names kept consistent across documents</li>
                     <li>Signed reports in PDF and JSON</li>
                     <li>Reason codes and a redaction log</li>
                     <li>Saved profiles</li>
                     <li>Command-line tool and watch folders</li>
-                    <li>On all your own Macs, with every future version</li>
+                    <li>Future versions</li>
                 </ul>
                 <div class="sl-plan-action">
                     <!-- AT LAUNCH (Paddle): replace the two elements below with
@@ -205,7 +205,7 @@
             </div>
         </div>
 
-        <p class="sl-note">Also need to clean Word, Excel or LibreOffice files and keep them editable? <strong>Solander Suite</strong> is Solander PDF and <a href="/desk/">Solander Desk</a> on one licence, for $99 &mdash; and if you already own one, you pay the difference. See <a href="/#pricing">family pricing</a>.</p>
+        <p class="sl-note">For Word, Excel and LibreOffice documents there is <a href="/desk/">Solander Desk</a>. The <strong>Solander Suite</strong> licence covers both apps for $99, and if you already own one, you pay the difference. See <a href="/#pricing">all pricing</a>.</p>
 
         <p class="sl-note"><strong>Launching soon.</strong> Prices are in USD, with sales tax or VAT added at checkout where applicable. Orders are processed by Paddle.com Market Ltd, the merchant of record, who issue your invoice. Your licence arrives by email as a file you double-click to install. Refunds within 14 days, no reason needed &mdash; see <a href="/refunds.html">Refunds</a> and <a href="/terms.html">Terms</a>.</p>
     </section>
@@ -213,7 +213,6 @@
     <!-- FAQ -->
     <section class="sl-section" id="faq">
         <p class="sl-kicker">Questions</p>
-        <h2>Frequently asked</h2>
         <div class="sl-faq">
             <details>
                 <summary>Do my documents go anywhere?</summary>
@@ -221,11 +220,11 @@
             </details>
             <details>
                 <summary>Do I have to buy anything to try it?</summary>
-                <p>No. Free mode has every detector and every language, and lets you open, review, redact, export and verify one document at a time &mdash; with no time limit and no account. A licence adds working on many documents at once, the exportable evidence, and automation.</p>
+                <p>No. Free mode has every detector and language, and lets you open, review, redact, export and check one document at a time, with no time limit and no account. A licence adds batches, signed reports and automation.</p>
             </details>
             <details>
                 <summary>Is there a subscription?</summary>
-                <p>No. A licence is bought once and includes every future version. About once a week a helper process confirms the purchase has not been refunded; if it cannot reach us, the licensed features keep working for 30 days.</p>
+                <p>No. A licence is bought once and includes future versions. About once a week a helper process confirms the purchase has not been refunded; if it cannot reach us, the licensed features keep working for 30 days.</p>
             </details>
             <details>
                 <summary>Can I use it on a Mac that is never online?</summary>
@@ -237,15 +236,15 @@
             </details>
             <details>
                 <summary>Does it replace a person checking the document?</summary>
-                <p>No. Detection misses things, especially names, addresses and non-Latin text. Solander is built to tell you where it is uncertain rather than hide it, but the review step exists because no detector finds everything.</p>
+                <p>No. Detection misses things, especially names, addresses and non-Latin text. Solander PDF shows you where it is uncertain, but every document still needs a person to review it.</p>
             </details>
         </div>
-        <p class="sl-support">Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander%20PDF">hello@quietsignalslab.com</a>. Please do not send a document you needed to redact &mdash; a description of the problem is enough.</p>
+        <p class="sl-support">Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander%20PDF">hello@quietsignalslab.com</a>. Please do not send a document you needed to redact; a description of the problem is enough.</p>
     </section>
 
     <!-- Closing call to action -->
     <section class="sl-final">
-        <h2>Try it on your own documents.</h2>
+        <h2>Get Solander PDF</h2>
         <div class="sl-cta">
             <!-- AT LAUNCH: replace with
                  <a href="https://github.com/Quiet-Signals-Lab/solander/releases/download/pdf-v<version>/Solander-<version>.dmg" class="appstore-badge">Download free for macOS</a> -->

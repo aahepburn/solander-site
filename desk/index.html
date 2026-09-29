@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solander Desk finds what Word, Excel and LibreOffice files carry that their readers cannot see — tracked changes, comments, authors, hidden sheets, cached data — removes what you choose, keeps the file editable, and checks its own work. On your Mac.">
+    <meta name="description" content="Solander Desk removes hidden content from Word, Excel and LibreOffice documents on your Mac: tracked changes, comments, author names, hidden sheets and cached data. You choose what to remove, the document stays editable, and the exported file is checked.">
     <meta name="author" content="Quiet Signals Lab">
-    <title>Solander Desk — clean Word, Excel and LibreOffice files, and keep them editable</title>
+    <title>Solander Desk — remove hidden content from Word, Excel and LibreOffice documents</title>
 
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
@@ -32,9 +32,9 @@
     <!-- Hero -->
     <section class="sl-hero">
         <div>
-            <p class="sl-eyebrow">Solander Desk &middot; For Word, Excel and LibreOffice files</p>
-            <h1>Clean files you can still edit.</h1>
-            <p class="sl-lede">Solander Desk finds what a document carries that its reader cannot see &mdash; tracked changes, comments, authors, hidden sheets, cached data &mdash; removes what you choose, and re-reads its own output to check nothing is left. The file stays a file you can keep working on.</p>
+            <p class="sl-eyebrow">Solander Desk</p>
+            <h1>Remove hidden content from Word, Excel and LibreOffice documents.</h1>
+            <p class="sl-lede">Solander Desk finds tracked changes, comments, author names, hidden sheets and other content that a document contains but its reader cannot see. You choose what to remove, and the document stays editable. The exported file is checked again before it is handed to you.</p>
             <div class="sl-cta">
                 <!-- AT LAUNCH: once the first release is published, replace the mailto below with
                        <a href="https://github.com/Quiet-Signals-Lab/solander/releases/download/desk-v<version>/SolanderDesk-<version>.dmg" class="appstore-badge">Download free for macOS</a>
@@ -43,16 +43,15 @@
                      release updates the appcast and these links in the same commit.
                      There are two Download markers on this page (hero and closing section). -->
                 <a href="mailto:hello@quietsignalslab.com?subject=Solander%20Desk%20%E2%80%94%20tell%20me%20when%20it%20launches" class="appstore-badge">Email me at launch</a>
-                <a href="#pricing" class="sl-btn-quiet">See pricing</a>
-                <a href="/" class="sl-btn-quiet">The Solander family</a>
+                <a href="#pricing" class="sl-btn-quiet">Pricing</a>
             </div>
-            <p class="sl-fine">In development. Free for one file at a time &mdash; no account, no time limit.</p>
+            <p class="sl-fine">In development. Free for one file at a time, with no account and no time limit.</p>
         </div>
 
         <!-- A draft with a deletion struck through, a comment and a hidden sheet tab, and the
              check. Drawn, not a screenshot, so it cannot misrepresent the interface. -->
         <div class="sl-hero-art" aria-hidden="true">
-            <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg">
                 <rect x="20.5" y="12.5" width="279" height="315" fill="#FFFFFF" stroke="#D8D8D4"/>
                 <rect x="48" y="44" width="132" height="10" fill="#C8C8C3"/>
                 <g fill="#D8D8D4">
@@ -78,84 +77,80 @@
                     <line x1="198.5" y1="208" x2="198.5" y2="292"/>
                 </g>
                 <rect x="199" y="209" width="73" height="83" fill="#ECECE8"/>
-                <rect x="196.5" y="205.5" width="79" height="90" fill="none" stroke="#101010" stroke-dasharray="3 2"/>
                 <!-- Your selection -->
                 <rect x="144" y="92" width="82" height="18" fill="none" stroke="#1B3FD8" stroke-width="2"/>
-                <rect x="20" y="344" width="280" height="36" fill="#101010"/>
-                <text x="36" y="366" fill="#FFFFFF" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="11" letter-spacing="1.2">RE-READ &#183; 3 / 3 REMOVED</text>
             </svg>
         </div>
     </section>
 
     <!-- What it finds and does -->
     <section class="sl-section" id="features">
-        <p class="sl-kicker">Why Solander Desk</p>
-        <h2>Most &ldquo;remove metadata&rdquo; tools clear the author field. The rest of the file still talks.</h2>
+        <p class="sl-kicker">Features</p>
+        <h2>What Solander Desk does</h2>
         <div class="sl-grid">
             <article class="sl-card">
-                <h3>Finds what the reader cannot see</h3>
-                <p>Tracked changes and the text they deleted. Comments and who wrote them. Hidden and &ldquo;very hidden&rdquo; sheets, hidden rows and columns. Pivot caches that hold a full copy of the source data. Links to other workbooks, with values cached from them. The whole picture behind a cropped image. Template paths, document variables, revision IDs, and markup other software left behind.</p>
+                <h3>Finds hidden content</h3>
+                <p>Solander Desk finds tracked changes and the text they deleted, comments and their authors, hidden sheets, rows and columns, and pivot caches that hold a copy of the source data. It also finds links to other workbooks and the values cached from them, the full picture behind a cropped image, and template paths, document variables and revision IDs.</p>
             </article>
             <article class="sl-card">
-                <h3>Keeps the file editable</h3>
-                <p>A Word file comes out as a Word file, a workbook as a workbook. You decide what happens to tracked changes &mdash; accept all or reject all, never guessed. When removing a hidden sheet would break a formula, that formula keeps its value, and you are shown exactly which cells changed.</p>
+                <h3>Keeps the document editable</h3>
+                <p>The exported file has the same format as the original and opens in Word, Excel or LibreOffice as before. You decide what happens to tracked changes: accept all or reject all. When removing a hidden sheet would break a formula, that formula keeps its value, and you are shown exactly which cells changed.</p>
             </article>
             <article class="sl-card">
-                <h3>Checks its own work</h3>
-                <p>After writing, Solander Desk opens the new file from disk and checks it again: that it is structurally sound, that nothing you removed is anywhere inside it, and that what a reader sees is what it was. A file that fails is not handed to you.</p>
+                <h3>Checks the exported file</h3>
+                <p>After writing, Solander Desk opens the new file from disk and checks that it is structurally sound, that nothing you removed is left inside it, and that the visible content is unchanged. A file that fails the check is not handed to you.</p>
             </article>
             <article class="sl-card">
                 <h3>Pseudonymize for AI, then restore <span class="sl-tag">Licensed</span></h3>
-                <p>Replace names, organisations and identifiers with consistent placeholders across a set of files before you paste them into ChatGPT or Claude &mdash; then put the real values back into the answer. The mapping stays on your Mac, encrypted, and can be forgotten for good.</p>
+                <p>Replace names, organisations and identifiers with consistent placeholders across a set of files before you paste them into an AI assistant such as ChatGPT or Claude, then put the real values back into the reply. The mapping is stored encrypted on your Mac and can be deleted at any time.</p>
             </article>
         </div>
     </section>
 
     <!-- Privacy -->
     <section class="sl-section sl-band">
-        <p class="sl-kicker">Private by design</p>
-        <h2>Your documents never leave your Mac.</h2>
+        <p class="sl-kicker">Privacy</p>
+        <h2>Your documents stay on your Mac.</h2>
         <div class="sl-body">
-            <p>That is enforced by macOS, not promised by us. Solander Desk runs in Apple&rsquo;s App Sandbox <strong>without</strong> network access, so the operating system refuses any outbound connection from the app that opens your files. No account, no telemetry, no analytics, no crash reporting.</p>
-            <p class="sl-verify">Check it on your own copy: <code>codesign -d --entitlements - &quot;/Applications/Solander Desk.app&quot;</code></p>
-            <p class="sl-small">Two small helper processes do use the network &mdash; one checks for updates, one confirms your licence about once a week. Neither ever receives a document, a name from one, or a placeholder mapping. <a href="/privacy.html">Exactly what they send</a>.</p>
+            <p>Solander Desk runs in Apple&rsquo;s App Sandbox without network access, so macOS blocks the app that opens your files from making any connection. There is no account, telemetry, analytics or crash reporting.</p>
+            <p class="sl-verify">You can check this on your own copy: <code>codesign -d --entitlements - &quot;/Applications/Solander Desk.app&quot;</code></p>
+            <p class="sl-small">Two small helper processes use the network: one checks for updates, and one confirms your licence about once a week. Neither receives a document, a name from one, or a placeholder mapping. The <a href="/privacy.html">privacy notice</a> lists exactly what they send.</p>
         </div>
     </section>
 
     <!-- How it works -->
     <section class="sl-section" id="how">
         <p class="sl-kicker">How it works</p>
-        <h2>Three steps, and nothing is decided for you.</h2>
         <ol class="sl-steps">
             <li>
                 <h3>Open</h3>
-                <p>Drop in a .docx, .xlsx, .odt or .ods file. Solander Desk lists what it carries, by risk, and shows you the hidden content itself if you ask.</p>
+                <p>Open a .docx, .xlsx, .odt or .ods file. Solander Desk lists the hidden content it contains, ordered by risk, and can show you the content itself.</p>
             </li>
             <li>
                 <h3>Decide</h3>
-                <p>Accept or reject tracked changes. Remove or keep hidden sheets; clear, unhide or keep hidden rows. Everything else removable goes by default.</p>
+                <p>Accept or reject tracked changes. Remove or keep hidden sheets, and clear, unhide or keep hidden rows. Other hidden content is removed by default.</p>
             </li>
             <li>
-                <h3>Export and verify</h3>
-                <p>Solander Desk writes a new file into a &ldquo;Solander Exports&rdquo; folder, never over the original, re-reads it, and shows you what it checked.</p>
+                <h3>Export and check</h3>
+                <p>Solander Desk writes a new file into a &ldquo;Solander Exports&rdquo; folder, never over the original, reads it again, and shows you what it checked.</p>
             </li>
         </ol>
     </section>
 
     <!-- Honest limits -->
     <section class="sl-section">
-        <p class="sl-kicker">Plain about its limits</p>
-        <h2>What it checks &mdash; and what it does not.</h2>
+        <p class="sl-kicker">Formats and limits</p>
+        <h2>Supported files, and what the check covers</h2>
         <div class="sl-body">
-            <p>Verification checks that what you chose to remove is gone and that the file is sound. It does <strong>not</strong> prove every sensitive item was found, and it cannot promise how every version of every office app will display the file. Parts of a file it does not understand are removed and reported, never passed through unexamined. Pseudonymized is not anonymous: surrounding details can still identify people, and under the GDPR pseudonymized data is still personal data.</p>
-            <p>Word (.docx), Excel (.xlsx), and LibreOffice Writer and Calc (.odt, .ods), including macro-enabled files and templates, which come out as ordinary documents. Older .doc and .xls files, password-protected files, PowerPoint and Pages, Numbers and Keynote files are not cleaned: re-save them as one of the formats above.</p>
+            <p>Solander Desk works with Word (.docx), Excel (.xlsx), and LibreOffice Writer and Calc (.odt, .ods), including macro-enabled files and templates, which are exported as ordinary documents. Older .doc and .xls files, password-protected files, PowerPoint, and Pages, Numbers and Keynote files are not supported; re-save them in one of the formats above.</p>
+            <p>The check confirms that what you chose to remove is gone and that the file is sound. It does not show that every sensitive item was found, and it cannot guarantee how every version of every office app will display the file. Parts of a file that Solander Desk does not recognise are removed and reported. Pseudonymized text is not anonymous: surrounding details can still identify people, and under the GDPR it is still personal data.</p>
         </div>
     </section>
 
     <!-- Pricing -->
     <section class="sl-section" id="pricing">
         <p class="sl-kicker">Pricing</p>
-        <h2>Bought once. No subscription.</h2>
+        <p class="sl-intro">A licence is a one-time purchase for one person, on all of your own Macs, and includes future versions.</p>
         <div class="sl-plans">
             <div class="sl-plan">
                 <h3>Free</h3>
@@ -164,7 +159,7 @@
                 <ul>
                     <li>Inspect any number of files</li>
                     <li>Clean one file at a time</li>
-                    <li>Verification of every export</li>
+                    <li>A check of every export</li>
                     <li>Pseudonymize: see what it would find</li>
                 </ul>
                 <div class="sl-plan-action">
@@ -175,13 +170,13 @@
             <div class="sl-plan sl-plan-main">
                 <h3>Solander Desk</h3>
                 <p class="sl-price">$69</p>
-                <p class="sl-price-sub">once, for one person</p>
+                <p class="sl-price-sub">one-time, one person</p>
                 <ul>
                     <li>Everything in Free</li>
                     <li>Batch cleaning</li>
                     <li>Pseudonymize and restore, with projects and dictionaries</li>
                     <li>Saved profiles and signed reports</li>
-                    <li>On all your own Macs, with every future version</li>
+                    <li>Future versions</li>
                 </ul>
                 <div class="sl-plan-action">
                     <!-- AT LAUNCH (Paddle): replace the element below with
@@ -193,41 +188,40 @@
             </div>
         </div>
 
-        <p class="sl-note">Also redacting PDFs and scans? <strong>Solander Suite</strong> is Solander Desk and <a href="/pdf/">Solander PDF</a> on one licence, for $99 &mdash; and if you already own one, you pay the difference. See <a href="/#pricing">family pricing</a>. Solander Desk and the Suite are not on sale yet.</p>
+        <p class="sl-note">For redacting PDFs, scans and images there is <a href="/pdf/">Solander PDF</a>. The <strong>Solander Suite</strong> licence covers both apps for $99, and if you already own one, you pay the difference. See <a href="/#pricing">all pricing</a>. Solander Desk and the Suite are not on sale yet.</p>
     </section>
 
     <!-- FAQ -->
     <section class="sl-section" id="faq">
         <p class="sl-kicker">Questions</p>
-        <h2>Frequently asked</h2>
         <div class="sl-faq">
             <details>
                 <summary>Does it change my original file?</summary>
-                <p>Never. It writes a new file with the same name into a &ldquo;Solander Exports&rdquo; folder, and will not write into the folder the original is in, so the two are never mixed up.</p>
+                <p>No. It writes a new file with the same name into a &ldquo;Solander Exports&rdquo; folder, and never into the folder the original is in, so the two are not mixed up.</p>
             </details>
             <details>
                 <summary>What happens to tracked changes?</summary>
-                <p>You choose, per file: accept all, or reject all. Either changes what the document says, so Solander Desk never picks for you, and it will not export until you have chosen.</p>
+                <p>You choose, per file: accept all, or reject all. Either one changes what the document says, so Solander Desk does not choose for you, and it will not export until you have chosen.</p>
             </details>
             <details>
                 <summary>Will the file still open in Word or Excel?</summary>
-                <p>That is the whole point, and it is what we test hardest. Solander Desk rewrites only the parts it has to, leaves the rest byte for byte as it was, and checks the file&rsquo;s structure after writing it.</p>
+                <p>Yes. Solander Desk rewrites only the parts it has to, leaves the rest of the file exactly as it was, and checks the file&rsquo;s structure after writing it.</p>
             </details>
             <details>
                 <summary>How does pseudonymizing for AI work?</summary>
-                <p>You give Solander Desk the names and terms to replace, and review what it finds. It replaces them with placeholders like (PERSON-1) consistently across every file in a project, and copies the text for you to paste. When the answer comes back, paste it into Restore and the real names go back in &mdash; even if the AI wrote the placeholder a little differently.</p>
+                <p>You give Solander Desk the names and terms to replace, and review what it finds. It replaces them with placeholders like (PERSON-1) consistently across every file in a project, and copies the text for you to paste. When the reply comes back, paste it into Restore and the real names are put back, even if the AI wrote a placeholder slightly differently.</p>
             </details>
             <details>
                 <summary>Do my documents go anywhere?</summary>
                 <p>No. The app that opens them has no network access, enforced by macOS. The placeholder mapping is stored encrypted on your Mac, with its key in your Keychain, and never sent anywhere.</p>
             </details>
         </div>
-        <p class="sl-support">Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander%20Desk">hello@quietsignalslab.com</a>. Please do not send a document you needed to clean &mdash; a description of the problem is enough.</p>
+        <p class="sl-support">Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander%20Desk">hello@quietsignalslab.com</a>. Please do not send a document you needed to clean; a description of the problem is enough.</p>
     </section>
 
     <!-- Closing call to action -->
     <section class="sl-final">
-        <h2>Hear when it is ready.</h2>
+        <h2>Get Solander Desk</h2>
         <div class="sl-cta">
             <!-- AT LAUNCH: replace with
                  <a href="https://github.com/Quiet-Signals-Lab/solander/releases/download/desk-v<version>/SolanderDesk-<version>.dmg" class="appstore-badge">Download free for macOS</a> -->
