@@ -39,8 +39,11 @@
     --max: 1120px;
 }
 
+/* Dark follows the system unless the visitor picks a theme with the switch in the nav
+ * (theme.js sets data-theme on <html>, as on quietsignalslab.com). The dark values are
+ * listed twice for that reason. */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         --ink: #F0F0EC;
         --ink-2: #B0B0A9;
         --ink-3: #8C8C85;
@@ -54,6 +57,21 @@
         --attention: #E8B92E;
     }
 }
+:root[data-theme="dark"] {
+    --ink: #F0F0EC;
+    --ink-2: #B0B0A9;
+    --ink-3: #8C8C85;
+    --paper: #1A1A19;
+    --ground: #0E0E0D;
+    --panel: #161615;
+    --rule: #343432;
+    --highlight: #242422;
+    --selected: #6B86F5;
+    --failure: #F06A6A;
+    --attention: #E8B92E;
+    color-scheme: dark;
+}
+:root[data-theme="light"] { color-scheme: light; }
 
 /* ---- Base ------------------------------------------------------------------------ */
 
@@ -69,6 +87,10 @@ body {
 }
 
 a { color: var(--selected); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--ink); }
+
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: var(--gutter); top: 8px; background: var(--paper); padding: 8px 12px; z-index: 1; }
 :focus-visible { outline: 2px solid var(--selected); outline-offset: 2px; }
 
 strong { font-weight: 600; }
@@ -119,7 +141,20 @@ nav {
 
 .nav-links { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 24px; }
 .nav-links a { text-decoration: none; display: inline-block; padding: 8px 0; }
-.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--ink); }
+.nav-links a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--ink); }
+
+/* Light/dark switch, as on quietsignalslab.com: the moon in light mode, the sun in dark. */
+.theme-toggle { display: inline-flex; padding: 8px 0; background: none; border: 0; color: var(--ink-3); cursor: pointer; }
+.theme-toggle:hover { color: var(--ink); }
+.theme-toggle svg { display: block; width: 16px; height: 16px; }
+.theme-toggle .sun { display: none; }
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-toggle .sun { display: block; }
+    :root:not([data-theme="light"]) .theme-toggle .moon { display: none; }
+}
+:root[data-theme="dark"] .theme-toggle .sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .moon { display: none; }
 
 /* ---- Page frame ------------------------------------------------------------------ */
 
@@ -166,8 +201,8 @@ p, li { color: var(--ink-2); }
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    min-height: 40px;
-    padding: 0 16px;
+    min-height: 44px;
+    padding: 0 18px;
     font: 500 14px/1.2 var(--sans);
     text-decoration: none;
     border: 1px solid var(--ink);
