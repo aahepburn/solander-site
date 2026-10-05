@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-    <!-- A page with two redactions: white paper and black, in either appearance, as in the app. -->
-    <rect x="5" y="2" width="22" height="28" fill="#FFFFFF" stroke="#101010" stroke-width="2"/>
-    <rect x="9" y="9" width="14" height="5" fill="#000000"/>
-    <rect x="9" y="18" width="9" height="5" fill="#000000"/>
+    <!-- Solander's mark: the redaction bar from the site's nav (14 × 7), on white paper so it
+         shows on light and dark tabs alike. -->
+    <rect width="32" height="32" fill="#FFFFFF"/>
+    <rect x="4" y="10" width="24" height="12" fill="#101010"/>
 </svg>

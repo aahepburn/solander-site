@@ -136,7 +136,8 @@ nav {
     color: var(--ink);
     text-decoration: none;
 }
-/* A redaction: the brand mark is the thing the product makes. */
+/* Solander's mark: a redaction, the thing the product makes. The same bar is the favicon
+ * (assets/favicon.svg) and quietsignalslab.com's Solander icon; change all three together. */
 .nav-brand::before { content: ""; width: 14px; height: 7px; background: var(--ink); }
 
 .nav-links { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 24px; }
