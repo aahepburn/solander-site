@@ -14,6 +14,10 @@
  *   loaded from anywhere.
  * - No ornament: no shadows, gradients or rounded corners. Planes are separated by hairlines,
  *   or set on the app's ground grey.
+ *
+ * The frame is quietsignalslab.com's (lab.css there): the Morse signal above the nav, bold
+ * headlines, and ink rules that open each page and each card. The lab's accent appears in
+ * one place only, the S of the Morse signal. Change the frame there, change it here.
  */
 
 :root {
@@ -30,6 +34,7 @@
     --selected: #1B3FD8;
     --failure: #C81E1E;
     --attention: #8C6309;
+    --accent: #D2421F;
 
     --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -112,6 +117,21 @@ code, .sc-mono {
     color: var(--ink-3);
 }
 
+/* ---- The signal: QSL in Morse, then a flat line, as on quietsignalslab.com ---------- */
+
+.q-signal {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 24px var(--gutter) 0;
+    display: flex;
+    align-items: center;
+}
+.q-signal svg { flex: none; display: block; }
+.q-signal::after { content: ""; flex: 1 1 auto; height: 1px; background: var(--ink); margin-left: 18px; }
+
+.q-morse rect { fill: var(--ink); }
+.q-morse .s { fill: var(--accent); }
+
 /* ---- Header ---------------------------------------------------------------------- */
 
 header { border-bottom: 1px solid var(--rule); }
@@ -120,7 +140,7 @@ nav {
     max-width: var(--max);
     margin: 0 auto;
     padding: 0 var(--gutter);
-    min-height: 56px;
+    min-height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -140,13 +160,13 @@ nav {
  * (assets/favicon.svg) and quietsignalslab.com's Solander icon; change all three together. */
 .nav-brand::before { content: ""; width: 14px; height: 7px; background: var(--ink); }
 
-.nav-links { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 24px; }
-.nav-links a { text-decoration: none; display: inline-block; padding: 8px 0; }
+.nav-links { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 0 24px; }
+.nav-links a { text-decoration: none; display: inline-block; padding: 12px 0; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--ink); }
 .nav-links a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--ink); }
 
 /* Light/dark switch, as on quietsignalslab.com: the moon in light mode, the sun in dark. */
-.theme-toggle { display: inline-flex; padding: 8px 0; background: none; border: 0; color: var(--ink-3); cursor: pointer; }
+.theme-toggle { display: inline-flex; padding: 12px 0; background: none; border: 0; color: var(--ink-3); cursor: pointer; }
 .theme-toggle:hover { color: var(--ink); }
 .theme-toggle svg { display: block; width: 16px; height: 16px; }
 .theme-toggle .sun { display: none; }
@@ -175,17 +195,24 @@ p, li { color: var(--ink-2); }
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: 24px;
     align-items: center;
-    padding: 72px 0 80px;
+    padding: 88px 0 72px;
 }
 .sl-hero > :first-child { grid-column: 1 / 8; }
 .sl-hero-art { grid-column: 9 / -1; }
 /* The family page has no drawing in its hero: the two apps below carry one each. */
 .sl-hero-text > :first-child { grid-column: 1 / 10; }
 
-.sl-eyebrow { margin-bottom: 16px; }
-.sl-hero h1 { margin-bottom: 20px; }
+.sl-eyebrow { margin-bottom: 20px; }
+/* The lab's headline: bold and tight. A step smaller than the lab's, because these are sentences. */
+.sl-hero h1 {
+    font-size: clamp(2.25rem, 1.5rem + 2.8vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
 
-.sl-lede { font-size: 1.125rem; line-height: 1.6; max-width: 36em; }
+.sl-lede { font-size: 1.1875rem; line-height: 1.55; max-width: 34em; }
 
 .sl-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
@@ -225,22 +252,24 @@ p, li { color: var(--ink-2); }
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: 24px;
     border-top: 1px solid var(--rule);
-    padding: 56px 0 72px;
+    padding: 40px 0 72px;
 }
+/* The first section under the hero opens on an ink rule, as on the lab's pages. */
+.sl-hero + .sl-section { border-top: 2px solid var(--ink); }
 .sl-section > * { grid-column: 4 / -1; }
-.sl-section > .sl-kicker { grid-column: 1 / 4; padding-top: 6px; padding-right: 24px; }
+.sl-section > .sl-kicker { grid-column: 1 / 4; padding-top: 2px; padding-right: 24px; color: var(--ink); }
 .sl-section > h2 { margin-bottom: 12px; }
 .sl-section > h2 + :not(p) { margin-top: 16px; }
 .sl-intro { max-width: 40em; margin-bottom: 32px; }
 /* A page with no hero (the upgrade page) still needs air between the nav and the rule. */
-main.sl > .sl-section:first-child { margin-top: 48px; }
+main.sl > .sl-section:first-child { margin-top: 48px; border-top: 2px solid var(--ink); }
 
 .sl-body { max-width: 40em; }
 .sl-body p + p { margin-top: 16px; }
 
-/* Features: columns under a hairline, no boxes. */
+/* Features: columns under an ink rule, as the lab's cards. */
 .sl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 40px; }
-.sl-card { border-top: 1px solid var(--rule); padding-top: 20px; }
+.sl-card { border-top: 2px solid var(--ink); padding-top: 20px; }
 .sl-card h3 { margin-bottom: 8px; }
 .sl-card p { font-size: 15px; }
 .sl-card-link { display: inline-block; margin-top: 16px; font-size: 15px; }
@@ -287,7 +316,7 @@ main.sl > .sl-section:first-child { margin-top: 48px; }
 .sl-steps { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
 /* Four points read as two pairs; a lone fourth in a row of three reads as an afterthought. */
 .sl-steps-pairs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.sl-steps li { counter-increment: step; border-top: 1px solid var(--rule); padding-top: 16px; }
+.sl-steps li { counter-increment: step; border-top: 2px solid var(--ink); padding-top: 16px; }
 .sl-steps li::before {
     content: counter(step, decimal-leading-zero);
     display: block;
@@ -304,7 +333,7 @@ main.sl > .sl-section:first-child { margin-top: 48px; }
 .sl-plans {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    border-top: 1px solid var(--rule);
+    border-top: 2px solid var(--ink);
     border-left: 1px solid var(--rule);
 }
 .sl-plans-wide { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -373,27 +402,24 @@ main.sl > .sl-section:first-child { margin-top: 48px; }
 .prose { max-width: var(--max); margin: 0 auto; padding: 56px var(--gutter) 96px; }
 .prose > * { max-width: 44rem; }
 .prose .page-label { margin-bottom: 12px; }
-.prose h1 { margin-bottom: 12px; }
+.prose .page-label { color: var(--ink); }
+.prose h1 { font-size: clamp(2.125rem, 1.5rem + 2.4vw, 3.25rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 700; margin-bottom: 20px; }
 .prose .page-meta {
     font: 400 12px/1.6 var(--mono);
     color: var(--ink-3);
     padding-bottom: 28px;
-    border-bottom: 1px solid var(--rule);
-    margin-bottom: 32px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 40px;
 }
 .prose .lede { font-size: 1.0625rem; color: var(--ink); margin-bottom: 16px; }
-/* The app's SectionLabel: uppercase, tracked, hairline beneath. */
-.prose h2 {
-    font: 600 11px/1.4 var(--sans);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--rule);
-    margin: 40px 0 16px;
-}
+/* Headings and square bullets as in the lab's legal notices. */
+.prose h2 { font-size: 1.375rem; line-height: 1.3; letter-spacing: -0.015em; margin: 48px 0 16px; }
 .prose p { margin-bottom: 16px; }
-.prose ul, .prose ol { margin: 0 0 16px 20px; }
+.prose ol { margin: 0 0 16px 20px; }
+.prose ul { list-style: none; margin: 0 0 16px; }
+.prose li { margin-bottom: 8px; }
+.prose ul > li { position: relative; padding-left: 20px; }
+.prose ul > li::before { content: ""; position: absolute; left: 0; top: 0.68em; width: 6px; height: 6px; background: var(--ink); }
 
 .constraint-box {
     background: var(--ground);
@@ -412,12 +438,12 @@ footer { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) 56px; }
 .footer-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 24px;
-    margin-bottom: 20px;
-    padding-top: 28px;
+    gap: 0 24px;
+    margin-bottom: 16px;
+    padding-top: 24px;
     border-top: 1px solid var(--rule);
 }
-.footer-links a { text-decoration: none; display: inline-block; padding: 8px 0; }
+.footer-links a { text-decoration: none; display: inline-block; padding: 10px 0; }
 .footer-links a:hover { color: var(--ink); }
 .footer-meta p { font: 400 12px/1.7 var(--mono); color: var(--ink-3); }
 .footer-meta a { color: inherit; }
@@ -440,6 +466,8 @@ footer { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) 56px; }
 
 @media (max-width: 600px) {
     :root { --gutter: 16px; }
+    .q-signal { padding-top: 20px; }
+    nav { padding-top: 16px; padding-bottom: 4px; }
     .sl-lede { font-size: 1.0625rem; }
     .sl-hero-art, .sl-card-art { padding: 24px 16px; }
     .prose { padding-top: 40px; }
