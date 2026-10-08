@@ -10,8 +10,10 @@
  * - Colour carries meaning, never mood. Blue is what you can act on (links, focus; in the app,
  *   your selection). Amber is "not yet" (in the app, text nobody could read). Red is a failure.
  * - One grid: twelve columns, and a 4px module under every dimension.
- * - Type from the system, as in the app: SF Pro for words, SF Mono for machine data. Nothing
- *   loaded from anywhere.
+ * - Three faces, one job each (FAMILY D-037, B1): Source Serif 4 for documents (headings, the
+ *   name, the specimen), the system sans for sentences, Source Code Pro for codes, hashes and
+ *   commands. Both faces are self-hosted from assets/fonts (SIL OFL); nothing is loaded from
+ *   another origin, and ci/no-external-loads.sh checks it.
  * - No ornament: no shadows, gradients or rounded corners. Planes are separated by hairlines,
  *   or set on the app's ground grey.
  *
