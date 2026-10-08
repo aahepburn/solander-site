@@ -37,130 +37,117 @@
 <main class="sl" id="main">
 
     <!-- Hero (FAMILY D-037, B4): the headline is the claim, the lede says where it is true,
-         and the specimen shows the three languages with the coded bar on each name. -->
+         and the specimen is a page with the three languages barred and a receipt on it. -->
     <section class="sl-hero">
         <div>
             <p class="sl-eyebrow">Document redaction for Mac &middot; NL &middot; FR &middot; EN</p>
             <h1>Redaction trained for Dutch, French and English.</h1>
             <p class="sl-lede">Solander runs its own small model on your Mac, trained for the documents of the Netherlands, Belgium, France, the UK, Ireland and Canada: their names, their ID numbers, their disclosure rules. We publish how well it does. No upload, no account, no sales call.</p>
             <div class="sl-cta">
-                <!-- AT LAUNCH: replace the mailto below with a link to /pdf/ ("Download Solander PDF"),
-                     where the Download buttons are checked against the appcast. -->
-                <a href="mailto:hello@quietsignalslab.com?subject=Solander%20%E2%80%94%20tell%20me%20when%20it%20launches" class="appstore-badge">Email me at launch</a>
+                <a href="/pdf/" class="appstore-badge">Download Solander PDF</a>
                 <a href="/benchmark/" class="sl-btn-quiet">See the benchmark</a>
             </div>
             <p class="sl-fine">Free for one document at a time. No account. No watermark.</p>
         </div>
-        <div class="sl-hero-art">
+        <div class="sl-stage">
             <figure class="sl-specimen" aria-label="Three sentences, in Dutch, French and English, with the names redacted">
-                <p><span class="sl-lang">NL</span>Volgens mevrouw <span class="sl-bar" aria-hidden="true"></span> belde de heer <span class="sl-bar" aria-hidden="true"></span> op 3 maart.</p>
-                <p><span class="sl-lang">FR</span>Me <span class="sl-bar" aria-hidden="true"></span> a confirmé que Mme <span class="sl-bar" aria-hidden="true"></span> habite à Laval.</p>
-                <p><span class="sl-lang">EN</span><span class="sl-bar" aria-hidden="true"></span> said <span class="sl-bar" aria-hidden="true"></span>&rsquo;s manager rang her at home.</p>
-                <figcaption><span>On this Mac &middot; <span class="sl-mono">WI-FI OFF</span></span><span>6 names found &middot; 3 languages</span></figcaption>
+                <p><span class="sl-lang">NL</span><span>Volgens mevrouw <span class="sl-redact sl-redact-l"></span> belde de heer <span class="sl-redact sl-redact-s"></span> op 3 maart.</span></p>
+                <p><span class="sl-lang">FR</span><span>M<sup>e</sup> <span class="sl-redact sl-redact-m"></span> a confirmé que M<sup>me</sup> <span class="sl-redact sl-redact-s"></span> habite à Laval.</span></p>
+                <p><span class="sl-lang">EN</span><span><span class="sl-redact sl-redact-l"></span> said <span class="sl-redact sl-redact-s"></span>&rsquo;s manager rang her at home.</span></p>
             </figure>
+            <div class="sl-receipt" aria-label="Receipt: on this Mac, Wi-Fi off; 6 names found, 3 languages, no network access needed">
+                <div class="sl-receipt-head"><span>On this Mac</span><span>WI-FI OFF</span></div>
+                <div class="sl-receipt-body">6 names found &middot; 3 languages<br>no network access needed</div>
+            </div>
         </div>
     </section>
 
     <!-- Tested in the open. The cells stay empty until the benchmark is run; a dash is an
-         honest cell, a made-up number is not (B4, scorecard). -->
-    <section class="sl-section" id="benchmark">
-        <p class="sl-kicker">Tested in the open</p>
-        <h2>The test documents, labels and scoring code are public.</h2>
-        <p class="sl-intro">Solander is scored against a general LLM, open-source tools and plain pattern search, per language and per kind of name, misses included. Rerun it yourself.</p>
-        <table class="sl-score">
-            <caption>Names found</caption>
-            <thead><tr><th scope="col"></th><th scope="col">NL</th><th scope="col">FR</th><th scope="col">EN</th></tr></thead>
-            <tbody>
-                <tr><th scope="row">Solander</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-                <tr><th scope="row">General LLM</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-                <tr><th scope="row">Open-source toolkit</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-                <tr><th scope="row">Pattern search</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-            </tbody>
-        </table>
-        <p class="sl-small"><a href="/benchmark/">Read the benchmark and the model card</a></p>
+         honest cell, a made-up number is not. -->
+    <section class="sl-block sl-block-split" id="benchmark">
+        <div class="sl-block-text">
+            <h2>Tested in the open</h2>
+            <p>The test documents, labels and scoring code are public. Solander is scored against a general LLM, open-source tools and plain pattern search, per language and per kind of name, misses included. Rerun it yourself.</p>
+            <p><a href="/benchmark/">Read the benchmark and the model card</a></p>
+        </div>
+        <div class="sl-block-wide">
+            <table class="sl-score">
+                <thead><tr><th scope="col" class="sl-score-label">Names found</th><th scope="col">NL</th><th scope="col">FR</th><th scope="col">EN</th></tr></thead>
+                <tbody>
+                    <tr class="sl-score-us"><th scope="row">Solander</th><td>[&mdash;]</td><td>[&mdash;]</td><td>[&mdash;]</td></tr>
+                    <tr><th scope="row">General LLM</th><td>[&mdash;]</td><td>[&mdash;]</td><td>[&mdash;]</td></tr>
+                    <tr><th scope="row">Open-source toolkit</th><td>[&mdash;]</td><td>[&mdash;]</td><td>[&mdash;]</td></tr>
+                    <tr><th scope="row">Pattern search</th><td>[&mdash;]</td><td>[&mdash;]</td><td>[&mdash;]</td></tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <!-- Made for where you work (B7): a country is a first-class setting. -->
-    <section class="sl-section" id="countries">
-        <p class="sl-kicker">Made for where you work</p>
-        <h2>Not &ldquo;International English&rdquo;.</h2>
-        <p class="sl-intro">Pick your country and the detectors, codes and paperwork follow its rules.</p>
-        <div class="sl-countries">
-            <article class="sl-card"><h3>Netherlands <span class="sl-mono">NL</span></h3><p>BSN with its 11-check. Woo grounds such as 5.1.2e in the bar, the inventory list, court-style role labels like [eiser].</p></article>
-            <article class="sl-card"><h3>Belgium <span class="sl-mono">NL &middot; FR</span></h3><p>National register numbers. Files that switch between Dutch and French on the same page.</p></article>
-            <article class="sl-card"><h3>France <span class="sl-mono">FR</span></h3><p>NIR and SIRET numbers. Names with particles, Me and Mme, and the occultation of court decisions.</p></article>
-            <article class="sl-card"><h3>Canada <span class="sl-mono">EN &middot; FR</span></h3><p>SIN numbers and A1A 1A1 postcodes. ATIP exemptions such as 19(1), and Quebec&rsquo;s Law 25.</p></article>
-            <article class="sl-card"><h3>UK <span class="sl-mono">EN</span></h3><p>National Insurance numbers. FOI section 40 and subject access requests.</p></article>
-            <article class="sl-card"><h3>Ireland <span class="sl-mono">EN</span></h3><p>PPS numbers and Eircodes. FOI Act 2014 section 37.</p></article>
+    <section class="sl-block" id="countries">
+        <div class="sl-block-head">
+            <h2>Made for where you work</h2>
+            <p>Not &ldquo;International English&rdquo;. Pick your country and the detectors, codes and paperwork follow its rules.</p>
         </div>
-        <p class="sl-note">No sales call. Download it, try it on a real document, buy it with a card. For one person or a small firm. The price is on this page and stays there.</p>
+        <div class="sl-countries">
+            <article><h3>Netherlands <span class="sl-code">NL</span></h3><p>BSN with its 11-check. Woo grounds such as 5.1.2e in the bar, the inventory list, court-style role labels like [eiser].</p></article>
+            <article><h3>Belgium <span class="sl-code">NL &middot; FR</span></h3><p>National register numbers. Files that switch between Dutch and French on the same page.</p></article>
+            <article><h3>France <span class="sl-code">FR</span></h3><p>NIR and SIRET numbers. Names with particles, Me and Mme, and the occultation of court decisions.</p></article>
+            <article><h3>Canada <span class="sl-code">EN &middot; FR</span></h3><p>SIN numbers and A1A 1A1 postcodes. ATIP exemptions such as 19(1), and Quebec&rsquo;s Law 25.</p></article>
+            <article><h3>UK <span class="sl-code">EN</span></h3><p>National Insurance numbers. FOI section 40 and subject access requests.</p></article>
+            <article><h3>Ireland <span class="sl-code">EN</span></h3><p>PPS numbers and Eircodes. FOI Act 2014 section 37.</p></article>
+        </div>
+        <p class="sl-pair"><span><b>No sales call.</b> Download it, try it on a real document, buy it with a card.</span><span><b>For one person or a small firm.</b> The price is on this page and stays there.</span></p>
     </section>
 
     <!-- Don't take our word for it: each claim with its check (asset 04). -->
-    <section class="sl-section" id="check">
-        <p class="sl-kicker">Don&rsquo;t take our word for it</p>
-        <h2>Each claim on this page comes with a way to check it yourself.</h2>
+    <section class="sl-block" id="check">
+        <div class="sl-block-head">
+            <h2>Don&rsquo;t take our word for it</h2>
+            <p>Each claim on this page comes with a way to check it yourself.</p>
+        </div>
         <dl class="sl-claims">
-            <div><dt>Your documents never leave your Mac.</dt><dd><code>$ codesign -d --entitlements - "/Applications/Solander PDF.app"</code><span class="sl-comment"># no network.client entitlement: macOS refuses connections</span></dd></div>
-            <div><dt>Nothing is left under the bars.</dt><dd><code>Select all in the redacted file, copy, paste.</code><span class="sl-comment"># Solander does this to every export, and reports it</span></dd></div>
-            <div><dt>Every bar says why it is there.</dt><dd><code>Woo 5.1.2e &middot; ATIP 19(1) &middot; FOI s.40 &middot; your own</code><span class="sl-comment"># with a legend and an inventory list</span></dd></div>
-            <div><dt>The report belongs to the file.</dt><dd><code>$ shasum -a 256 "redacted.pdf"</code><span class="sl-comment"># matches the hash on the receipt</span></dd></div>
+            <div><dt>Your documents never leave your Mac.</dt><dd><code>$ codesign -d --entitlements - "/Applications/Solander PDF.app"<br><span class="sl-comment"># no network.client entitlement: macOS refuses connections</span></code></dd></div>
+            <div><dt>Nothing is left under the bars.</dt><dd><code>Select all in the redacted file, copy, paste.<br><span class="sl-comment"># Solander does this to every export, and reports it</span></code></dd></div>
+            <div><dt>Every bar says why it is there.</dt><dd><code>Woo 5.1.2e &middot; ATIP 19(1) &middot; FOI s.40 &middot; your own<br><span class="sl-comment"># with a legend and an inventory list</span></code></dd></div>
+            <div><dt>The report belongs to the file.</dt><dd><code>$ shasum -a 256 "redacted.pdf"<br><span class="sl-comment"># matches the hash on the receipt</span></code></dd></div>
         </dl>
     </section>
 
     <!-- Who it's for -->
-    <section class="sl-section" id="uses">
-        <p class="sl-kicker">Who it&rsquo;s for</p>
-        <div class="sl-grid">
-            <article class="sl-card"><h3>Woo and FOI</h3><p>The article in every bar, the legend and the inventory list, in Dutch, French or English.</p></article>
-            <article class="sl-card"><h3>Court filings</h3><p>Exhibits and productions, Bates numbers and a privilege log, checked before they are filed.</p></article>
-            <article class="sl-card"><h3>Access requests</h3><p>Other people&rsquo;s details out of what you send the person who asked, with a record of why.</p></article>
-            <article class="sl-card"><h3>Research and AI tools</h3><p>Solander Desk swaps names for placeholders in Word and Excel files, and puts them back afterwards. <a href="/desk/">More about Solander Desk</a></p></article>
-        </div>
+    <section class="sl-uses" id="uses">
+        <article><h3>Woo and FOI</h3><p>The article in every bar, the legend and the inventory list, in Dutch, French or English.</p></article>
+        <article><h3>Court filings</h3><p>Exhibits and productions, Bates numbers and a privilege log, checked before they are filed.</p></article>
+        <article><h3>Access requests</h3><p>Other people&rsquo;s details out of what you send the person who asked, with a record of why.</p></article>
+        <article><h3>Research and AI tools</h3><p><a href="/desk/">Solander Desk</a> swaps names for placeholders in Word and Excel files, and puts them back afterwards.</p></article>
     </section>
 
     <!-- Limits: stated plainly, above the price (HC6). -->
-    <section class="sl-section" id="limits">
-        <p class="sl-kicker">Limits</p>
+    <section class="sl-limits" id="limits">
         <h2>What the check covers, and what it doesn&rsquo;t</h2>
-        <div class="sl-body">
+        <div>
             <p>A passing check means no readable text remains inside the parts you redacted. It does not mean everything sensitive was found. Detection misses things, most often short names and text in images, so Solander shows you where it could not see, and you review every document.</p>
             <p>Text replaced with placeholders in Solander Desk is still personal data under the GDPR.</p>
         </div>
     </section>
 
     <!-- Pricing -->
-    <section class="sl-section" id="pricing">
-        <p class="sl-kicker">Yours to keep</p>
-        <p class="sl-intro">Each licence is a one-time purchase for one person, on all of your own Macs, and includes future versions.</p>
-        <div class="sl-plans sl-plans-wide">
+    <section class="sl-block" id="pricing">
+        <div class="sl-block-head">
+            <h2>Yours to keep</h2>
+            <p>One payment for one person, on all your Macs, with every future version.</p>
+        </div>
+        <div class="sl-plans">
             <div class="sl-plan">
                 <h3>Free</h3>
                 <p class="sl-price">$0</p>
-                <p class="sl-price-sub">both apps, no time limit</p>
-                <ul>
-                    <li>One document at a time</li>
-                    <li>Find and redact personal details</li>
-                    <li>Every export checked</li>
-                    <li>No account, no watermark</li>
-                </ul>
-                <div class="sl-plan-action">
-                    <a href="/pdf/" class="sl-btn-quiet">Solander PDF</a>
-                </div>
+                <p class="sl-price-sub">One document at a time. Every check.</p>
+                <div class="sl-plan-action"><a href="/pdf/">Download Solander PDF</a></div>
             </div>
-
             <div class="sl-plan">
                 <h3>Solander PDF</h3>
                 <p class="sl-price">$49</p>
-                <p class="sl-price-sub">one-time, one person</p>
-                <ul>
-                    <li>Batch redaction</li>
-                    <li>Redaction log with exemption codes</li>
-                    <li>Signed report (PDF and JSON)</li>
-                    <li>Bates numbering and privilege log</li>
-                    <li>Searchable output</li>
-                    <li>Command-line tool and watch folders</li>
-                </ul>
+                <p class="sl-price-sub">Batches, reason codes, signed reports.</p>
                 <div class="sl-plan-action">
                     <!-- AT LAUNCH (Paddle): replace the element below with
                            <a href="https://..." class="appstore-badge">Buy $49</a>
@@ -168,16 +155,10 @@
                     <span class="sl-soon">Coming soon</span>
                 </div>
             </div>
-
             <div class="sl-plan">
                 <h3>Solander Desk</h3>
                 <p class="sl-price">$69</p>
-                <p class="sl-price-sub">one-time, one person</p>
-                <ul>
-                    <li>Batch processing of Word, Excel and LibreOffice files</li>
-                    <li>Placeholders for AI tools, restored in the reply</li>
-                    <li>Signed report</li>
-                </ul>
+                <p class="sl-price-sub">Word, Excel and LibreOffice, with placeholders.</p>
                 <div class="sl-plan-action">
                     <!-- AT LAUNCH (Paddle): replace the element below with
                            <a href="https://..." class="appstore-badge">Buy $69</a>
@@ -185,16 +166,10 @@
                     <span class="sl-soon">Coming soon</span>
                 </div>
             </div>
-
             <div class="sl-plan sl-plan-main">
-                <h3>Solander Suite</h3>
+                <h3>Suite</h3>
                 <p class="sl-price">$99</p>
-                <p class="sl-price-sub">one-time, one person, both apps</p>
-                <ul>
-                    <li>Solander PDF and Solander Desk</li>
-                    <li>One licence file for both apps</li>
-                    <li>If you own one app, pay the difference</li>
-                </ul>
+                <p class="sl-price-sub">Both apps, one licence file.</p>
                 <div class="sl-plan-action">
                     <!-- AT LAUNCH (Paddle): replace the element below with
                            <a href="https://..." class="appstore-badge">Buy $99</a>
@@ -206,13 +181,12 @@
                 </div>
             </div>
         </div>
-
-        <p class="sl-note">Solander PDF goes on sale first. Solander Desk and the Suite follow when Solander Desk is released, at the prices shown. Prices are in USD, with sales tax or VAT added at checkout where applicable. Orders are processed by Paddle.com Market Ltd, the merchant of record, who issue your invoice. Your licence arrives by email as a file you double-click to install. Refunds within 14 days, no reason needed; see <a href="/refunds.html">Refunds</a> and <a href="/terms.html">Terms</a>.</p>
+        <p class="sl-note">Solander PDF goes on sale first. Solander Desk and the Suite follow when Solander Desk is released, at the prices shown. If you own one app, the Suite costs the difference. Prices are in USD, with sales tax or VAT added at checkout where applicable. Orders are processed by Paddle.com Market Ltd, the merchant of record, who issue your invoice. Your licence arrives by email as a file you double-click to install. Refunds within 14 days, no reason needed; see <a href="/refunds.html">Refunds</a> and <a href="/terms.html">Terms</a>.</p>
     </section>
 
     <!-- FAQ. The limits of detection are stated here and only here (COPY_GUIDE.md §2.6). -->
-    <section class="sl-section" id="faq">
-        <p class="sl-kicker">FAQ</p>
+    <section class="sl-block" id="faq">
+        <div class="sl-block-head"><h2>Questions</h2></div>
         <div class="sl-faq">
             <details>
                 <summary>Does it find everything that should be redacted?</summary>
@@ -267,9 +241,9 @@
     <a href="mailto:hello@quietsignalslab.com?subject=Solander">Support</a>
   </div>
   <div class="footer-meta">
-    <p class="sl-footer-mark"><span class="sl-bar" aria-hidden="true"></span><span class="sl-footer-wordmark">Solander</span> &middot; Made by Quiet Signals Lab, Amsterdam.</p>
+    <p class="sl-footer-line"><span>Solander is made by Quiet Signals Lab, Amsterdam.</span><span>This site sets no cookies and loads nothing from anywhere else.</span></p>
     <p>Solander is made by Alexander Hepburn, trading as <a href="https://quietsignalslab.com/">Quiet Signals Lab</a> &middot; Amsterdam, Netherlands &middot; KvK 99556650 &middot; VAT NL005394204B58</p>
-    <p>This site does not use cookies or tracking technologies, and loads nothing from anywhere else. <a href="/privacy.html">Privacy</a></p>
+    <p><a href="/privacy.html">Privacy</a></p>
     <p>&copy; 2026 Alexander Hepburn. All rights reserved.</p>
   </div>
 </footer>

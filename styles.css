@@ -484,58 +484,100 @@ footer { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) 56px; }
 
 /* ---- Narrow ---------------------------------------------------------------------- */
 
-/* ---- Added for D-037 ------------------------------------------------------------- */
-/* ---- The coded bar, in running text (B2) ---------------------------------------- */
+/* ---- The home page, as the identity canvas draws it (FAMILY D-037) --------------- */
 
-/* A redaction with the place its reason goes, 3 : 1, drawn at the text's own x-height
- * so a specimen sentence reads as a redacted sentence. The slot is painted paper. */
+/* The coded bar in running text (B2): a redaction with the place its reason goes. */
 .sl-bar {
     display: inline-block;
     width: 2.1em; height: 0.7em;
     vertical-align: -0.05em;
     background: linear-gradient(var(--paper), var(--paper)) 0.22em 0.22em / 0.26em 0.26em no-repeat, var(--ink);
 }
-.sl-mono { font: 400 0.75em/1 var(--mono); color: var(--ink-3); letter-spacing: 0.06em; text-transform: uppercase; }
+.sl-code { font: 600 11px/1 var(--mono); color: var(--ink-2); letter-spacing: 0.04em; }
 
-/* ---- Hero specimen ---------------------------------------------------------------- */
+/* The nav reads as words, not labels. */
+.nav-links a { font: 400 14px/1.4 var(--sans); letter-spacing: 0; text-transform: none; color: var(--ink-2); }
 
-.sl-specimen { background: var(--paper); border: 1px solid var(--rule); padding: 28px; width: 100%; max-width: 420px; }
-.sl-specimen p { font: 400 17px/1.7 var(--display); color: var(--ink); }
-.sl-specimen p + p { margin-top: 12px; }
-.sl-lang { display: inline-block; width: 2.2em; font: 600 11px/1 var(--mono); color: var(--ink-3); letter-spacing: 0.06em; }
-.sl-specimen figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--rule); font: 400 12px/1.5 var(--mono); color: var(--ink-3); }
+/* Hero: the headline in the serif at the lab's weight, the specimen beside it. */
+.sl-hero > :first-child { grid-column: 1 / 7; }
+.sl-stage { grid-column: 7 / -1; }
+.sl-hero h1 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.02; }
+.sl-eyebrow { font: 500 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
 
-/* ---- Scorecard -------------------------------------------------------------------- */
+/* The specimen: a page on the ground, three barred sentences, the receipt on its corner. */
+.sl-stage { position: relative; background: var(--ground); padding: 28px 28px 70px; }
+.sl-specimen { margin: 0; background: var(--paper); box-shadow: 0 0 0 1px var(--rule); padding: 12px 26px; font: 400 15px/1.9 var(--display); color: var(--ink); }
+.sl-specimen p { display: grid; grid-template-columns: 34px 1fr; gap: 10px; padding: 10px 0; color: var(--ink); }
+.sl-specimen p + p { border-top: 1px solid var(--rule); }
+.sl-specimen sup { font-size: 9px; }
+.sl-lang { font: 600 11px/2.6 var(--mono); color: var(--ink-2); }
+.sl-redact { display: inline-block; height: 18px; vertical-align: -4px; background: var(--ink); }
+.sl-redact-l { width: 120px; } .sl-redact-m { width: 104px; } .sl-redact-s { width: 56px; }
+.sl-receipt { position: absolute; right: 16px; bottom: 16px; width: min(300px, 80%); border: 1.5px solid var(--ink); background: var(--paper); color: var(--ink); }
+.sl-receipt-head { display: flex; justify-content: space-between; align-items: baseline; padding: 9px 12px 7px; border-bottom: 1px solid var(--ink); font: 600 13px/1 var(--mono); }
+.sl-receipt-head span + span { font: 500 9px/1 var(--mono); color: var(--ink-2); letter-spacing: 0.06em; }
+.sl-receipt-body { padding: 7px 12px 9px; font: 400 10.5px/1.6 var(--mono); color: var(--ink-2); }
 
-.sl-score { border-collapse: collapse; width: 100%; max-width: 40em; margin-top: 24px; margin-bottom: 20px; font-variant-numeric: tabular-nums; }
-.sl-score caption { text-align: left; font: 600 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-bottom: 12px; }
-.sl-score th, .sl-score td { text-align: left; padding: 10px 12px 10px 0; border-top: 1px solid var(--rule); font-size: 15px; }
-.sl-score thead th { border-top: 0; font: 600 11px/1 var(--mono); letter-spacing: 0.08em; color: var(--ink-3); padding-bottom: 8px; }
-.sl-score tbody th { font-weight: 500; color: var(--ink); }
-.sl-score td { color: var(--ink-3); font-family: var(--mono); }
-.sl-score tbody tr:first-child th { border-top: 2px solid var(--ink); }
-.sl-score tbody tr:first-child td { border-top: 2px solid var(--ink); }
+/* A block: the heading in the serif at the left, one line at the right, the content under. */
+.sl-block { border-top: 2px solid var(--ink); padding: 52px 0; }
+.sl-block h2 { font-size: 34px; line-height: 1.1; letter-spacing: -0.01em; }
+.sl-block-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 40px; margin-bottom: 22px; }
+.sl-block-head p { font-size: 14px; color: var(--ink-2); max-width: 50ch; }
+.sl-block-split { display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; }
+.sl-block-text { flex: 1 1 300px; }
+.sl-block-text p { font-size: 15px; line-height: 1.55; margin-top: 14px; }
+.sl-block-text p a { font-size: 14px; }
+.sl-block-wide { flex: 2 1 480px; min-width: 0; overflow-x: auto; }
 
-/* ---- Countries -------------------------------------------------------------------- */
+/* Scorecard: dashes until the first published run. */
+.sl-score { border-collapse: collapse; width: 100%; min-width: 460px; border-top: 1px solid var(--ink); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.sl-score th, .sl-score td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--rule); color: var(--ink-2); font-weight: 400; }
+.sl-score th:first-child, .sl-score td:first-child { padding-left: 0; }
+.sl-score thead th { font: 600 12px/1.4 var(--mono); color: var(--ink); }
+.sl-score thead .sl-score-label { font: 600 10.5px/1.4 var(--sans); letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); }
+.sl-score-us th, .sl-score-us td { color: var(--ink); font-weight: 600; }
+.sl-score td { font-family: var(--mono); }
 
-.sl-countries { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 32px; }
-.sl-countries h3 { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+/* Countries: three across, the serif name and its language codes on one line. */
+.sl-countries { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px 36px; }
+.sl-countries article { border-top: 1px solid var(--rule); padding-top: 14px; }
+.sl-countries h3 { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 21px; font-weight: 400; margin-bottom: 8px; }
+.sl-countries p { font-size: 14px; line-height: 1.5; }
+.sl-pair { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 10px; font-size: 14px; }
+.sl-pair b { color: var(--ink); font-weight: 600; }
 
-/* ---- Claims and their checks ------------------------------------------------------ */
+/* Claims and their checks (asset 04): a serif sentence, a mono block under it. */
+.sl-claims { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 0 40px; }
+.sl-claims > div { border-top: 1px solid var(--rule); padding: 18px 0 22px; }
+.sl-claims dt { font: 400 21px/1.3 var(--display); color: var(--ink); margin-bottom: 10px; }
+.sl-claims dd code { display: block; font: 400 12.5px/1.55 var(--mono); color: var(--ink); background: var(--ground); border: 0; padding: 9px 11px; overflow-x: auto; white-space: nowrap; }
+.sl-comment { color: var(--ink-2); }
 
-.sl-claims { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
-.sl-claims > div { border-top: 2px solid var(--ink); padding-top: 16px; }
-.sl-claims dt { font: 600 1.0625rem/1.35 var(--display); color: var(--ink); margin-bottom: 12px; }
-.sl-claims dd code { display: block; font: 400 13px/1.6 var(--mono); color: var(--ink); background: var(--ground); padding: 8px 10px; overflow-x: auto; white-space: nowrap; }
-.sl-comment { display: block; font: 400 12px/1.6 var(--mono); color: var(--ink-3); margin-top: 6px; }
+/* Who it is for: four columns under a hairline, each with a label in caps. */
+.sl-uses { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 24px 36px; border-top: 1px solid var(--rule); padding: 44px 0 48px; }
+.sl-uses h3 { font: 600 10.5px/1.4 var(--sans); letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
+.sl-uses p { font-size: 15px; line-height: 1.5; }
 
-/* ---- Footer mark ------------------------------------------------------------------ */
+/* Limits: the heading at the left, the statement in the serif at the right. */
+.sl-limits { display: flex; flex-wrap: wrap; gap: 32px; border-top: 1px solid var(--rule); padding: 48px 0; }
+.sl-limits h2 { flex: 1 1 260px; font-size: 28px; letter-spacing: -0.01em; }
+.sl-limits div { flex: 2 1 420px; }
+.sl-limits p { font: 400 18px/1.6 var(--display); color: var(--ink-2); }
+.sl-limits p + p { margin-top: 12px; }
 
-.sl-footer-mark { display: flex; align-items: center; gap: 8px; color: var(--ink); }
-.sl-footer-wordmark { font: 600 15px/1 var(--display); }
+/* Pricing: four cells in one ruled row, the Suite on the ground. */
+.sl-plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); border-top: 1px solid var(--ink); border-left: 1px solid var(--rule); }
+.sl-plan { padding: 18px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; gap: 4px; }
+.sl-plan h3 { font: 600 16px/1.4 var(--sans); }
+.sl-price { font: 600 34px/1.2 var(--display); color: var(--ink); margin: 0; }
+.sl-price-sub { font: 400 13px/1.5 var(--sans); color: var(--ink-2); margin: 0; }
+.sl-plan-action { margin-top: auto; padding-top: 14px; font-size: 13px; }
+.sl-plan-main { background: var(--ground); }
+
+/* Footer: the two mono lines, then what the merchant of record requires. */
+.sl-footer-line { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding-bottom: 10px; color: var(--ink-2); }
 
 @media (max-width: 1000px) {
-    .sl-countries { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .sl-plans-wide { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -545,7 +587,10 @@ footer { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) 56px; }
     .sl-section > *, .sl-section > .sl-kicker { grid-column: 1 / -1; }
     .sl-section { padding: 40px 0 56px; }
     .sl-section > .sl-kicker { padding: 0 0 12px; }
-    .sl-grid, .sl-apps, .sl-steps, .sl-steps-pairs, .sl-countries, .sl-claims { grid-template-columns: 1fr; }
+    .sl-grid, .sl-apps, .sl-steps, .sl-steps-pairs { grid-template-columns: 1fr; }
+    .sl-hero > :first-child, .sl-stage { grid-column: 1 / -1; }
+    .sl-block { padding: 40px 0; }
+    .sl-block h2 { font-size: 28px; }
     .sl-plans, .sl-plans-wide { grid-template-columns: 1fr; }
 }
 
