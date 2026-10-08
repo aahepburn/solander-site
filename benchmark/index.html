@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The test documents, labels and scoring code behind Solander's detection, and how it scores against a general LLM, open-source tools and pattern search, per language, misses included.">
+    <meta name="author" content="Quiet Signals Lab">
+    <title>Solander benchmark — how well the detection does, per language</title>
+
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/theme.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="q-signal" aria-hidden="true">
+<svg class="q-morse" viewBox="0 0 33 1" width="198" height="6" shape-rendering="crispEdges" focusable="false"><rect x="0" width="3" height="1"/><rect x="4" width="3" height="1"/><rect x="8" width="1" height="1"/><rect x="10" width="3" height="1"/><rect class="s" x="16" width="1" height="1"/><rect class="s" x="18" width="1" height="1"/><rect class="s" x="20" width="1" height="1"/><rect x="24" width="1" height="1"/><rect x="26" width="3" height="1"/><rect x="30" width="1" height="1"/><rect x="32" width="1" height="1"/></svg>
+</div>
+
+<header>
+  <nav>
+    <a href="/" class="nav-brand">Solander</a>
+    <ul class="nav-links">
+      <li><a href="/benchmark/" aria-current="page">Benchmark</a></li>
+      <li><a href="/#countries">Countries</a></li>
+      <li><a href="/pdf/">PDF</a></li>
+      <li><a href="/desk/">Desk</a></li>
+      <li><a href="/#check">Check it</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#limits">Limits</a></li>
+      <li><button class="theme-toggle" type="button" aria-label="Switch between light and dark mode"><svg class="moon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.5 9.6A6 6 0 0 1 6.4 2.5a6 6 0 1 0 7.1 7.1z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><svg class="sun" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 0.5v2M8 13.5v2M0.5 8h2M13.5 8h2M2.7 2.7l1.4 1.4M11.9 11.9l1.4 1.4M2.7 13.3l1.4-1.4M11.9 4.1l1.4-1.4" stroke="currentColor" stroke-width="1.5"/></svg></button></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="sl" id="main">
+
+    <section class="sl-section">
+        <p class="sl-kicker">Benchmark</p>
+        <h2>Tested in the open</h2>
+        <div class="sl-body">
+            <p>Solander&rsquo;s detection is scored on documents like the ones it is used on: letters, decisions, forms and scans in Dutch, French and English, labelled by hand. The documents, the labels and the scoring code are public, so anyone can rerun the test, and the misses are counted, not hidden.</p>
+            <p>The numbers below are empty until the first published run. A dash is an honest cell.</p>
+        </div>
+        <table class="sl-score">
+            <caption>Names found, per language</caption>
+            <thead><tr><th scope="col"></th><th scope="col">NL</th><th scope="col">FR</th><th scope="col">EN</th></tr></thead>
+            <tbody>
+                <tr><th scope="row">Solander</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+                <tr><th scope="row">General LLM</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+                <tr><th scope="row">Open-source toolkit</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+                <tr><th scope="row">Pattern search</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+            </tbody>
+        </table>
+        <table class="sl-score">
+            <caption>Per kind of name</caption>
+            <thead><tr><th scope="col"></th><th scope="col">People</th><th scope="col">Organisations</th><th scope="col">ID numbers</th></tr></thead>
+            <tbody>
+                <tr><th scope="row">Solander</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+                <tr><th scope="row">General LLM</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+                <tr><th scope="row">Open-source toolkit</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+                <tr><th scope="row">Pattern search</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="sl-section" id="model-card">
+        <p class="sl-kicker">Model card</p>
+        <h2>The model, in the open</h2>
+        <div class="sl-grid">
+            <article class="sl-card"><h3>What it is</h3><p>A small named-entity model that runs on the Mac, beside pattern detectors for ID numbers, and nothing that leaves the machine.</p></article>
+            <article class="sl-card"><h3>Trained on</h3><p>Synthetic documents in Dutch, French and English in the forms public bodies and courts use. No customer document is ever in the training set.</p></article>
+            <article class="sl-card"><h3>Scored on</h3><p>A held-out set, labelled by hand, published with the labels. Rerun it with the scoring code in the repository.</p></article>
+            <article class="sl-card"><h3>Known misses</h3><p>Short names, names in images and scans the OCR cannot read, and names in scripts other than Latin. The app shows where it could not see.</p></article>
+        </div>
+        <p class="sl-note">The benchmark repository, the model card with version and date, and the first run are published with the 1.0 release.</p>
+    </section>
+
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Solander</a>
+    <a href="/pdf/">Solander PDF</a>
+    <a href="/desk/">Solander Desk</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/refunds.html">Refunds</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="mailto:hello@quietsignalslab.com?subject=Solander">Support</a>
+  </div>
+  <div class="footer-meta">
+    <p class="sl-footer-mark"><span class="sl-bar" aria-hidden="true"></span><span class="sl-footer-wordmark">Solander</span> &middot; Made by Quiet Signals Lab, Amsterdam.</p>
+    <p>Solander is made by Alexander Hepburn, trading as <a href="https://quietsignalslab.com/">Quiet Signals Lab</a> &middot; Amsterdam, Netherlands &middot; KvK 99556650 &middot; VAT NL005394204B58</p>
+    <p>This site does not use cookies or tracking technologies, and loads nothing from anywhere else. <a href="/privacy.html">Privacy</a></p>
+    <p>&copy; 2026 Alexander Hepburn. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

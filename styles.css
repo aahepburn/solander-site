@@ -37,8 +37,8 @@
     --accent: #D2421F;
 
     --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    --display: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --mono: "Source Code Pro", ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 
     --gutter: 32px;
     --max: 1120px;
@@ -77,6 +77,17 @@
     color-scheme: dark;
 }
 :root[data-theme="light"] { color-scheme: light; }
+
+/* ---- Type ------------------------------------------------------------------------ */
+
+/* Three faces, one job each (FAMILY D-037, B1 and asset 05): Source Serif 4 for documents
+ * (headlines, the name, claims), the system sans for the rest, Source Code Pro for codes,
+ * hashes and commands. Both are SIL OFL and self-hosted in assets/fonts. */
+@font-face { font-family: "Source Serif 4"; font-weight: 400; font-style: normal; font-display: swap; src: url("/assets/fonts/SourceSerif4-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Source Serif 4"; font-weight: 600; font-style: normal; font-display: swap; src: url("/assets/fonts/SourceSerif4-Semibold.woff2") format("woff2"); }
+@font-face { font-family: "Source Serif 4"; font-weight: 400; font-style: italic; font-display: swap; src: url("/assets/fonts/SourceSerif4-It.woff2") format("woff2"); }
+@font-face { font-family: "Source Code Pro"; font-weight: 400; font-style: normal; font-display: swap; src: url("/assets/fonts/SourceCodePro-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Source Code Pro"; font-weight: 600; font-style: normal; font-display: swap; src: url("/assets/fonts/SourceCodePro-Semibold.woff2") format("woff2"); }
 
 /* ---- Base ------------------------------------------------------------------------ */
 
@@ -156,9 +167,16 @@ nav {
     color: var(--ink);
     text-decoration: none;
 }
-/* Solander's mark: a redaction, the thing the product makes. The same bar is the favicon
- * (assets/favicon.svg) and quietsignalslab.com's Solander icon; change all three together. */
-.nav-brand::before { content: ""; width: 14px; height: 7px; background: var(--ink); }
+/* Solander's mark: the coded bar, a redaction with the place its reason goes (FAMILY D-037,
+ * B2): 3 : 1, the slot three-eighths of the height, inset five-sixteenths. The same bar is
+ * the favicon (assets/favicon.svg), the app icon and the mark on the report; change all
+ * together. The slot is a paper square painted over the ink. */
+.nav-brand::before {
+    content: "";
+    width: 24px;
+    height: 8px;
+    background: linear-gradient(var(--paper), var(--paper)) 2.5px 2.5px / 3px 3px no-repeat, var(--ink);
+}
 
 .nav-links { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 0 24px; }
 .nav-links a { text-decoration: none; display: inline-block; padding: 12px 0; }
@@ -464,7 +482,58 @@ footer { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) 56px; }
 
 /* ---- Narrow ---------------------------------------------------------------------- */
 
+/* ---- Added for D-037 ------------------------------------------------------------- */
+/* ---- The coded bar, in running text (B2) ---------------------------------------- */
+
+/* A redaction with the place its reason goes, 3 : 1, drawn at the text's own x-height
+ * so a specimen sentence reads as a redacted sentence. The slot is painted paper. */
+.sl-bar {
+    display: inline-block;
+    width: 2.1em; height: 0.7em;
+    vertical-align: -0.05em;
+    background: linear-gradient(var(--paper), var(--paper)) 0.22em 0.22em / 0.26em 0.26em no-repeat, var(--ink);
+}
+.sl-mono { font: 400 0.75em/1 var(--mono); color: var(--ink-3); letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* ---- Hero specimen ---------------------------------------------------------------- */
+
+.sl-specimen { background: var(--paper); border: 1px solid var(--rule); padding: 28px; width: 100%; max-width: 420px; }
+.sl-specimen p { font: 400 17px/1.7 var(--display); color: var(--ink); }
+.sl-specimen p + p { margin-top: 12px; }
+.sl-lang { display: inline-block; width: 2.2em; font: 600 11px/1 var(--mono); color: var(--ink-3); letter-spacing: 0.06em; }
+.sl-specimen figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--rule); font: 400 12px/1.5 var(--mono); color: var(--ink-3); }
+
+/* ---- Scorecard -------------------------------------------------------------------- */
+
+.sl-score { border-collapse: collapse; width: 100%; max-width: 40em; margin-top: 24px; margin-bottom: 20px; font-variant-numeric: tabular-nums; }
+.sl-score caption { text-align: left; font: 600 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-bottom: 12px; }
+.sl-score th, .sl-score td { text-align: left; padding: 10px 12px 10px 0; border-top: 1px solid var(--rule); font-size: 15px; }
+.sl-score thead th { border-top: 0; font: 600 11px/1 var(--mono); letter-spacing: 0.08em; color: var(--ink-3); padding-bottom: 8px; }
+.sl-score tbody th { font-weight: 500; color: var(--ink); }
+.sl-score td { color: var(--ink-3); font-family: var(--mono); }
+.sl-score tbody tr:first-child th { border-top: 2px solid var(--ink); }
+.sl-score tbody tr:first-child td { border-top: 2px solid var(--ink); }
+
+/* ---- Countries -------------------------------------------------------------------- */
+
+.sl-countries { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 32px; }
+.sl-countries h3 { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+
+/* ---- Claims and their checks ------------------------------------------------------ */
+
+.sl-claims { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.sl-claims > div { border-top: 2px solid var(--ink); padding-top: 16px; }
+.sl-claims dt { font: 600 1.0625rem/1.35 var(--display); color: var(--ink); margin-bottom: 12px; }
+.sl-claims dd code { display: block; font: 400 13px/1.6 var(--mono); color: var(--ink); background: var(--ground); padding: 8px 10px; overflow-x: auto; white-space: nowrap; }
+.sl-comment { display: block; font: 400 12px/1.6 var(--mono); color: var(--ink-3); margin-top: 6px; }
+
+/* ---- Footer mark ------------------------------------------------------------------ */
+
+.sl-footer-mark { display: flex; align-items: center; gap: 8px; color: var(--ink); }
+.sl-footer-wordmark { font: 600 15px/1 var(--display); }
+
 @media (max-width: 1000px) {
+    .sl-countries { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .sl-plans-wide { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -474,7 +543,7 @@ footer { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) 56px; }
     .sl-section > *, .sl-section > .sl-kicker { grid-column: 1 / -1; }
     .sl-section { padding: 40px 0 56px; }
     .sl-section > .sl-kicker { padding: 0 0 12px; }
-    .sl-grid, .sl-apps, .sl-steps, .sl-steps-pairs { grid-template-columns: 1fr; }
+    .sl-grid, .sl-apps, .sl-steps, .sl-steps-pairs, .sl-countries, .sl-claims { grid-template-columns: 1fr; }
     .sl-plans, .sl-plans-wide { grid-template-columns: 1fr; }
 }
 

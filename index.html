@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Redact PDFs and remove hidden content from Word and Excel files, offline, entirely on your Mac. Nothing is uploaded, and every file is checked before you send it. For court filings, FOI and Woo requests, and subject access requests.">
+    <meta name="description" content="Redaction for Mac, trained for the documents of the Netherlands, Belgium, France, the UK, Ireland and Canada. Runs its own small model on your Mac, offline. Every export checked. Benchmark published.">
     <meta name="author" content="Quiet Signals Lab">
-    <title>Solander — document redaction for Mac: PDF, Word and Excel</title>
+    <title>Solander — redaction trained for Dutch, French and English, on your Mac</title>
 
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
@@ -22,13 +22,13 @@
   <nav>
     <a href="/" class="nav-brand">Solander</a>
     <ul class="nav-links">
+      <li><a href="/benchmark/">Benchmark</a></li>
+      <li><a href="/#countries">Countries</a></li>
       <li><a href="/pdf/">PDF</a></li>
       <li><a href="/desk/">Desk</a></li>
+      <li><a href="/#check">Check it</a></li>
       <li><a href="/#pricing">Pricing</a></li>
-      <li><a href="/#faq">FAQ</a></li>
-      <li><a href="/terms.html">Terms</a></li>
-      <li><a href="/refunds.html">Refunds</a></li>
-      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/#limits">Limits</a></li>
       <li><button class="theme-toggle" type="button" aria-label="Switch between light and dark mode"><svg class="moon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.5 9.6A6 6 0 0 1 6.4 2.5a6 6 0 1 0 7.1 7.1z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><svg class="sun" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 0.5v2M8 13.5v2M0.5 8h2M13.5 8h2M2.7 2.7l1.4 1.4M11.9 11.9l1.4 1.4M2.7 13.3l1.4-1.4M11.9 4.1l1.4-1.4" stroke="currentColor" stroke-width="1.5"/></svg></button></li>
     </ul>
   </nav>
@@ -36,145 +36,102 @@
 
 <main class="sl" id="main">
 
-    <!-- Hero. The copy follows COPY_GUIDE.md §4: one proposition, the buyer's words, and
-         nothing about how the software works. -->
-    <section class="sl-hero sl-hero-text">
+    <!-- Hero (FAMILY D-037, B4): the headline is the claim, the lede says where it is true,
+         and the specimen shows the three languages with the coded bar on each name. -->
+    <section class="sl-hero">
         <div>
-            <p class="sl-eyebrow">Document redaction for Mac</p>
-            <h1>Redaction that never leaves your Mac.</h1>
-            <p class="sl-lede">PDF, Word and Excel. Offline, and checked before you send.</p>
+            <p class="sl-eyebrow">Document redaction for Mac &middot; NL &middot; FR &middot; EN</p>
+            <h1>Redaction trained for Dutch, French and English.</h1>
+            <p class="sl-lede">Solander runs its own small model on your Mac, trained for the documents of the Netherlands, Belgium, France, the UK, Ireland and Canada: their names, their ID numbers, their disclosure rules. We publish how well it does. No upload, no account, no sales call.</p>
             <div class="sl-cta">
-                <!-- AT LAUNCH: replace the mailto below with a link to /pdf/ ("Download free"),
+                <!-- AT LAUNCH: replace the mailto below with a link to /pdf/ ("Download Solander PDF"),
                      where the Download buttons are checked against the appcast. -->
                 <a href="mailto:hello@quietsignalslab.com?subject=Solander%20%E2%80%94%20tell%20me%20when%20it%20launches" class="appstore-badge">Email me at launch</a>
-                <a href="#pricing" class="sl-btn-quiet">See pricing</a>
+                <a href="/benchmark/" class="sl-btn-quiet">See the benchmark</a>
             </div>
-            <p class="sl-fine">Free for one document at a time. No account.</p>
+            <p class="sl-fine">Free for one document at a time. No account. No watermark.</p>
         </div>
+        <div class="sl-hero-art">
+            <figure class="sl-specimen" aria-label="Three sentences, in Dutch, French and English, with the names redacted">
+                <p><span class="sl-lang">NL</span>Volgens mevrouw <span class="sl-bar" aria-hidden="true"></span> belde de heer <span class="sl-bar" aria-hidden="true"></span> op 3 maart.</p>
+                <p><span class="sl-lang">FR</span>Me <span class="sl-bar" aria-hidden="true"></span> a confirmé que Mme <span class="sl-bar" aria-hidden="true"></span> habite à Laval.</p>
+                <p><span class="sl-lang">EN</span><span class="sl-bar" aria-hidden="true"></span> said <span class="sl-bar" aria-hidden="true"></span>&rsquo;s manager rang her at home.</p>
+                <figcaption><span>On this Mac &middot; <span class="sl-mono">WI-FI OFF</span></span><span>6 names found &middot; 3 languages</span></figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Tested in the open. The cells stay empty until the benchmark is run; a dash is an
+         honest cell, a made-up number is not (B4, scorecard). -->
+    <section class="sl-section" id="benchmark">
+        <p class="sl-kicker">Tested in the open</p>
+        <h2>The test documents, labels and scoring code are public.</h2>
+        <p class="sl-intro">Solander is scored against a general LLM, open-source tools and plain pattern search, per language and per kind of name, misses included. Rerun it yourself.</p>
+        <table class="sl-score">
+            <caption>Names found</caption>
+            <thead><tr><th scope="col"></th><th scope="col">NL</th><th scope="col">FR</th><th scope="col">EN</th></tr></thead>
+            <tbody>
+                <tr><th scope="row">Solander</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+                <tr><th scope="row">General LLM</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+                <tr><th scope="row">Open-source toolkit</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+                <tr><th scope="row">Pattern search</th><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+            </tbody>
+        </table>
+        <p class="sl-small"><a href="/benchmark/">Read the benchmark and the model card</a></p>
+    </section>
+
+    <!-- Made for where you work (B7): a country is a first-class setting. -->
+    <section class="sl-section" id="countries">
+        <p class="sl-kicker">Made for where you work</p>
+        <h2>Not &ldquo;International English&rdquo;.</h2>
+        <p class="sl-intro">Pick your country and the detectors, codes and paperwork follow its rules.</p>
+        <div class="sl-countries">
+            <article class="sl-card"><h3>Netherlands <span class="sl-mono">NL</span></h3><p>BSN with its 11-check. Woo grounds such as 5.1.2e in the bar, the inventory list, court-style role labels like [eiser].</p></article>
+            <article class="sl-card"><h3>Belgium <span class="sl-mono">NL &middot; FR</span></h3><p>National register numbers. Files that switch between Dutch and French on the same page.</p></article>
+            <article class="sl-card"><h3>France <span class="sl-mono">FR</span></h3><p>NIR and SIRET numbers. Names with particles, Me and Mme, and the occultation of court decisions.</p></article>
+            <article class="sl-card"><h3>Canada <span class="sl-mono">EN &middot; FR</span></h3><p>SIN numbers and A1A 1A1 postcodes. ATIP exemptions such as 19(1), and Quebec&rsquo;s Law 25.</p></article>
+            <article class="sl-card"><h3>UK <span class="sl-mono">EN</span></h3><p>National Insurance numbers. FOI section 40 and subject access requests.</p></article>
+            <article class="sl-card"><h3>Ireland <span class="sl-mono">EN</span></h3><p>PPS numbers and Eircodes. FOI Act 2014 section 37.</p></article>
+        </div>
+        <p class="sl-note">No sales call. Download it, try it on a real document, buy it with a card. For one person or a small firm. The price is on this page and stays there.</p>
+    </section>
+
+    <!-- Don't take our word for it: each claim with its check (asset 04). -->
+    <section class="sl-section" id="check">
+        <p class="sl-kicker">Don&rsquo;t take our word for it</p>
+        <h2>Each claim on this page comes with a way to check it yourself.</h2>
+        <dl class="sl-claims">
+            <div><dt>Your documents never leave your Mac.</dt><dd><code>$ codesign -d --entitlements - "/Applications/Solander PDF.app"</code><span class="sl-comment"># no network.client entitlement: macOS refuses connections</span></dd></div>
+            <div><dt>Nothing is left under the bars.</dt><dd><code>Select all in the redacted file, copy, paste.</code><span class="sl-comment"># Solander does this to every export, and reports it</span></dd></div>
+            <div><dt>Every bar says why it is there.</dt><dd><code>Woo 5.1.2e &middot; ATIP 19(1) &middot; FOI s.40 &middot; your own</code><span class="sl-comment"># with a legend and an inventory list</span></dd></div>
+            <div><dt>The report belongs to the file.</dt><dd><code>$ shasum -a 256 "redacted.pdf"</code><span class="sl-comment"># matches the hash on the receipt</span></dd></div>
+        </dl>
     </section>
 
     <!-- Who it's for -->
     <section class="sl-section" id="uses">
         <p class="sl-kicker">Who it&rsquo;s for</p>
         <div class="sl-grid">
-            <article class="sl-card">
-                <h3>Court filings and disclosure</h3>
-                <p>Redact exhibits and discovery sets before you file or produce them.</p>
-            </article>
-            <article class="sl-card">
-                <h3>FOI and Woo requests</h3>
-                <p>Mark each redaction with the exemption it relies on, and release the documents with a redaction log.</p>
-            </article>
-            <article class="sl-card">
-                <h3>Subject access requests</h3>
-                <p>Remove other people&rsquo;s names and details from the records you send to the person who asked for them.</p>
-            </article>
-            <article class="sl-card">
-                <h3>Sharing documents with AI tools</h3>
-                <p>Replace names in Word and Excel files with placeholders before you paste them into an AI tool, and put the names back in the reply. This is part of Solander Desk, coming soon.</p>
-            </article>
+            <article class="sl-card"><h3>Woo and FOI</h3><p>The article in every bar, the legend and the inventory list, in Dutch, French or English.</p></article>
+            <article class="sl-card"><h3>Court filings</h3><p>Exhibits and productions, Bates numbers and a privilege log, checked before they are filed.</p></article>
+            <article class="sl-card"><h3>Access requests</h3><p>Other people&rsquo;s details out of what you send the person who asked, with a record of why.</p></article>
+            <article class="sl-card"><h3>Research and AI tools</h3><p>Solander Desk swaps names for placeholders in Word and Excel files, and puts them back afterwards. <a href="/desk/">More about Solander Desk</a></p></article>
         </div>
     </section>
 
-    <!-- Products. The drawings are the apps' own marks, not screenshots, so they cannot
-         misrepresent either interface. -->
-    <section class="sl-section" id="apps">
-        <p class="sl-kicker">Products</p>
-        <div class="sl-apps">
-            <article class="sl-card">
-                <div class="sl-card-art" aria-hidden="true">
-                    <svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="20.5" y="12.5" width="279" height="315" fill="#FFFFFF" stroke="#D8D8D4"/>
-                        <rect x="48" y="44" width="132" height="10" fill="#C8C8C3"/>
-                        <g fill="#D8D8D4">
-                            <rect x="48" y="80" width="224" height="6"/>
-                            <rect x="48" y="98" width="104" height="6"/>
-                            <rect x="48" y="116" width="224" height="6"/>
-                            <rect x="112" y="134" width="160" height="6"/>
-                            <rect x="48" y="170" width="224" height="6"/>
-                            <rect x="48" y="188" width="118" height="6"/>
-                            <rect x="48" y="206" width="224" height="6"/>
-                            <rect x="48" y="242" width="150" height="6"/>
-                            <rect x="48" y="260" width="224" height="6"/>
-                            <rect x="48" y="278" width="96" height="6"/>
-                        </g>
-                        <g fill="#000000">
-                            <rect x="160" y="96" width="112" height="10"/>
-                            <rect x="48" y="132" width="56" height="10"/>
-                            <rect x="174" y="186" width="98" height="10"/>
-                            <rect x="206" y="240" width="66" height="10"/>
-                        </g>
-                        <rect x="156" y="92" width="120" height="18" fill="none" stroke="#1B3FD8" stroke-width="2"/>
-                    </svg>
-                </div>
-                <p class="sl-eyebrow">Solander PDF &middot; Launching soon</p>
-                <h3>Redact PDFs and scans</h3>
-                <p>Find and redact names, addresses, ID numbers and other personal details in PDFs, scanned pages and images. Solander PDF also lists the metadata and hidden content in the original file, such as author fields, earlier versions and attachments, and leaves it out of the redacted copy.</p>
-                <a href="/pdf/" class="sl-card-link">More about Solander PDF</a>
-            </article>
-            <article class="sl-card">
-                <div class="sl-card-art" aria-hidden="true">
-                    <svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="20.5" y="12.5" width="279" height="315" fill="#FFFFFF" stroke="#D8D8D4"/>
-                        <rect x="48" y="44" width="132" height="10" fill="#C8C8C3"/>
-                        <g fill="#D8D8D4">
-                            <rect x="48" y="80" width="170" height="6"/>
-                            <rect x="48" y="98" width="96" height="6"/>
-                            <rect x="152" y="98" width="66" height="6"/>
-                            <rect x="48" y="116" width="170" height="6"/>
-                            <rect x="48" y="152" width="170" height="6"/>
-                            <rect x="48" y="170" width="120" height="6"/>
-                        </g>
-                        <line x1="148" y1="101" x2="222" y2="101" stroke="#101010" stroke-width="1.5"/>
-                        <rect x="230.5" y="92.5" width="54" height="36" fill="#FFFFFF" stroke="#101010"/>
-                        <rect x="238" y="102" width="38" height="4" fill="#D8D8D4"/>
-                        <rect x="238" y="112" width="26" height="4" fill="#D8D8D4"/>
-                        <g stroke="#D8D8D4" fill="none">
-                            <rect x="48.5" y="208.5" width="224" height="84"/>
-                            <line x1="48" y1="236.5" x2="272" y2="236.5"/>
-                            <line x1="48" y1="264.5" x2="272" y2="264.5"/>
-                            <line x1="123.5" y1="208" x2="123.5" y2="292"/>
-                            <line x1="198.5" y1="208" x2="198.5" y2="292"/>
-                        </g>
-                        <rect x="199" y="209" width="73" height="83" fill="#ECECE8"/>
-                        <rect x="144" y="92" width="82" height="18" fill="none" stroke="#1B3FD8" stroke-width="2"/>
-                    </svg>
-                </div>
-                <p class="sl-eyebrow">Solander Desk &middot; Coming soon</p>
-                <h3>Remove hidden content from Word, Excel and LibreOffice files</h3>
-                <p>Remove tracked changes, comments and hidden data from Word, Excel and LibreOffice files, and keep them editable. Replace names with placeholders before you share a document with an AI tool, and restore them in the reply.</p>
-                <a href="/desk/" class="sl-card-link">More about Solander Desk</a>
-            </article>
+    <!-- Limits: stated plainly, above the price (HC6). -->
+    <section class="sl-section" id="limits">
+        <p class="sl-kicker">Limits</p>
+        <h2>What the check covers, and what it doesn&rsquo;t</h2>
+        <div class="sl-body">
+            <p>A passing check means no readable text remains inside the parts you redacted. It does not mean everything sensitive was found. Detection misses things, most often short names and text in images, so Solander shows you where it could not see, and you review every document.</p>
+            <p>Text replaced with placeholders in Solander Desk is still personal data under the GDPR.</p>
         </div>
-    </section>
-
-    <!-- Four points: on your Mac first (COPY_GUIDE.md §4.4), then checked, recorded and ready to
-         produce (positioning review v2, 2026-09-29). -->
-    <section class="sl-section">
-        <p class="sl-kicker">Features</p>
-        <ol class="sl-steps sl-steps-pairs">
-            <li>
-                <h3>Stays on your Mac</h3>
-                <p>Solander works the way desktop software always did: your files stay on your Mac, and everything happens there, offline. The text recognition and detection are modern, and they run on the Mac itself. Nothing is uploaded, and there is no account. <a href="/privacy.html#the-app">How to check this yourself</a></p>
-            </li>
-            <li>
-                <h3>Checks every file before you send it</h3>
-                <p>A black box drawn over text in a PDF can often be moved, or the text under it copied out. Solander PDF writes a new file, reads it again, and shows you any text that is still readable under a redaction. It also marks any text it couldn&rsquo;t read, so you know which parts no detector examined. Solander Desk checks each exported file for anything you chose to remove.</p>
-            </li>
-            <li>
-                <h3>Keeps an audit trail</h3>
-                <p>Give each redaction a reason code, such as a US FOIA exemption or a set you install for your own jurisdiction, and the code is printed in the box. Solander PDF keeps a redaction log and produces a signed report in PDF and JSON that you hand over with the documents. Whoever receives them can check the documents against the report with the free app.</p>
-            </li>
-            <li>
-                <h3>Handles a whole production</h3>
-                <p>Redact a folder of documents at once, with each name redacted the same way in all of them. Add Bates numbers that run on across the set, a privilege log for documents withheld in full, and a load file for review software. Turn on searchable text for courts that require it.</p>
-            </li>
-        </ol>
     </section>
 
     <!-- Pricing -->
     <section class="sl-section" id="pricing">
-        <p class="sl-kicker">Pricing</p>
+        <p class="sl-kicker">Yours to keep</p>
         <p class="sl-intro">Each licence is a one-time purchase for one person, on all of your own Macs, and includes future versions.</p>
         <div class="sl-plans sl-plans-wide">
             <div class="sl-plan">
@@ -310,8 +267,9 @@
     <a href="mailto:hello@quietsignalslab.com?subject=Solander">Support</a>
   </div>
   <div class="footer-meta">
+    <p class="sl-footer-mark"><span class="sl-bar" aria-hidden="true"></span><span class="sl-footer-wordmark">Solander</span> &middot; Made by Quiet Signals Lab, Amsterdam.</p>
     <p>Solander is made by Alexander Hepburn, trading as <a href="https://quietsignalslab.com/">Quiet Signals Lab</a> &middot; Amsterdam, Netherlands &middot; KvK 99556650 &middot; VAT NL005394204B58</p>
-    <p>This site does not use cookies or tracking technologies. <a href="/privacy.html">Privacy</a></p>
+    <p>This site does not use cookies or tracking technologies, and loads nothing from anywhere else. <a href="/privacy.html">Privacy</a></p>
     <p>&copy; 2026 Alexander Hepburn. All rights reserved.</p>
   </div>
 </footer>

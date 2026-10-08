@@ -1,6 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-    <!-- Solander's mark: the redaction bar from the site's nav (14 × 7), on white paper so it
-         shows on light and dark tabs alike. -->
+    <!-- Solander's mark: the coded bar, a redaction with the place its reason goes (3 : 1,
+         slot three-eighths of the height, inset five-sixteenths). On white paper so it shows
+         on light and dark tabs alike. The same bar is the nav mark and the app icon. -->
     <rect width="32" height="32" fill="#FFFFFF"/>
-    <rect x="4" y="10" width="24" height="12" fill="#101010"/>
+    <rect x="4" y="12" width="24" height="8" fill="#101010"/>
+    <rect x="6.5" y="14.5" width="3" height="3" fill="#FFFFFF"/>
 </svg>
