@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="How Solander PDF works: opening a document, the marks on the page, the workbench, exporting with evidence, what the check covers, the keyboard and the settings.">
+  <title>Help · Solander PDF</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="q-signal" aria-hidden="true">
+<svg class="q-morse" viewBox="0 0 33 1" width="198" height="6" shape-rendering="crispEdges" focusable="false"><rect x="0" width="3" height="1"/><rect x="4" width="3" height="1"/><rect x="8" width="1" height="1"/><rect x="10" width="3" height="1"/><rect class="s" x="16" width="1" height="1"/><rect class="s" x="18" width="1" height="1"/><rect class="s" x="20" width="1" height="1"/><rect x="24" width="1" height="1"/><rect x="26" width="3" height="1"/><rect x="30" width="1" height="1"/><rect x="32" width="1" height="1"/></svg>
+</div>
+
+<header>
+  <nav>
+    <a href="/" class="nav-brand">Solander</a>
+    <ul class="nav-links">
+      <li><a href="/pdf/" aria-current="page">PDF</a></li>
+      <li><a href="/desk/">Desk</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+      <li><a href="/refunds.html">Refunds</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><button class="theme-toggle" type="button" aria-label="Switch between light and dark mode"><svg class="moon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.5 9.6A6 6 0 0 1 6.4 2.5a6 6 0 1 0 7.1 7.1z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><svg class="sun" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 0.5v2M8 13.5v2M0.5 8h2M13.5 8h2M2.7 2.7l1.4 1.4M11.9 11.9l1.4 1.4M2.7 13.3l1.4-1.4M11.9 4.1l1.4-1.4" stroke="currentColor" stroke-width="1.5"/></svg></button></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="prose" id="main">
+  <p class="page-label">Help</p>
+  <h1>Solander PDF Help</h1>
+  <p class="page-meta">Quiet Signals Lab &nbsp;·&nbsp; For Solander PDF 1.0 &nbsp;·&nbsp; Last updated: 8 October 2026</p>
+
+  <p class="lede">
+    Solander PDF finds what identifies people in a PDF, a scan or an image, shows you every box before it is drawn, writes a new file with the boxes burned in, and reads that file back to check it. Everything happens on your Mac. This page says how each part works; the app itself says less, on purpose.
+  </p>
+
+<h2 id="open">Opening a document</h2>
+
+<p>Choose File › Open (⌘O), drop a file on the window, or open it from the Finder. Solander reads the document page by page: the window fills with the pages as they are read, and you can stop at any time. Reading a long scan takes minutes, because every page is recognised and every detector runs on this Mac.</p>
+
+<p>One document at a time is free, with every detector, the whole workbench, the export and the check. A licence adds batches, evidence files, reason codes, saved profiles, watch folders and the command-line tool.</p>
+
+<h2 id="window">The window</h2>
+
+<ul>
+  <li><strong>The sidebar</strong> lists the pages, with what each still needs: how many findings are to review, how many are redacted, and whether you have viewed it. Filter it to the pages to review or the pages not yet viewed. Hide it with ⌃⌘S.</li>
+  <li><strong>The page</strong> is the middle, at the size the export will be. Four layouts (View menu, ⌘1 to ⌘4), Actual Size (⌘0), Zoom to Fit (⌘9), Zoom to Width (⌥⌘9), pinch to zoom, Go to Page (⌥⌘G), and Back and Forward after a jump (⌘[ and ⌘]).</li>
+  <li><strong>The workbench</strong> on the right covers the whole document, in five tabs. Hide it with ⌃⌘I.</li>
+  <li><strong>The toolbar</strong> holds the tools: Select (V), Mark Text (T), Mark Area (M) and Mark Pages (⇧⌘P). Customise it from the View menu.</li>
+</ul>
+
+<h2 id="marks">Marks on the page</h2>
+
+<p>The page shows the output. A <strong>filled black box</strong> is a redaction that will be burned into the file. An <strong>outlined box</strong> is a finding you have not decided about: it will not be redacted unless you say so. A <strong>dashed outline</strong> is a suggestion from the language model rather than a pattern match. A <strong>yellow dashed outline</strong> is text the recogniser could not read, which no detector examined. The box under the pointer darkens and names its value, and the selected box carries a blue ring with handles to move or resize it.</p>
+
+<p>Decide a finding with the Redact menu or its keys: Redact (A), Leave Visible (R), Change Decision (Space), Redact Every Occurrence (E), Delete Box (⌫) for a box you drew. The arrow keys walk the findings, Tab walks the ones still to decide. Right-click any box for the same commands. View › Show Redactions as Outlines (⌥⌘R) lets you read what is under a box; the export is always filled.</p>
+
+<p>The single-letter keys can be turned off in Settings › Review, for voice control or a switch device.</p>
+
+<h2 id="workbench">The workbench</h2>
+
+<ul>
+  <li><strong>Overview</strong> says what is left before you export: findings to decide, pages not viewed, lines that could not be read, and what hidden content the file carries. None of these stops an export; the report records each of them.</li>
+  <li><strong>Values</strong> lists every value in the document, grouped by category, with every place it appears. Decide a value at a time with Redact All or Leave All. Names that are probably one person are suggested for merging, never merged for you; a fragment read on its own is offered for folding into the value it belongs to. Split a merged value by spelling from its context menu.</li>
+  <li><strong>Find</strong> (⌘F) searches the words recognised on the page and the file's own text, ignoring case and accents. Every match is listed before anything is covered, and each can be unticked. Patterns find what you do not know the value of: numbers of six digits or more, dates, e-mail addresses, or a regular expression of your own. Always Redact adds the term to this document's rules.</li>
+  <li><strong>Rules</strong> decide a whole category (Ask, Redact or Leave) and hold terms to always or never redact. A rule decides only what nobody has decided by hand, and never changes a decision you made; removing a rule puts its findings back as they were found. The report says which boxes a rule decided. Rules for this document are free; saving them into a profile is part of a licence.</li>
+  <li><strong>File</strong> lists what the file contains besides its pages, which is left out of the export; the lines that could not be read; the profile the document was read under; and, after an export, what the checks said and where the files went.</li>
+</ul>
+
+<h2 id="export">Exporting</h2>
+
+<p>Export (⇧⌘E) opens one sheet. <strong>Output</strong> is the folder: documents go into “Solander Exports” inside it, and originals are never changed. If you have not chosen a folder, Export asks for it. <strong>Pages</strong> sets a size limit for the recipient's system (a document over the limit is written as volumes, each under it and each checked), the page image format, an accessible tagged PDF for screen readers, and, when a court requires it, a searchable text layer read from the redacted pages. <strong>Evidence</strong> is what goes to the recipient beside the documents, with a checksums file anyone can verify with <code>shasum</code>. <strong>Sign-off</strong> records who reviewed and who approved, and can sign the report with a certificate from your Keychain. What <strong>stays with you</strong> is written beside the exports folder, never inside it.</p>
+
+<p>After an export, the File tab shows what the check found and where the files are. If a check does not pass, nothing is written; you can adjust the boxes and export again, or keep the output anyway, which goes into a “needs attention” folder and is recorded in the report.</p>
+
+<h2 id="check">What the check covers</h2>
+
+<p>A passing check means no readable text remains inside the regions you redacted, and that the written file contains only page images: no metadata, annotations, attachments, scripts or text from the original. It does not mean everything sensitive was found. Detection can miss things, especially names, addresses and text in non-Latin scripts, so you review every document. Text the recogniser could not read is listed and marked on the page, because no detector examined it. Solander does not describe a document as anonymous, compliant or safe, and it is not legal advice.</p>
+
+<p>The report says how many pages you viewed. A page counts as viewed once at least half of it, or half the window when it is zoomed larger than the window, has been on screen for one second.</p>
+
+<h2 id="evidence">Evidence</h2>
+
+<p>With a licence, each export can be accompanied by a <strong>signed report</strong> in JSON and PDF (what was redacted and why, what was checked, what the original contained, and a hash of the exported file), a <strong>redaction log</strong> in CSV or PDF with one row per box and its reason code, a <strong>privilege log</strong> for pages withheld in full, a <strong>load file</strong> for review software, and a <strong>Woo inventory</strong> for Dutch disclosures. None of them contains text from the document.</p>
+
+<p><strong>Reason codes</strong> are the legal ground for a redaction, drawn inside the box and recorded in the log. Every set Solander ships is a template that no practitioner has reviewed in its jurisdiction: check its grounds against your own authority before a disclosure goes out, or install a set someone qualified has written. A set is a JSON file of codes with a label per language; codes use letters, digits and <code>().-_</code> only, because they are drawn inside the box and read back by the check.</p>
+
+<h2 id="checking">Checking a document someone sent you</h2>
+
+<p>File › Check a Redacted Document (⌘K) is free and needs nothing open. Solander re-reads the file itself. With the report that came with it, it re-checks every redaction the report records; without a report, it checks any PDF for text left under boxes and content kept in the file. If a certificate signature came with the report, it says whether the report is unchanged and whether this Mac trusts the certificate.</p>
+
+<h2 id="profiles">Profiles, watch folders and the command line</h2>
+
+<p>A <strong>profile</strong> decides the resolution pages are read at, what the detectors look for, the box widths, the output naming and the production stamp, so changing it reads the document again. A profile may also record the input hash (which ties the report to the original, and lets anyone holding both confirm a guess about the unredacted document), pseudonymise (draw (PERSON-1) in the box, the same label for the same value in every document), add a searchable text layer, and allow unattended use.</p>
+
+<p>A <strong>watch folder</strong> reads anything dropped into it, so a document is ready to review by the time you open it. Folders are watched while Solander is running; what arrives in the meantime is picked up next time it opens. With a profile marked for unattended use, a watch folder or the <code>solander</code> command-line tool can redact with nobody looking; every output made this way records that nobody did, and anything that fails its check goes to the “needs attention” folder instead.</p>
+
+<h2 id="keyboard">Keyboard</h2>
+
+<ul>
+  <li>Open ⌘O · Export ⇧⌘E · Check a Redacted Document ⌘K · Close ⌘W</li>
+  <li>Find ⌘F · Find Next ⌘G · Find Previous ⇧⌘G</li>
+  <li>Select V · Mark Text T · Mark Area M · Mark Pages ⇧⌘P</li>
+  <li>Redact A · Leave Visible R · Change Decision Space · Redact Every Occurrence E · Delete Box ⌫</li>
+  <li>Next and Previous Finding → ← · Next and Previous Finding to Review Tab, ⇧Tab</li>
+  <li>Page layouts ⌘1 to ⌘4 · Actual Size ⌘0 · Zoom to Fit ⌘9 · Zoom to Width ⌥⌘9 · Zoom ⌘+ and ⌘−</li>
+  <li>Previous and Next Page ⌥↑ ⌥↓ · First and Last ⌥⌘↑ ⌥⌘↓ · Go to Page ⌥⌘G · Back and Forward ⌘[ ⌘]</li>
+  <li>Show Redactions as Outlines ⌥⌘R · Sidebar ⌃⌘S · Workbench ⌃⌘I · Undo ⌘Z</li>
+</ul>
+
+<h2 id="settings">Settings</h2>
+
+<ul>
+  <li><strong>General.</strong> A review is saved as you work, so it survives quitting; the record holds no text from the document, only which boxes you decided and where, and it is deleted after 30 days. Recent documents are off by default, because a list of them says which documents this Mac has opened.</li>
+  <li><strong>Review.</strong> The page layout, which findings are shown, redactions as outlines, and the single-key shortcuts.</li>
+  <li><strong>Text Size</strong> is in the View menu: three steps, for every window.</li>
+  <li><strong>Licence.</strong> Your licence file is signed, and the signature is checked on this Mac against a key built into the app. A separate helper process confirms the purchase about once a week; it sends the licence ID and nothing about your documents, and if it cannot reach us the licensed features keep working for 30 days. A Mac that must never connect can be activated offline with a code: a first activation lasts 15 days and a renewal 90.</li>
+  <li><strong>Updates.</strong> Checks can be turned off; licence confirmation is separate and cannot.</li>
+</ul>
+
+<h2 id="privacy">Privacy</h2>
+
+<p>The app that opens your documents has no network access at all: it is sandboxed without the network entitlement, which you can verify yourself with <code>codesign -d --entitlements - "/Applications/Solander PDF.app"</code>. The <a href="/privacy.html">privacy notice</a> lists exactly what the two helper processes send.</p>
+
+<p>Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander%20PDF">hello@quietsignalslab.com</a>, and describe the problem rather than sending the document.</p>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Solander</a>
+    <a href="/pdf/">Solander PDF</a>
+    <a href="/desk/">Solander Desk</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/refunds.html">Refunds</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="mailto:hello@quietsignalslab.com?subject=Solander">Support</a>
+  </div>
+  <div class="footer-meta">
+    <p>Solander is made by Alexander Hepburn, trading as <a href="https://quietsignalslab.com/">Quiet Signals Lab</a> &middot; Amsterdam, Netherlands &middot; KvK 99556650 &middot; VAT NL005394204B58</p>
+    <p>This site does not use cookies or tracking technologies. <a href="/privacy.html">Privacy</a></p>
+    <p>&copy; 2026 Alexander Hepburn. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="How Solander Desk works: inspecting and cleaning Word, Excel and LibreOffice files, the questions it asks, verification, placeholders for AI tools and restoring an answer.">
+  <title>Help · Solander Desk</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="q-signal" aria-hidden="true">
+<svg class="q-morse" viewBox="0 0 33 1" width="198" height="6" shape-rendering="crispEdges" focusable="false"><rect x="0" width="3" height="1"/><rect x="4" width="3" height="1"/><rect x="8" width="1" height="1"/><rect x="10" width="3" height="1"/><rect class="s" x="16" width="1" height="1"/><rect class="s" x="18" width="1" height="1"/><rect class="s" x="20" width="1" height="1"/><rect x="24" width="1" height="1"/><rect x="26" width="3" height="1"/><rect x="30" width="1" height="1"/><rect x="32" width="1" height="1"/></svg>
+</div>
+
+<header>
+  <nav>
+    <a href="/" class="nav-brand">Solander</a>
+    <ul class="nav-links">
+      <li><a href="/pdf/">PDF</a></li>
+      <li><a href="/desk/" aria-current="page">Desk</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+      <li><a href="/refunds.html">Refunds</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><button class="theme-toggle" type="button" aria-label="Switch between light and dark mode"><svg class="moon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.5 9.6A6 6 0 0 1 6.4 2.5a6 6 0 1 0 7.1 7.1z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><svg class="sun" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 0.5v2M8 13.5v2M0.5 8h2M13.5 8h2M2.7 2.7l1.4 1.4M11.9 11.9l1.4 1.4M2.7 13.3l1.4-1.4M11.9 4.1l1.4-1.4" stroke="currentColor" stroke-width="1.5"/></svg></button></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="prose" id="main">
+  <p class="page-label">Help</p>
+  <h1>Solander Desk Help</h1>
+  <p class="page-meta">Quiet Signals Lab &nbsp;·&nbsp; For Solander Desk 1.0 &nbsp;·&nbsp; Last updated: 8 October 2026</p>
+
+  <p class="lede">
+    Solander Desk shows what is hidden in a Word, Excel or LibreOffice file, removes what you choose, and checks its own work. The file stays editable and the original is never changed. It can also replace names with placeholders before you paste a document into an AI tool, and put the names back in the answer. Everything happens on your Mac.
+  </p>
+
+<h2 id="open">Opening files</h2>
+
+<p>Choose File › Open (⌘O), drop files on the window, or open them from the Finder. Each file is inspected as it arrives: the list on the left says what format it is and how many high-risk items it holds. Word (.docx), Excel (.xlsx) and LibreOffice (.odt, .ods) files are cleaned; Pages and Numbers files are inspected only.</p>
+
+<p>Inspecting any file, and cleaning one file at a time with full verification, are free. A licence adds cleaning several files at once, pseudonymizing with projects, restoring an answer, and signed reports.</p>
+
+<h2 id="modes">The four modes</h2>
+
+<ul>
+  <li><strong>Inspect</strong> (⌘1) lists what is hidden, grouped by risk: tracked changes, comments and their authors, hidden sheets, rows and columns, invisible text, cached data, document properties. Show reveals the content itself, in the window only; it never goes into a report.</li>
+  <li><strong>Clean</strong> (⌘2) asks the questions that have no safe default, such as what to do with tracked changes, then writes a fresh copy and verifies it.</li>
+  <li><strong>Pseudonymize</strong> (⌘3) replaces the values of a project with placeholders such as (PERSON-1), in the file or on the clipboard.</li>
+  <li><strong>Restore</strong> (⌘4) puts the real values back into text you paste, such as an AI tool's answer.</li>
+</ul>
+
+<h2 id="reading">The document</h2>
+
+<p>The middle shows the text Desk will work on, as it reads it. Original shows the file as Word or Excel would lay it out. In Pseudonymize, every value the project replaces is marked, and Show placeholders shows the text as it will be written.</p>
+
+<h2 id="clean">Cleaning</h2>
+
+<p>Start from a preset: <strong>Sending to the other side</strong> removes everything hidden; <strong>Sending to a colleague</strong> keeps comments, with their authors anonymised. Either can be changed for each file. Questions with no safe default are always asked, with nothing selected until you choose:</p>
+
+<ul>
+  <li><strong>Tracked changes:</strong> accept all or reject all. Either choice changes what the document says, and Desk says how many words each would keep or drop.</li>
+  <li><strong>Hidden sheets:</strong> remove or keep. Formulas that read a removed sheet hold their current values and no longer recalculate; Desk lists which cells before you export.</li>
+  <li><strong>Hidden rows and columns:</strong> clear, unhide or keep. Clearing empties the cells; nothing moves.</li>
+  <li><strong>Invisible content:</strong> text coloured like its background or too small to read, values hidden by a cell format, headers never shown.</li>
+  <li><strong>Comments:</strong> remove, or keep with each author renamed Author 1, Author 2, without dates.</li>
+  <li><strong>Document title:</strong> kept only if you say so.</li>
+</ul>
+
+<p>A file with macros is written without them, as the plain format. Unknown parts of a file are removed and reported rather than passed through unexamined.</p>
+
+<h2 id="verification">Verification</h2>
+
+<p>After writing a file, Desk opens it again and checks that what you chose to remove is gone and that the file is structurally sound. If a check fails the file is not delivered; you can keep it anyway, which the report records. Verified means what you chose to remove is gone: it does not mean the document is anonymous, and parts a format does not let Desk examine are listed as not examined.</p>
+
+<h2 id="pseudonymize">Placeholders and projects</h2>
+
+<p>A <strong>project</strong> holds the values to replace and their placeholders, so (PERSON-1) means the same person in every file pseudonymized with it. Add each value with its spellings separated by |; matching is by whole words, so “Jan” is not found in “January”. The mapping is encrypted on this Mac under a key in its Keychain, and forgetting a project deletes both. Use a project name that says what the files are about, not who is in them: the name is stored unencrypted.</p>
+
+<p>Pseudonymize and Verify writes a file with the placeholders; Copy Text puts the pseudonymized text on the clipboard without writing anything. Pseudonymized is not anonymous: surrounding details can still identify people, and under the GDPR pseudonymized data is still personal data.</p>
+
+<h2 id="restore">Restoring an answer</h2>
+
+<p>Paste the answer that refers to placeholders, choose the project, and Restore puts the values back. Placeholders that were not written exactly are listed for you to check, and ones that are not in the project are left as they are. Nothing is written to disk.</p>
+
+<h2 id="keyboard">Keyboard</h2>
+
+<ul>
+  <li>Open ⌘O · Inspect ⌘1 · Clean ⌘2 · Pseudonymize ⌘3 · Restore ⌘4</li>
+  <li>Restore the pasted text ⌘↩ · Sidebar ⌃⌘S · Workbench ⌃⌘I</li>
+</ul>
+
+<h2 id="settings">Settings</h2>
+
+<ul>
+  <li><strong>General.</strong> Which preset new files start from.</li>
+  <li><strong>Text Size</strong> is in the View menu.</li>
+  <li><strong>Licence.</strong> A Solander Desk or Solander Suite licence, installed from the file you were sent; one Suite file works in both apps. A separate helper process confirms the purchase about once a week and sends nothing about your documents.</li>
+  <li><strong>Updates.</strong> Checks can be turned off; licence confirmation is separate and cannot.</li>
+</ul>
+
+<h2 id="privacy">Privacy</h2>
+
+<p>The app that opens your documents has no network access at all: it is sandboxed without the network entitlement, which you can verify yourself with <code>codesign -d --entitlements - "/Applications/Solander Desk.app"</code>. The <a href="/privacy.html">privacy notice</a> lists exactly what the two helper processes send.</p>
+
+<p>Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander%20Desk">hello@quietsignalslab.com</a>, and describe the problem rather than sending the document.</p>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Solander</a>
+    <a href="/pdf/">Solander PDF</a>
+    <a href="/desk/">Solander Desk</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/refunds.html">Refunds</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="mailto:hello@quietsignalslab.com?subject=Solander">Support</a>
+  </div>
+  <div class="footer-meta">
+    <p>Solander is made by Alexander Hepburn, trading as <a href="https://quietsignalslab.com/">Quiet Signals Lab</a> &middot; Amsterdam, Netherlands &middot; KvK 99556650 &middot; VAT NL005394204B58</p>
+    <p>This site does not use cookies or tracking technologies. <a href="/privacy.html">Privacy</a></p>
+    <p>&copy; 2026 Alexander Hepburn. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

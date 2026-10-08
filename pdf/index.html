@@ -46,7 +46,7 @@
             <div class="sl-cta">
                 <!-- AT LAUNCH: once the first release is published on GitHub, replace the
                      mailto below with
-                       <a href="https://github.com/Quiet-Signals-Lab/solander/releases/download/pdf-v<version>/Solander-<version>.dmg" class="appstore-badge">Download free for macOS</a>
+                       <a href="https://github.com/Quiet-Signals-Lab/solander/releases/download/pdf-v<version>/SolanderPDF-<version>.dmg" class="appstore-badge">Download free for macOS</a>
                      using the newest enclosure URL in pdf/appcast.xml: the button downloads the DMG
                      itself. ci/download-links.sh fails the deploy if they ever differ, so each
                      release updates the appcast and these links in the same commit.
@@ -129,7 +129,7 @@
         <h2>Your documents stay on your Mac.</h2>
         <div class="sl-body">
             <p>Solander PDF runs in Apple&rsquo;s App Sandbox without network access, so macOS blocks the app that opens your files from making any connection. There is no account, telemetry, analytics or crash reporting.</p>
-            <p class="sl-verify">You can check this on your own copy: <code>codesign -d --entitlements - /Applications/Solander.app</code></p>
+            <p class="sl-verify">You can check this on your own copy: <code>codesign -d --entitlements - "/Applications/Solander PDF.app"</code></p>
             <p class="sl-small">Two small helper processes use the network: one checks for updates, and one confirms your licence about once a week. Neither receives a document or anything found in one. The <a href="/privacy.html">privacy notice</a> lists exactly what they send.</p>
         </div>
     </section>
@@ -153,8 +153,8 @@
         </ol>
     </section>
 
-    <!-- Honest limits -->
-    <section class="sl-section">
+    <!-- Honest limits. The app's Help menu links here ("What the Check Covers"). -->
+    <section class="sl-section" id="limits">
         <p class="sl-kicker">Limits</p>
         <h2>What the check covers</h2>
         <div class="sl-body">
@@ -181,7 +181,7 @@
                 </ul>
                 <div class="sl-plan-action">
                     <!-- AT LAUNCH: replace with
-                         <a href="https://github.com/Quiet-Signals-Lab/solander/releases/download/pdf-v<version>/Solander-<version>.dmg" class="appstore-badge">Download</a> -->
+                         <a href="https://github.com/Quiet-Signals-Lab/solander/releases/download/pdf-v<version>/SolanderPDF-<version>.dmg" class="appstore-badge">Download</a> -->
                     <span class="sl-soon">Coming soon</span>
                 </div>
             </div>
@@ -246,7 +246,7 @@
                 <p>No. Detection misses things, especially names, addresses and non-Latin text. Solander PDF shows you where it is uncertain, but every document still needs a person to review it.</p>
             </details>
         </div>
-        <p class="sl-support">Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander%20PDF">hello@quietsignalslab.com</a>. Please do not send a document you needed to redact; a description of the problem is enough.</p>
+        <p class="sl-support">The <a href="/pdf/help/">help page</a> describes every part of the app. Anything else? Write to <a href="mailto:hello@quietsignalslab.com?subject=Solander%20PDF">hello@quietsignalslab.com</a>. Please do not send a document you needed to redact; a description of the problem is enough.</p>
     </section>
 
     <!-- Closing call to action -->
@@ -254,7 +254,7 @@
         <h2>Get Solander PDF</h2>
         <div class="sl-cta">
             <!-- AT LAUNCH: replace with
-                 <a href="https://github.com/Quiet-Signals-Lab/solander/releases/download/pdf-v<version>/Solander-<version>.dmg" class="appstore-badge">Download free for macOS</a> -->
+                 <a href="https://github.com/Quiet-Signals-Lab/solander/releases/download/pdf-v<version>/SolanderPDF-<version>.dmg" class="appstore-badge">Download free for macOS</a> -->
             <a href="mailto:hello@quietsignalslab.com?subject=Solander%20PDF%20%E2%80%94%20tell%20me%20when%20it%20launches" class="appstore-badge">Email me at launch</a>
         </div>
         <p class="sl-fine">macOS 14 Sonoma or later &middot; Apple Silicon and Intel &middot; PDFs, scans and common image formats &middot; Signed and notarised</p>
