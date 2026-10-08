@@ -222,6 +222,20 @@ p, li { color: var(--ink-2); }
 .sl-hero-art, .sl-card-art { background: var(--ground); padding: 32px; display: flex; justify-content: center; }
 .sl-hero-art svg, .sl-card-art svg { width: 100%; max-width: 260px; height: auto; display: block; }
 
+/* The window, as the design proof drew it: full width, on a hairline, no shadow. Light and
+ * dark follow the theme the way the sun and moon do. */
+.sl-screen-section { padding-top: 0; border-top: 0; }
+.sl-section > .sl-screen { grid-column: 1 / -1; margin: 0; }
+.sl-screen img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); background: var(--ground); }
+.sl-screen .dark { display: none; }
+.sl-screen figcaption { font-size: 14px; color: var(--ink-3); margin-top: 12px; max-width: 52em; }
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .sl-screen .light { display: none; }
+    :root:not([data-theme="light"]) .sl-screen .dark { display: block; }
+}
+:root[data-theme="dark"] .sl-screen .light { display: none; }
+:root[data-theme="dark"] .sl-screen .dark { display: block; }
+
 /* ---- Buttons --------------------------------------------------------------------- */
 
 /* Square and flat, as the app's SolanderButtonStyle; one prominent action per group. */
